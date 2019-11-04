@@ -8,6 +8,8 @@ TagManager:
   - EnemyTrailShip
   - BlastDestination
   - Blast
+  - Asteroid
+  - Hazard
   layers:
   - Default
   - TransparentFX
