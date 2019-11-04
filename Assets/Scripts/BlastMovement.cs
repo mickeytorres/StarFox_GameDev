@@ -8,6 +8,11 @@ using UnityEngine;
 public class BlastMovement : MonoBehaviour
 {
     public Transform destination;
+    public float damage;
+
+    void Start() {
+        Debug.Log("Assigned damage: " + damage);
+    }
 
     void Update()
     {
