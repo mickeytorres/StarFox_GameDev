@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - asteroid
-  - enemyShip
-  - enemyTrailShip
+  - Asteroid
+  - EnemyShip
+  - EnemyTrailShip
   layers:
   - Default
   - TransparentFX
