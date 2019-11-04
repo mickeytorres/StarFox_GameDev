@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 5587131769514167798, guid: 3c75a849d487b4fb3a572c499055e2b7,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyShip
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5587131769514167784, guid: 3c75a849d487b4fb3a572c499055e2b7,
         type: 3}
@@ -394,7 +394,7 @@ PrefabInstance:
     - target: {fileID: 6958342804107024010, guid: 8a3b57b644d3048cfa8e8ed3963ae2b4,
         type: 3}
       propertyPath: m_TagString
-      value: EnemyTrailShip
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6958342804107024004, guid: 8a3b57b644d3048cfa8e8ed3963ae2b4,
         type: 3}
