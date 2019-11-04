@@ -12,12 +12,13 @@ public class BlastMovement : MonoBehaviour
 
     void Start() {
         Debug.Log("Assigned damage: " + damage);
+        destination = GameObject.FindWithTag("BlastDestination").transform;
     }
 
     void Update()
     {
         transform.LookAt(destination);
-        transform.Translate(0, 0, 7f * Time.deltaTime); //swim 5 metres/second
+        transform.Translate(0, 0, 7f * Time.deltaTime); 
     }
 
     void OnTriggerEnter(Collider otherObj) {
