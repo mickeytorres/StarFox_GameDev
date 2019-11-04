@@ -33,14 +33,11 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Shoot() {
-        if (Input.GetKey(KeyCode.W) && canPress) {
-            Debug.Log("Key being pressed down");
+        if (Input.GetKey(KeyCode.Space) && canPress) {
             damage += 0.1f;
-            Debug.Log(damage);
         }
 
-        if (Input.GetKeyUp(KeyCode.W)) {
-            Debug.Log("Key released");
+        if (Input.GetKeyUp(KeyCode.Space)) {
             GameObject thisBlast = Instantiate(blastPrefab, blastSpawn.transform);
             thisBlast.GetComponent<BlastMovement>().damage = damage;
             damage = 1;

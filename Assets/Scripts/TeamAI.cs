@@ -31,7 +31,7 @@ public class TeamAI : MonoBehaviour
         if (hitChance >= 95) {
             health -= 0.1f;
         }
-        Debug.Log("Team health " + health);
+        // Debug.Log("Team health " + health);
 
         hitChance = Random.Range(0f, 100f);
 

@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 120764623}
   m_Layer: 2
   m_Name: enemy test
-  m_TagString: enemy
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120764617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86360758f3095492f996b44b1d88f954, type: 3}
   m_Name: 

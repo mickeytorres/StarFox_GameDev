@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //usage: put on an object that is a trigger
-//intent: 
+//intent: the blasts shot by player character's laser. Can hit enemy objects in the scene. 
 
 public class BlastMovement : MonoBehaviour
 {
@@ -22,10 +22,9 @@ public class BlastMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider otherObj) {
         Debug.Log("Colliding");
-        if (otherObj.gameObject.tag == "enemy") {
+        if (otherObj.gameObject.tag == "EnemyShip") {
             Debug.Log("Colliding with enemy");
             Destroy(gameObject);
-            Destroy(otherObj.gameObject);
         }
     }
 }

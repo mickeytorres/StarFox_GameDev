@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - destination
-  - blast
+  - EnemyShip
+  - EnemyTrailShip
+  - BlastDestination
+  - Blast
   layers:
   - Default
   - TransparentFX
