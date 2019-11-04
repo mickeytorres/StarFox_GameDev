@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This controls the tilt, rolling, boost, brake, and Sumersalt
+
 public class PlayerPlaneMovement : MonoBehaviour
 {
     public static PlayerPlaneMovement instance;
@@ -37,6 +39,7 @@ public class PlayerPlaneMovement : MonoBehaviour
         RollTimer = 0;
     }
 
+    //Clears all restrictons
     public void FreeToMove()
     {
         TiltingL = false;
@@ -200,52 +203,5 @@ public class PlayerPlaneMovement : MonoBehaviour
 
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
         }
-
-
-
-        
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Q) && !Occupied)
-        {
-            Occupied = true;
-            TiltingL = true;
-        }
-        else if (Input.GetKey(KeyCode.Q) && Occupied && TiltingL)
-        {
-            Occupied = true;
-            TiltingL = true;
-            Debug.Log(RotateSpeed * Time.deltaTime);
-            Rotation += RotateSpeed * Time.deltaTime;
-            if (Rotation >= 90)
-            {
-                Debug.Log("FuckWorld");
-                Rotation = 90;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E) && !Occupied)
-        {
-            Occupied = true;
-            TiltingR = true;
-        }
-        else if (Input.GetKey(KeyCode.E) && Occupied && TiltingR)
-        {
-            Occupied = true;
-            TiltingR = true;
-            Debug.Log(RotateSpeed * Time.deltaTime);
-            Rotation -= RotateSpeed * Time.deltaTime;
-            if (Rotation <= -90)
-            {
-                Debug.Log("FuckWorld");
-                Rotation = -90;
-            }
-        }
-        else
-        {
-            FreeToMove();
-        }
-        */
-
-
     }
 }

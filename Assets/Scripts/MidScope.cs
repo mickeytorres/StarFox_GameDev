@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MidScope : MonoBehaviour
 {
+    //Controls the movement of scope between the further scope control and player.
     public GameObject Midscope;
 
     void Update()

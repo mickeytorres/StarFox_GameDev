@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Asteroid
-  - Hazard
+  - EnemyShip
+  - EnemyTrailShip
+  - BlastDestination
+  - Blast
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This controls the movement of scope which the plane then follows
+
 public class PlayerNodeMovement : MonoBehaviour
 {
     public GameObject MyPlane;
@@ -30,41 +32,18 @@ public class PlayerNodeMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position -= transform.right * MoveSpeed * Time.deltaTime;
-            /*
-            if (MyPlane.transform.eulerAngles.z > 310 && MyPlane.transform.eulerAngles.z < 360)
-            {
-                TorqueOfHorizontalMovement = TorqueBase * (70 - MyPlane.transform.eulerAngles.z);
-            }
-            else
-            {
-                TorqueOfHorizontalMovement = 70;
-            }
-            */
 
             if (MyPlane.transform.eulerAngles.z > 310)
             {
-                //MyPlaneRigidbody.AddTorque(transform.forward * -TorqueOfHorizontalMovement * Time.deltaTime);
                 Plane.instance.IsMovingHorizontally = true;
             }
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            
             transform.position += transform.right * MoveSpeed * Time.deltaTime;
-            /*
-            if (MyPlane.transform.eulerAngles.z > 0 && MyPlane.transform.eulerAngles.z < 50)
-            {
-                TorqueOfHorizontalMovement = TorqueBase * (MyPlane.transform.eulerAngles.z - 290);
-            }
-            else
-            {
-                TorqueOfHorizontalMovement = 70;
-            }
-            */
 
             if (MyPlane.transform.eulerAngles.z < 50)
             {
-               //MyPlaneRigidbody.AddTorque(transform.forward * TorqueOfHorizontalMovement * Time.deltaTime);
                 Plane.instance.IsMovingHorizontally = true;
             }
         }
