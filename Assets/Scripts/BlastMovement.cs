@@ -12,14 +12,15 @@ public class BlastMovement : MonoBehaviour
     void Update()
     {
         transform.LookAt(destination);
-        transform.Translate(0, 0, 5f * Time.deltaTime); //swim 5 metres/second
+        transform.Translate(0, 0, 7f * Time.deltaTime); //swim 5 metres/second
     }
 
     void OnTriggerEnter(Collider otherObj) {
+        Debug.Log("Colliding");
         if (otherObj.gameObject.tag == "enemy") {
             Debug.Log("Colliding with enemy");
             Destroy(gameObject);
-            Destroy(otherObj);
+            Destroy(otherObj.gameObject);
         }
     }
 }

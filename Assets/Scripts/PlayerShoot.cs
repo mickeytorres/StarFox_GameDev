@@ -10,11 +10,24 @@ public class PlayerShoot : MonoBehaviour
     public GameObject blastPrefab; 
     public GameObject blastSpawn;
 
+    bool canPress = true;
+    float coolDown = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.W) && canPress) {
             Instantiate(blastPrefab, blastSpawn.transform);
+            canPress = false;
+        }
+
+        if (!canPress) {
+            coolDown -= Time.deltaTime;
+        }
+
+        if (coolDown <= 0) {
+            coolDown = 0.5f;
+            canPress = true;
         }
     }
 }

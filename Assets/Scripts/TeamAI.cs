@@ -10,7 +10,7 @@ public class TeamAI : MonoBehaviour
     void Update()
     {
         transform.LookAt(myDestination);
-        transform.Translate(0, 0, 5f * Time.deltaTime); //swim 5 metres/second
+        transform.Translate(0, 0, 2f * Time.deltaTime); 
 
         Debug.DrawLine(transform.position, myDestination, Color.blue);
 
@@ -21,6 +21,6 @@ public class TeamAI : MonoBehaviour
     }
 
     public void PickNewDestination () {
-        myDestination = new Vector3(Random.Range(-100f, 100f), Random.Range(-100f, 100f), Random.Range(-100f, 100f));
+        myDestination = new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0f);
     }
 }
