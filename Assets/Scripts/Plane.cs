@@ -9,6 +9,8 @@ public class Plane : MonoBehaviour
     public bool IsMovingHorizontally;
     public static Plane instance;
 
+    //Attempted code to tilt
+
     void Awake()
     {
         instance = this;
