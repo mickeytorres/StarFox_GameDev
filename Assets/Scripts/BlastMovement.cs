@@ -7,22 +7,24 @@ using UnityEngine;
 
 public class BlastMovement : MonoBehaviour
 {
-    public Transform destination;
+    private Vector3 moveTowards;
     public float damage;
 
     void Start() {
-        Debug.Log("Assigned damage: " + damage);
-        destination = GameObject.FindWithTag("BlastDestination").transform;
+        moveTowards = GameObject.FindWithTag("BlastDestination").transform.position;
     }
 
     void Update()
     {
-        transform.LookAt(destination);
+        transform.LookAt(moveTowards);
         transform.Translate(0, 0, 7f * Time.deltaTime); 
     }
 
     void OnTriggerEnter(Collider otherObj) {
-        Debug.Log("Colliding");
+        if (otherObj.gameObject.tag == "Back") {
+            Destroy(gameObject);
+        }
+
         if (otherObj.gameObject.tag == "EnemyShip") {
             Debug.Log("Colliding with enemy");
             Destroy(gameObject);

@@ -7,13 +7,27 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public GameObject blastPrefab; 
+    //prefabs for different types of shots and blasts spawns
+    public GameObject singlePrefab;
+    public GameObject doubleGPrefab;
+    public GameObject doubleBPrefab;
+    public GameObject chargedPrefab;
+    public GameObject bombPrefab;
     public GameObject blastSpawn;
+    public GameObject blastHolder;
 
+    //button variables so player cannot spam and to measure chargin up the laser
+    float timeHeld = 0f;
+    float startTime = 0f;
     bool canPress = true;
     float coolDown = 0.5f;
 
-    public float damage = 1f;
+    //damage constants
+    public float singleDamage = 4f;
+    public float doubleGDamage = 8f;
+    public float doubleBDamage = 12f;
+    public float chargedDamage = 16f;
+    public float bombDamage = 20f;
 
     // Update is called once per frame
     void Update()
@@ -28,21 +42,33 @@ public class PlayerShoot : MonoBehaviour
         }
         
         if(canPress) {
-            Shoot();
+            if (Shoot()) {
+                canPress = false;
+            }
         }
     }
 
-    void Shoot() {
-        if (Input.GetKey(KeyCode.Space) && canPress) {
-            damage += 0.1f;
+    bool Shoot() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            startTime = Time.time;
         }
 
         if (Input.GetKeyUp(KeyCode.Space)) {
-            GameObject thisBlast = Instantiate(blastPrefab, blastSpawn.transform);
-            thisBlast.GetComponent<BlastMovement>().damage = damage;
-            damage = 1;
-            canPress = false;
+            timeHeld = Time.time - startTime;
+            Debug.Log(timeHeld);
+            if (timeHeld >= 2f) {
+                Debug.Log("Releasing charged laser");
+                GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
+                thisBlast.transform.parent = blastHolder.transform;
+                return true;
+            }
+            else {
+                Debug.Log("Releasing normal laser");
+                GameObject thisBlast = Instantiate(singlePrefab, blastSpawn.transform);
+                thisBlast.transform.parent = blastHolder.transform;
+                return true;
+            }
         }
+        return false;
     }
 }
-
