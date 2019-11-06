@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class Plane : MonoBehaviour
@@ -8,6 +10,7 @@ public class Plane : MonoBehaviour
     public float AutoCorrectTorque;
     public bool IsMovingHorizontally;
     public static Plane instance;
+    private float speed = 10;
 
     //Attempted code to tilt
 
@@ -24,6 +27,11 @@ public class Plane : MonoBehaviour
             Z_Correction();
         }
         */
+       
+    }
+
+    private void FixedUpdate()
+    {
         Z_Correction();
         if (IsMovingHorizontally)
         {
@@ -32,6 +40,15 @@ public class Plane : MonoBehaviour
         else
         {
             MyRigidbody.angularDrag = 1;
+        }
+       // ForwardMovement();
+    }
+
+    private void ForwardMovement()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            MyRigidbody.velocity = transform.forward * speed;
         }
     }
 
