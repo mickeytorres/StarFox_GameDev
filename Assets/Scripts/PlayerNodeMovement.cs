@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerNodeMovement : MonoBehaviour
 {
+  
+    
     public GameObject MyPlane;
     public Rigidbody MyPlaneRigidbody;
     public float VerticalControlReverser = 1;
@@ -16,9 +18,15 @@ public class PlayerNodeMovement : MonoBehaviour
     void Start()
     {
         
+         
     }
 
     void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
     {
         if (Input.GetKey(KeyCode.DownArrow))
         {
@@ -52,5 +60,6 @@ public class PlayerNodeMovement : MonoBehaviour
             Plane.instance.IsMovingHorizontally = false;
         }
 
+        
     }
 }
