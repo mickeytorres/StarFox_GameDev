@@ -1382,6 +1382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLaser
       objectReference: {fileID: 0}
+    - target: {fileID: 784886027420703860, guid: 76c1cbe40e7553e4e96c7316376673cf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blast
+      objectReference: {fileID: 0}
     - target: {fileID: 784886027420703865, guid: 76c1cbe40e7553e4e96c7316376673cf,
         type: 3}
       propertyPath: m_LocalPosition.x
