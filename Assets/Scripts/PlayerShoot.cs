@@ -18,12 +18,13 @@ public class PlayerShoot : MonoBehaviour
     public GameObject blastSpawn;
     public GameObject blastHolder;
 
-     //damage constants
-    private float singleDamage = 4f;
-    private float doubleGDamage = 8f;
-    private float doubleBDamage = 12f;
-    private float chargedDamage = 16f;
-    private float bombDamage = 20f;
+    //damage constants
+    [HideInInspector]
+    public float singleDamage = 4f;
+    public float doubleGDamage = 8f;
+    public float doubleBDamage = 12f;
+    public float chargedDamage = 16f;
+    public float bombDamage = 20f;
 
     private int powerupStatus = 0;
     private float damage = 4f;
