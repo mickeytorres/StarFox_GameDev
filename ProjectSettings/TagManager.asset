@@ -11,6 +11,11 @@ TagManager:
   - Asteroid
   - Hazard
   - Back
+  - SingleLaser
+  - DoubleGLaser
+  - DoubleBLaser
+  - ChargedLaser
+  - Bomb
   layers:
   - Default
   - TransparentFX

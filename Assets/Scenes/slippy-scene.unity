@@ -727,6 +727,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 1316017298588348939, guid: 9ad087def1056407eb74b9a2ce77784b,
     type: 3}
   blastSpawn: {fileID: 104050938}
+  bombSpawn: {fileID: 0}
   blastHolder: {fileID: 639424200}
   singleDamage: 4
   doubleGDamage: 8
