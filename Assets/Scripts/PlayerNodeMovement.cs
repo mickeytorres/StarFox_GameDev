@@ -28,6 +28,8 @@ public class PlayerNodeMovement : MonoBehaviour
 
     private void Movement()
     {
+        //transform.eulerAngles = new Vector3(0, transform.position.x, 0);
+
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.position += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;

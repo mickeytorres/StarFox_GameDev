@@ -30,19 +30,6 @@ public class Plane : MonoBehaviour
        
     }
 
-    private void FixedUpdate()
-    {
-        Z_Correction();
-        if (IsMovingHorizontally)
-        {
-            MyRigidbody.angularDrag = 1;
-        }
-        else
-        {
-            MyRigidbody.angularDrag = 1;
-        }
-    }
-
 
 
     public void Z_Correction()
