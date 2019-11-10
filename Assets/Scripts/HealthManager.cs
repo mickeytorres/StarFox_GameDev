@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using CollabProxy.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
 
-    public Image health;
-    public Image energy;
+    public Image healthBar;
+    public Image energyBar;
 
     public Forward player;
 
     private float _energy = 50f;
-    private float _health = 100f;
+    private float _healthBar = 100f;
     private float _maxEnergy = 50f;
     private float _maxHealth = 100f;
+
+
+    public bool canBoost = true;
     
     
     
@@ -28,14 +32,37 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        energyBar.fillAmount = _energy / _maxEnergy;
+        DrainEnergy();
         
     }
 
     public void DrainEnergy()
     {
-        //if(player.boost==t)
+        if (player.boost && canBoost)
+        {
+            _energy -= 10f * Time.deltaTime;
+            
+        }
+        
+        if (_energy <= 0)
+        {
+            _energy = 0;
+            canBoost = false;
+        }
+
+        if (player.boost == false && _energy < _maxEnergy)
+        {
+            _energy += 1f;
+        }
+
+        if (_energy >= 10f)
+        {
+            canBoost = true;
+        }
+
+
     }
-    
     
     
 }

@@ -7,12 +7,15 @@ using UnityEngine;
 //INTENT: CONTROLS MOVEMENT, BOOST, BRAKING, MANAGES HEALTH AND ENERGY;
 public class Forward : MonoBehaviour
 {
+    public HealthManager energyBar;
+    
     private Rigidbody _rb;
 
     //MOVEMENT VARIABLES
     private float _speed = 10;
     public bool boost = false;
     public bool brake = false;
+    
     
    
         
@@ -41,7 +44,7 @@ public class Forward : MonoBehaviour
 
     public void Boost()
     {
-        if (Input.GetKey(KeyCode.W) )
+        if (Input.GetKey(KeyCode.W) && energyBar.canBoost)
         {
             
             boost = true;
