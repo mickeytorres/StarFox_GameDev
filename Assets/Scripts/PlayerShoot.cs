@@ -13,41 +13,86 @@ public class PlayerShoot : MonoBehaviour
     public GameObject doubleBPrefab;
     public GameObject chargedPrefab;
     public GameObject bombPrefab;
+    [HideInInspector]public GameObject laserType;
+
     public GameObject blastSpawn;
     public GameObject blastHolder;
 
-    //button variables so player cannot spam and to measure chargin up the laser
+     //damage constants
+    private float singleDamage = 4f;
+    private float doubleGDamage = 8f;
+    private float doubleBDamage = 12f;
+    private float chargedDamage = 16f;
+    private float bombDamage = 20f;
+
+    private int powerupStatus = 0;
+    private float damage = 4f;
+
+    [HideInInspector]public int bombCount = 3;
+    private int bombMax = 9;
+
+    //button variables so player cannot spam and to measure charging up the laser
     float timeHeld = 0f;
     float startTime = 0f;
-    bool canPress = true;
+    bool canShoot = true;
     float coolDown = 0.5f;
 
-    //damage constants
-    public float singleDamage = 4f;
-    public float doubleGDamage = 8f;
-    public float doubleBDamage = 12f;
-    public float chargedDamage = 16f;
-    public float bombDamage = 20f;
+   
+
+    void Start() {
+        laserType = singlePrefab;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!canPress) {
+        if (!canShoot) {
             coolDown -= Time.deltaTime;
         }
 
         if (coolDown <= 0) {
             coolDown = 0.5f;
-            canPress = true;
+            canShoot = true;
         }
         
-        if(canPress) {
-            if (Shoot()) {
-                canPress = false;
-            }
+        if (canShoot && Shoot()) {
+            canShoot = false;
+        }
+
+        if (bombCount > 0) {
+            DropBomb();
         }
     }
 
+    void OnTriggerEnter(Collider otherObj) {
+        if (otherObj.gameObject.tag == "ShootPowerup" && powerupStatus < 2) {
+            powerupStatus += 1;
+        }
+        
+        if (otherObj.gameObject.tag == "BombPowerup") {
+            if (bombCount > 6) {
+                bombCount = bombMax;
+            }
+
+            bombCount += 3;
+        }
+    }
+
+    //function to set the type of laser that the player will shoot
+    void SetLaser() {
+        switch (powerupStatus) {
+            case 1:
+                damage = doubleGDamage;
+                laserType = doubleGPrefab;
+                break;
+            case 2: 
+                damage = doubleBDamage; 
+                laserType = doubleBPrefab;
+                break;
+        }
+    }
+
+    //function to shoot
     bool Shoot() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             startTime = Time.time;
@@ -60,15 +105,27 @@ public class PlayerShoot : MonoBehaviour
                 Debug.Log("Releasing charged laser");
                 GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
                 thisBlast.transform.parent = blastHolder.transform;
+                thisBlast.gameObject.GetComponent<BlastMovement>().damage = chargedDamage;
                 return true;
             }
             else {
-                Debug.Log("Releasing normal laser");
-                GameObject thisBlast = Instantiate(singlePrefab, blastSpawn.transform);
+                Debug.Log("Releasing non-charged laser");
+                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform);
                 thisBlast.transform.parent = blastHolder.transform;
+                thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                 return true;
             }
         }
         return false;
+    }
+
+    //function to drop a bomb
+    void DropBomb() {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
+            thisBomb.transform.parent = blastHolder.transform;
+            thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
+            bombCount--;
+        }
     }
 }

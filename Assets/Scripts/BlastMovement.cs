@@ -17,7 +17,7 @@ public class BlastMovement : MonoBehaviour
     void Update()
     {
         transform.LookAt(moveTowards);
-        transform.Translate(0, 0, 7f * Time.deltaTime); 
+        transform.Translate(0, 0, 100f * Time.deltaTime); 
     }
 
     void OnTriggerEnter(Collider otherObj) {
@@ -29,5 +29,13 @@ public class BlastMovement : MonoBehaviour
             Debug.Log("Colliding with enemy");
             Destroy(gameObject);
         }
+    }
+
+    void BombMovement() {
+        Collider[] inRange = Physics.OverlapSphere(transform.position, 2f);
+
+        // foreach (Collider enemy in inRange) {
+        //     enemy.gameObject.GetComponent<AsteroidManager>().bombRange = true;
+        // }
     }
 }
