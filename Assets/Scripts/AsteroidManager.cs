@@ -27,6 +27,8 @@ public class AsteroidManager : MonoBehaviour
    
     //Asteroid direction
     Vector3 direction = new Vector3(0f,0f,-1f);
+
+    public bool bombRange; 
         
     
     
@@ -72,7 +74,7 @@ public class AsteroidManager : MonoBehaviour
         DamageCalculator();
     }
 
-    private void DamageCalculator()
+    public void DamageCalculator()
     {
         if (_shot.singlePrefab)
         {
