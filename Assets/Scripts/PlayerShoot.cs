@@ -19,12 +19,11 @@ public class PlayerShoot : MonoBehaviour
     public GameObject blastHolder;
 
     //damage constants
-    [HideInInspector]
-    public float singleDamage = 4f;
-    public float doubleGDamage = 8f;
-    public float doubleBDamage = 12f;
-    public float chargedDamage = 16f;
-    public float bombDamage = 20f;
+    [HideInInspector]public float singleDamage = 4f;
+    [HideInInspector]public float doubleGDamage = 8f;
+    [HideInInspector]public float doubleBDamage = 12f;
+    [HideInInspector]public float chargedDamage = 16f;
+    [HideInInspector]public float bombDamage = 20f;
 
     private int powerupStatus = 0;
     private float damage = 4f;
@@ -36,9 +35,7 @@ public class PlayerShoot : MonoBehaviour
     float timeHeld = 0f;
     float startTime = 0f;
     bool canShoot = true;
-    float coolDown = 0.5f;
-
-   
+    float coolDown = 0.3f;
 
     void Start() {
         laserType = singlePrefab;
@@ -47,12 +44,13 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //button cool down to not spam (shooting) attacks
         if (!canShoot) {
             coolDown -= Time.deltaTime;
         }
 
         if (coolDown <= 0) {
-            coolDown = 0.5f;
+            coolDown = 0.3f;
             canShoot = true;
         }
         
@@ -60,11 +58,12 @@ public class PlayerShoot : MonoBehaviour
             canShoot = false;
         }
 
-        if (bombCount > 0) {
-            DropBomb();
+        if (bombCount > 0 && canShoot && DropBomb()) {
+            canShoot = false;
         }
     }
 
+    //detect entering the trigger of a powerup
     void OnTriggerEnter(Collider otherObj) {
         if (otherObj.gameObject.tag == "ShootPowerup" && powerupStatus < 2) {
             powerupStatus += 1;
@@ -79,7 +78,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    //function to set the type of laser that the player will shoot
+    //setter to set the type of laser that the player will shoot
     void SetLaser() {
         switch (powerupStatus) {
             case 1:
@@ -101,8 +100,7 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space)) {
             timeHeld = Time.time - startTime;
-            Debug.Log(timeHeld);
-            if (timeHeld >= 2f) {
+            if (timeHeld >= 1f) {
                 Debug.Log("Releasing charged laser");
                 GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
                 thisBlast.transform.parent = blastHolder.transform;
@@ -117,16 +115,20 @@ public class PlayerShoot : MonoBehaviour
                 return true;
             }
         }
+
         return false;
     }
 
     //function to drop a bomb
-    void DropBomb() {
+    bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
             thisBomb.transform.parent = blastHolder.transform;
             thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
             bombCount--;
+            return true;
         }
+        
+        return false;
     }
 }
