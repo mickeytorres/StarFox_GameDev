@@ -138,6 +138,7 @@ MonoBehaviour:
   timer: 0
   Player: {fileID: 0}
   Bullet: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b, type: 3}
+  MyParent: {fileID: 359188162149004147}
 --- !u!1 &359188160387652199
 GameObject:
   m_ObjectHideFlags: 0
