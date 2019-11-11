@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 1806233157395373229}
   m_Layer: 0
   m_Name: NeoPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,11 +698,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1806233158220456857}
   - component: {fileID: 1806233158220456856}
-  - component: {fileID: 1806233158220456862}
   - component: {fileID: 1806233158220456860}
+  - component: {fileID: 2081313144538716793}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,19 +737,6 @@ MonoBehaviour:
   MyRigidbody: {fileID: 0}
   AutoCorrectTorque: 20
   IsMovingHorizontally: 0
---- !u!135 &1806233158220456862
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806233158220456861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1806233158220456860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +755,19 @@ MonoBehaviour:
   MoveSpeed: 10
   TorqueBase: 0.7
   TorqueOfHorizontalMovement: 30
+--- !u!65 &2081313144538716793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806233158220456861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.88, y: 1.39, z: 3.63}
+  m_Center: {x: 0, y: 0, z: 0.73}
 --- !u!1 &1806233158324007963
 GameObject:
   m_ObjectHideFlags: 0
