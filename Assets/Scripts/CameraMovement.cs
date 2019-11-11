@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     public float XPos;
     public float YPos;
 
+    public GameObject player;
+
 
     void Start()
     {
@@ -24,6 +26,6 @@ public class CameraMovement : MonoBehaviour
     {
         XPos = PlaneTransform.localPosition.x * XRatio;
         YPos = PlaneTransform.localPosition.y * YRatio;
-        transform.localPosition = new Vector3(XPos, YPos,transform.position.z);
+        transform.localPosition = new Vector3(XPos, YPos,-7f);
     }
 }
