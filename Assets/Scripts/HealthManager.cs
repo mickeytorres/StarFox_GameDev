@@ -14,7 +14,7 @@ public class HealthManager : MonoBehaviour
     public Forward player;
 
     private float _energy = 50f;
-    private float _healthBar = 100f;
+    private float _health = 100f;
     private float _maxEnergy = 50f;
     private float _maxHealth = 100f;
 
@@ -33,7 +33,13 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
         energyBar.fillAmount = _energy / _maxEnergy;
+        healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
+        
+    }
+
+    public void TakeDamage()
+    {
         
     }
 
@@ -42,9 +48,9 @@ public class HealthManager : MonoBehaviour
         if (player.boost && canBoost)
         {
             _energy -= 10f * Time.deltaTime;
-            
+
         }
-        
+
         if (_energy <= 0)
         {
             _energy = 0;
@@ -56,13 +62,12 @@ public class HealthManager : MonoBehaviour
             _energy += 1f;
         }
 
-        if (_energy >= 10f)
+        if (_energy >= 50f)
         {
             canBoost = true;
+
+
         }
-
-
     }
-    
     
 }

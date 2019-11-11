@@ -16,7 +16,8 @@ public class AsteroidManager : MonoBehaviour
 
     private MeshRenderer _mesh;
     //Prefabs
-    [FormerlySerializedAs("_asteroidChunksPrefab")] public Rigidbody asteroidChunksPrefab;
+    [FormerlySerializedAs("_asteroidChunksPrefab")] 
+    public GameObject asteroidChunksPrefab;
 
     //Death variables
     private float _health = 6;
@@ -49,7 +50,8 @@ public class AsteroidManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = direction * _speed;
+        //_rb.velocity = direction * _speed;
+        _rb.AddForce((direction * _speed));
         
     }
 
@@ -70,8 +72,11 @@ public class AsteroidManager : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        _shot = other.transform.GetComponent<PlayerShoot>();
-        DamageCalculator();
+        if (other.gameObject.CompareTag("Blast"))
+        {
+            _shot = other.transform.GetComponent<PlayerShoot>();
+            DamageCalculator();
+        }
     }
 
     public void DamageCalculator()
@@ -108,7 +113,7 @@ public class AsteroidManager : MonoBehaviour
             {
                 Instantiate(asteroidChunksPrefab, transform.position, Quaternion.identity);
 
-                asteroidChunksPrefab.velocity = direction * 2;
+                asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
            
