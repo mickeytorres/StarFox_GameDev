@@ -28,27 +28,29 @@ public class PlayerNodeMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        //transform.eulerAngles = new Vector3(0, transform.position.x, 0);
+
+        if (Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y <= 10)
         {
-            transform.position += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
+            transform.localPosition += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y >= -10 && !Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
+            transform.localPosition -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.localPosition.x >= -15)
         {
-            transform.position -= transform.right * MoveSpeed * Time.deltaTime;
+            transform.localPosition -= transform.right * MoveSpeed * Time.deltaTime;
 
             if (MyPlane.transform.eulerAngles.z > 310)
             {
                 Plane.instance.IsMovingHorizontally = true;
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && transform.localPosition.x <= 15 && !Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += transform.right * MoveSpeed * Time.deltaTime;
+            transform.localPosition += transform.right * MoveSpeed * Time.deltaTime;
 
             if (MyPlane.transform.eulerAngles.z < 50)
             {
