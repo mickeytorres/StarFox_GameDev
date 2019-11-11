@@ -16,6 +16,8 @@ TagManager:
   - DoubleBLaser
   - ChargedLaser
   - Bomb
+  - enemyShip
+  - EnemyBlast
   layers:
   - Default
   - TransparentFX
