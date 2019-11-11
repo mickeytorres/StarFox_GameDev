@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class AsteroidManager : MonoBehaviour
 {
 
-   private PlayerShoot _shot;
+   private BlastMovement _shot;
     
     private Rigidbody _rb;
 
@@ -74,13 +74,16 @@ public class AsteroidManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Blast"))
         {
-            _shot = other.transform.GetComponent<PlayerShoot>();
-            DamageCalculator();
+            _shot = other.transform.GetComponent<BlastMovement>();
+            _health -= _shot.damage;
+            Explosion();
+            //DamageCalculator();
         }
     }
 
     public void DamageCalculator()
     {
+        /*
         if (_shot.singlePrefab)
         {
             _health -= _shot.singleDamage;
@@ -101,13 +104,14 @@ public class AsteroidManager : MonoBehaviour
         {
             _health -= _shot.bombDamage;
         }
+        */
     }
 
     private void Explosion()
     {
         if (_health <= 0)
         {
-            _mesh.enabled = false;
+          //  _mesh.enabled = false;
 
             for (int i = 0; i < 3; i++)
             {
@@ -116,9 +120,10 @@ public class AsteroidManager : MonoBehaviour
                 asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
-           
+            Destroy(gameObject);
 
         }
+       
     }
 
 
