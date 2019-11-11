@@ -26,11 +26,11 @@ public class GyroScope : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            RotationGoalY = -60;
+            RotationGoalY = -45;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            RotationGoalY = 60;
+            RotationGoalY = 45;
         }
         else
         {
@@ -55,11 +55,11 @@ public class GyroScope : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            RotationGoalX = 60;
+            RotationGoalX = 45;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            RotationGoalX = -60;
+            RotationGoalX = -45;
         }
         else
         {
