@@ -35,7 +35,10 @@ public class PlayerShoot : MonoBehaviour
     float timeHeld = 0f;
     float startTime = 0f;
     bool canShoot = true;
-    float coolDown = 0.3f;
+    float coolDown = 1.75f;
+
+    public int triCounter;
+    public float triTimer;
 
     void Start() {
         laserType = singlePrefab;
@@ -44,22 +47,22 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //button cool down to not spam (shooting) attacks
+        Shoot();
+
+        //button cool down to not spam BOMB attacks
         if (!canShoot) {
             coolDown -= Time.deltaTime;
         }
 
         if (coolDown <= 0) {
-            coolDown = 0.3f;
+            coolDown = 1.75f;
             canShoot = true;
         }
-        
-        if (canShoot && Shoot()) {
-            canShoot = false;
-        }
 
-        if (bombCount > 0 && canShoot && DropBomb()) {
-            canShoot = false;
+        if (bombCount > 0 && canShoot) {
+            if (DropBomb()) {
+                canShoot = false;
+            }
         }
     }
 
@@ -93,9 +96,22 @@ public class PlayerShoot : MonoBehaviour
     }
 
     //function to shoot
-    bool Shoot() {
+    void Shoot() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             startTime = Time.time;
+            triCounter = 3;
+            triTimer = 0;
+        }
+        
+        if (Input.GetKey(KeyCode.Space) && triCounter > 0) {
+            triTimer -= Time.deltaTime;
+            if (triTimer <= 0) {
+                triTimer = 0.15f;
+                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform);
+                thisBlast.transform.parent = blastHolder.transform;
+                thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
+                triCounter--;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Space)) {
@@ -105,18 +121,8 @@ public class PlayerShoot : MonoBehaviour
                 GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
                 thisBlast.transform.parent = blastHolder.transform;
                 thisBlast.gameObject.GetComponent<BlastMovement>().damage = chargedDamage;
-                return true;
-            }
-            else {
-                Debug.Log("Releasing non-charged laser");
-                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform);
-                thisBlast.transform.parent = blastHolder.transform;
-                thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
-                return true;
             }
         }
-
-        return false;
     }
 
     //function to drop a bomb

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Player Movement.unity
     guid: b9e7a6a49f8f57f488e50c74c6895173
+  - enabled: 1
+    path: Assets/Scenes/slippy-scene.unity
+    guid: a35e893569faa46b4a9a488d5d4855e5
   m_configObjects: {}
