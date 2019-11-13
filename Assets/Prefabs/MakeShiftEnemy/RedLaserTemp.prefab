@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5355677444380801031}
   m_Layer: 0
   m_Name: RedLaserTemp
-  m_TagString: Blast
+  m_TagString: EnemyBlast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

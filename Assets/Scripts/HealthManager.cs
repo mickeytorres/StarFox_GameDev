@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using CollabProxy.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,9 +38,12 @@ public class HealthManager : MonoBehaviour
         
     }
 
-    public void TakeDamage()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.CompareTag("EnemyBlast"))
+        {
+            _health -= 7f;
+        }
     }
 
     public void DrainEnergy()
