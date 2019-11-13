@@ -616,6 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 5895579383922364788}
+  _speed: 5
   boost: 0
   brake: 0
 --- !u!114 &5895579383922364788
@@ -726,6 +727,8 @@ MonoBehaviour:
   chargedDamage: 16
   bombDamage: 20
   bombCount: 3
+  triCounter: 0
+  triTimer: 0
 --- !u!1 &3107978891983028738
 GameObject:
   m_ObjectHideFlags: 0
