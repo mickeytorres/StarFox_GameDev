@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//USAGE: put this on a EnemyAI PreFab, collider should be a trigger for asteroids, collider on enemy[Trail]Ships 
+//USAGE: put this on a EnemyAI PreFab, set the Prefab as a trigger 
 //INTENT: enemies start acting when the player enters a certain section of the scene. should contain the screen shake and effects it has on player/companion
 //        AI when they collide. As of right now, this script focuses on the "horde" enemies, not the boss. 
 //TODO:  
-// - spawn enemy script (for calling when triggered by player?)
-//      - spawn in random areas, move in a "random" (restricted-ish) way
-//      - three types of spawns, asteroids & enemyShips & enemyShipsTrail
-//              - 
+// - 
 // - screen shake on trigger enter (trigger on the enemy)
-//      - player health decreses
-//      - on screen shake, screen flahses red/white to indicate health
-// - decreases player health by ## amount when attacked by shots from enemy[Trail]Ships
+//      - player health decreses (by what?)
+//      - on screen shake, screen flahses red/white to indicate health -- eventually
+// - decreases player health by ## amount when attacked by shots from enemy
 // 
 
 public class EnemyBehaviour : MonoBehaviour
@@ -90,9 +87,9 @@ public Transform targetShip;
         
     }
 
-    void OnTriggerEnter(Collider other){ //will this be a trigger or collider 
+    void OnTriggerEnter(Collider other){  
 
-        if(other.CompareTag("Player")){ //do i need to add a tag that says if it's the asteroid and not a ship? 
+        if(other.CompareTag("Player")){ //do i need to add a tag that says if it's the asteroid and not a ship? is the health damage the same? 
             //screenshake & red flash screen, health decrese for player
             testPlayerHealth -= 1; 
             Debug.Log("Player Health: " + testPlayerHealth); 
@@ -182,8 +179,8 @@ public Transform targetShip;
     }
 
     void _bullets(){
-        transform.LookAt(targetShip);
-        transform.Translate(0, 0, 7f * Time.deltaTime);
+        blastPrefab.transform.LookAt(targetShip);
+        blastPrefab.transform.Translate(0, 0, 7f * Time.deltaTime);
     }
 
     void _shootBullets(){
