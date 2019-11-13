@@ -7,25 +7,54 @@ using UnityEngine;
 
 public class BlastMovement : MonoBehaviour
 {
-    public Transform destination;
+    private Vector3 moveTowards;
     public float damage;
+    public float moveSpeed;
+
+    public float destroyTimer = 2f;
 
     void Start() {
-        Debug.Log("Assigned damage: " + damage);
-        destination = GameObject.FindWithTag("BlastDestination").transform;
+        SetType();
+        moveTowards = GameObject.FindWithTag("BlastDestination").transform.position;
+        Debug.Log(moveSpeed);
     }
 
     void Update()
     {
-        transform.LookAt(destination);
-        transform.Translate(0, 0, 7f * Time.deltaTime); 
+        //destroy the blast if it's been more than 2f seconds and hasn't hit anything yet
+        destroyTimer -= Time.deltaTime;
+
+        if (destroyTimer <= 0f) {
+            Destroy(gameObject);
+        }
+
+        transform.LookAt(moveTowards);
+        transform.Translate(0, 0, moveSpeed * Time.deltaTime); 
+    }
+
+    //Setter for setting type of blast this instance will be.
+    //bombs move slower than regular blasts.
+    private void SetType() {
+        if (gameObject.tag == "Bomb") {
+            moveSpeed = 45f;
+        }
+        else {
+            moveSpeed = 80f;
+        }
     }
 
     void OnTriggerEnter(Collider otherObj) {
-        Debug.Log("Colliding");
         if (otherObj.gameObject.tag == "EnemyShip") {
             Debug.Log("Colliding with enemy");
             Destroy(gameObject);
+        }
+    }
+
+    void BombMovement() {
+        Collider[] inRange = Physics.OverlapSphere(transform.position, 2f);
+
+        foreach (Collider enemy in inRange) {
+            enemy.gameObject.GetComponent<AsteroidManager>().bombRange = true;
         }
     }
 }

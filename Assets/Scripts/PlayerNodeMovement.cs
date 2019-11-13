@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class PlayerNodeMovement : MonoBehaviour
 {
+  
+    
     public GameObject MyPlane;
     public Rigidbody MyPlaneRigidbody;
     public float VerticalControlReverser = 1;
     public float MoveSpeed;
-    public float TorqueBase;
-    public float TorqueOfHorizontalMovement;
+    public float YLimit;
+    public float XLimit;
 
     void Start()
     {
@@ -20,27 +22,34 @@ public class PlayerNodeMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        Movement();
+    }
+
+    private void Movement()
+    {
+        //transform.eulerAngles = new Vector3(0, transform.position.x, 0);
+
+        if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y <= YLimit)
         {
-            transform.position += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
+            transform.localPosition += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y >= -YLimit && !Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
+            transform.localPosition -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && transform.localPosition.x >= -XLimit)
         {
-            transform.position -= transform.right * MoveSpeed * Time.deltaTime;
+            transform.localPosition -= transform.right * MoveSpeed * Time.deltaTime;
 
             if (MyPlane.transform.eulerAngles.z > 310)
             {
                 Plane.instance.IsMovingHorizontally = true;
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && transform.localPosition.x <= XLimit && !Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += transform.right * MoveSpeed * Time.deltaTime;
+            transform.localPosition += transform.right * MoveSpeed * Time.deltaTime;
 
             if (MyPlane.transform.eulerAngles.z < 50)
             {
@@ -52,5 +61,6 @@ public class PlayerNodeMovement : MonoBehaviour
             Plane.instance.IsMovingHorizontally = false;
         }
 
+        
     }
 }

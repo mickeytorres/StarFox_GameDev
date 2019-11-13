@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Plane : MonoBehaviour
     public float AutoCorrectTorque;
     public bool IsMovingHorizontally;
     public static Plane instance;
+  
 
     //Attempted code to tilt
 
@@ -24,16 +26,10 @@ public class Plane : MonoBehaviour
             Z_Correction();
         }
         */
-        Z_Correction();
-        if (IsMovingHorizontally)
-        {
-            MyRigidbody.angularDrag = 1;
-        }
-        else
-        {
-            MyRigidbody.angularDrag = 1;
-        }
+       
     }
+
+
 
     public void Z_Correction()
     {

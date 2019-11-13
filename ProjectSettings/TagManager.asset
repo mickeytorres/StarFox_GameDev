@@ -10,6 +10,14 @@ TagManager:
   - Blast
   - Asteroid
   - Hazard
+  - Back
+  - SingleLaser
+  - DoubleGLaser
+  - DoubleBLaser
+  - ChargedLaser
+  - Bomb
+  - enemyShip
+  - EnemyBlast
   layers:
   - Default
   - TransparentFX
