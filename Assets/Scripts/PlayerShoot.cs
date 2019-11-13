@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //usage: put this on a user-controlled player character
-//intent: press (w) to shoot at enemies
+//intent: shoot blasts and bombs at enemies
+//controls: press space to shoot normal blasts, hold space down to charge laser, press shift to launch bomb
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -18,20 +19,20 @@ public class PlayerShoot : MonoBehaviour
     public GameObject blastSpawn;
     public GameObject blastHolder;
 
-    //damage constants
+    //damage constants for different types of lasers and the bomb
     [HideInInspector]public float singleDamage = 4f;
     [HideInInspector]public float doubleGDamage = 8f;
     [HideInInspector]public float doubleBDamage = 12f;
     [HideInInspector]public float chargedDamage = 16f;
     [HideInInspector]public float bombDamage = 20f;
 
+    //variables to handle powering up lasers and picking up more bombs
     private int powerupStatus = 0;
     private float damage = 4f;
-
     [HideInInspector]public int bombCount = 3;
     private int bombMax = 9;
 
-    //button variables so player cannot spam and to measure charging up the laser
+    //button variables so player cannot spam bomb and to measure charging up the laser
     float timeHeld = 0f;
     float startTime = 0f;
     bool canShoot = true;
@@ -39,6 +40,8 @@ public class PlayerShoot : MonoBehaviour
 
     public int triCounter;
     public float triTimer;
+
+    private bool charged = false;
 
     void Start() {
         laserType = singlePrefab;
@@ -66,8 +69,8 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    //detect entering the trigger of a powerup
     void OnTriggerEnter(Collider otherObj) {
+        //detect entering the trigger of a powerup
         if (otherObj.gameObject.tag == "ShootPowerup" && powerupStatus < 2) {
             powerupStatus += 1;
         }
@@ -81,7 +84,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    //setter to set the type of laser that the player will shoot
+    //setter function to set the type of laser that the player will shoot
     void SetLaser() {
         switch (powerupStatus) {
             case 1:
@@ -136,5 +139,11 @@ public class PlayerShoot : MonoBehaviour
         }
         
         return false;
+    }
+
+    //function to lock a charged laser on an enemy (locked on charged lasers always hit--once released
+    //it chases the player until it hits)
+    void LockOn() {
+
     }
 }

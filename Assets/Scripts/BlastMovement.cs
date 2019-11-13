@@ -36,10 +36,10 @@ public class BlastMovement : MonoBehaviour
     //bombs move slower than regular blasts.
     private void SetType() {
         if (gameObject.tag == "Bomb") {
-            moveSpeed = 45f;
+            moveSpeed = 55f;
         }
         else {
-            moveSpeed = 80f;
+            moveSpeed = 100f;
         }
     }
 
