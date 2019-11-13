@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GyroScope : MonoBehaviour
 {
+
+    public static GyroScope instance;
+
     public Transform scope;
     public float RotationY;
     public float RotationGoalY;
@@ -18,17 +21,17 @@ public class GyroScope : MonoBehaviour
         RotationGoalY = 0;
         RotationX = 0;
         RotationGoalX = 0;
-        RotateSpeed = 2f;
+        RotateSpeed = 3f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             RotationGoalY = -45;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
         {
             RotationGoalY = 45;
         }
@@ -53,11 +56,11 @@ public class GyroScope : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
         {
             RotationGoalX = 45;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
         {
             RotationGoalX = -45;
         }
