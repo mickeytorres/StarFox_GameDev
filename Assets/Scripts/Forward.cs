@@ -12,7 +12,7 @@ public class Forward : MonoBehaviour
     private Rigidbody _rb;
 
     //MOVEMENT VARIABLES
-    private float _speed = 10;
+    public float _speed;
     public bool boost = false;
     public bool brake = false;
     
