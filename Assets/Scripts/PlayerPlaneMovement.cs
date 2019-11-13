@@ -162,14 +162,14 @@ public class PlayerPlaneMovement : MonoBehaviour
                 TiltingR = false;
             }
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             {
                 if (FreeTilt())
                 {
                     RotationGoal = -30;
                 }
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
             {
                 if (FreeTilt())
                 {
