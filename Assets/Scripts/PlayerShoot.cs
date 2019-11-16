@@ -44,6 +44,7 @@ public class PlayerShoot : MonoBehaviour
     public float triTimer;
 
     private bool charged = false;
+    private bool releaseCharged = false;
 
     void Start() {
         laserType = singlePrefab;
@@ -110,37 +111,43 @@ public class PlayerShoot : MonoBehaviour
             timeHeld = Time.time - startTime;
 
             if (timeHeld >= 1f) {
-                Debug.Log("Can now release a charged laser");
                 charged = true;
             }
         }
-
         
         if (charged) {
             //turn on the collider 
             targetCheck.GetComponent<MeshCollider>().enabled = true;
 
-            if (chargedTarget != null) {
+            if (Input.GetKeyUp(KeyCode.Space) && !GetChargedStatus()) {
                 FireCharged();
-            }
-            else if (Input.GetKeyUp(KeyCode.Space)) {
-                GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
-                thisBlast.transform.parent = blastHolder.transform;
-                thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
+            }            
+            else if (Input.GetKeyUp(KeyCode.Space) && GetChargedStatus()) {
+                releaseCharged = true;
             }
         }
 
+        if (releaseCharged && Input.GetKey(KeyCode.Space)) {
+            FireCharged();
+        }
     }
 
+    //function to fire a charged laser.
     private void FireCharged() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("Releasing charged laser");
-            GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
-            thisBlast.transform.parent = blastHolder.transform;
-            thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
+        //instantiate the blast 
+        GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
+        thisBlast.transform.parent = blastHolder.transform;
+        thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
+
+        //if the charged blast found a target to follow, set the target.
+        if (GetChargedStatus()) {
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
-            charged = false;
-        }        
+        } 
+
+        charged = false;
+        releaseCharged = false;
+        targetCheck.GetComponent<MeshCollider>().enabled = false;
+        chargedTarget = null;
     }
 
     //function to drop a bomb
@@ -156,8 +163,8 @@ public class PlayerShoot : MonoBehaviour
         return false;
     }
 
-    //setter function to set the type of laser that the player will shoot
-    void SetLaser() {
+    //setter function to set the type of laser that the player will shoot (charged lasers not included)
+    private void SetLaser() {
         switch (powerupStatus) {
             case 1:
                 damage = doubleGDamage;

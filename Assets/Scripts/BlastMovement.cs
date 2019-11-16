@@ -15,6 +15,7 @@ public class BlastMovement : MonoBehaviour
     public float destroyTimer = 2f;
 
     void Start() {
+        lockedTarget = null;
         SetSpeed();
         SetDestination();
         Debug.Log(moveSpeed);
