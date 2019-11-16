@@ -10,12 +10,13 @@ public class BlastMovement : MonoBehaviour
     private Vector3 moveTowards;
     public float damage;
     public float moveSpeed;
+    public GameObject lockedTarget;
 
     public float destroyTimer = 2f;
 
     void Start() {
-        SetType();
-        moveTowards = GameObject.FindWithTag("BlastDestination").transform.position;
+        SetSpeed();
+        SetDestination();
         Debug.Log(moveSpeed);
     }
 
@@ -32,9 +33,20 @@ public class BlastMovement : MonoBehaviour
         transform.Translate(0, 0, moveSpeed * Time.deltaTime); 
     }
 
+    //Setter for settig the destination of this blast
+    private void SetDestination() {
+        if (gameObject.tag == "ChargedLaser" && lockedTarget != null) {
+            Debug.Log("I have a very specific target");
+            moveTowards = lockedTarget.transform.position;
+        }
+        else {
+            moveTowards = GameObject.FindWithTag("BlastDestination").transform.position;
+        }
+    }
+
     //Setter for setting type of blast this instance will be.
     //bombs move slower than regular blasts.
-    private void SetType() {
+    private void SetSpeed() {
         if (gameObject.tag == "Bomb") {
             moveSpeed = 55f;
         }
