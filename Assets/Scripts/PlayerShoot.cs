@@ -28,21 +28,22 @@ public class PlayerShoot : MonoBehaviour
     [HideInInspector]public float chargedDamage = 16f;
     [HideInInspector]public float bombDamage = 20f;
 
+    //variables for handling triple shot--holding down space (indefinitely) will only release
+    //up to 3 blasts. Will not fire indefinitely
+    private int triCounter;
+    private float triTimer;
+
     //variables to handle powering up lasers and picking up more bombs
     private int powerupStatus = 0;
     private float damage = 4f;
     [HideInInspector]public int bombCount = 3;
     private int bombMax = 9;
 
-    //button variables so player cannot spam bomb and to measure charging up the laser
+    //button variables so player cannot spam bomb and to measure charging up (and locking on) laser
     float timeHeld = 0f;
     float startTime = 0f;
     bool canShoot = true;
     float coolDown = 1.75f;
-
-    public int triCounter;
-    public float triTimer;
-
     private bool charged = false;
     private bool releaseCharged = false;
 
@@ -54,9 +55,10 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //call shoot. Checks for actual shooting are handled within the function
         Shoot();
 
-        //button cool down to not spam BOMB attacks
+        //button cool down to not spam bombs 
         if (!canShoot) {
             coolDown -= Time.deltaTime;
         }
@@ -72,9 +74,9 @@ public class PlayerShoot : MonoBehaviour
             }
         }
     }
-
+    
+    //detect entering the trigger of a powerup (for powering up lasers and replenishing bombs)
     void OnTriggerEnter(Collider otherObj) {
-        //detect entering the trigger of a powerup
         if (otherObj.gameObject.tag == "ShootPowerup" && powerupStatus < 2) {
             powerupStatus += 1;
         }
@@ -89,13 +91,18 @@ public class PlayerShoot : MonoBehaviour
     }
 
     //function to shoot
-    void Shoot() {
+    private void Shoot() {
+        Debug.Log("Charged status: " + charged);
+
+        //
         if (Input.GetKeyDown(KeyCode.Space) && !charged) {
             startTime = Time.time;
             triCounter = 3;
             triTimer = 0;
         }
         
+        //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
+        //will release a triple shot--holding indefinitely does not release blasts indefinitely
         if (Input.GetKey(KeyCode.Space)) {
             if (triCounter > 0) {
                 triTimer -= Time.deltaTime;
@@ -108,21 +115,26 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
 
+            //check to see how long [SPACE] was held and if it was long enough to charge up the laser
             timeHeld = Time.time - startTime;
 
             if (timeHeld >= 1f) {
                 charged = true;
             }
         }
-        
+
+        //releasing a charged laser
         if (charged) {
-            //turn on the collider 
+            //turn on the collider to check if something enters the lock-on zone for a charged laser
             targetCheck.GetComponent<MeshCollider>().enabled = true;
 
-            if (Input.GetKeyUp(KeyCode.Space) && !GetChargedStatus()) {
+            //if target not found and [SPACE] released, launch charged laser
+            if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null) {
                 FireCharged();
             }            
-            else if (Input.GetKeyUp(KeyCode.Space) && GetChargedStatus()) {
+            //if a target was found, then [SPACE] must be released before being able to be pressed again to
+            //release a charged laser that targets a specific enemy 
+            else if (Input.GetKeyUp(KeyCode.Space) && chargedTarget != null) {
                 releaseCharged = true;
             }
         }
@@ -140,10 +152,16 @@ public class PlayerShoot : MonoBehaviour
         thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
 
         //if the charged blast found a target to follow, set the target.
-        if (GetChargedStatus()) {
+        //this also handles if the target was destroyed before you released the blast
+        if (chargedTarget != null) {
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
         } 
 
+        FireChargedHelper();
+    }
+
+    //private helper function that simply resets all variables managing a charged blast
+    private void FireChargedHelper() {
         charged = false;
         releaseCharged = false;
         targetCheck.GetComponent<MeshCollider>().enabled = false;
@@ -151,7 +169,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     //function to drop a bomb
-    bool DropBomb() {
+    private bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
             thisBomb.transform.parent = blastHolder.transform;
@@ -175,12 +193,5 @@ public class PlayerShoot : MonoBehaviour
                 laserType = doubleBPrefab;
                 break;
         }
-    }
-
-    private bool GetChargedStatus() {
-        if (chargedTarget == null) {
-            return false;
-        }
-        return true;
     }
 }

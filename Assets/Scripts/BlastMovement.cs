@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //usage: put on an object that is a trigger
-//intent: the blasts shot by player character's laser. Can hit enemy objects in the scene. 
+//intent: the blasts shot by player character's laser that can hit enemy objects (ships and asteroids) and deal damage
 
 public class BlastMovement : MonoBehaviour
 {
+    //variables for managing properties of every individual blast
     private Vector3 moveTowards;
+    public GameObject lockedTarget;
     public float damage;
     public float moveSpeed;
-    public GameObject lockedTarget;
 
     public float destroyTimer = 2f;
 
     void Start() {
-        lockedTarget = null;
         SetSpeed();
         SetDestination();
-        Debug.Log(moveSpeed);
     }
 
     void Update()
     {
+        Debug.Log("Enemy position: " + moveTowards);
         //destroy the blast if it's been more than 2f seconds and hasn't hit anything yet
         destroyTimer -= Time.deltaTime;
 
@@ -30,8 +30,27 @@ public class BlastMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //this blast will either just shoot forward if it didn't have a target and will chase a specific
+        //enemy if it did
         transform.LookAt(moveTowards);
         transform.Translate(0, 0, moveSpeed * Time.deltaTime); 
+    }
+
+    void OnTriggerEnter(Collider otherObj) {
+        //check if it entered the trigger zone of an enemy
+        if (otherObj.gameObject.tag == "EnemyShip") {
+            Debug.Log("Colliding with enemy");
+            Destroy(gameObject);
+        }
+    }
+
+    //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
+    void BombMovement() {
+        Collider[] inRange = Physics.OverlapSphere(transform.position, 2f);
+
+        foreach (Collider enemy in inRange) {
+            enemy.gameObject.GetComponent<AsteroidManager>().bombRange = true;
+        }
     }
 
     //Setter for settig the destination of this blast
@@ -53,21 +72,6 @@ public class BlastMovement : MonoBehaviour
         }
         else {
             moveSpeed = 100f;
-        }
-    }
-
-    void OnTriggerEnter(Collider otherObj) {
-        if (otherObj.gameObject.tag == "EnemyShip") {
-            Debug.Log("Colliding with enemy");
-            Destroy(gameObject);
-        }
-    }
-
-    void BombMovement() {
-        Collider[] inRange = Physics.OverlapSphere(transform.position, 2f);
-
-        foreach (Collider enemy in inRange) {
-            enemy.gameObject.GetComponent<AsteroidManager>().bombRange = true;
         }
     }
 }

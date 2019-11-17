@@ -8,18 +8,12 @@ using UnityEngine;
 public class LockOnManager : MonoBehaviour
 {
     public GameObject planeBody; 
-    public GameObject targetObj;
     
     void OnTriggerEnter(Collider otherObj) {
+        //check if an enemy entered this object's trigger zone 
+        //if it did, pass it to PlayserShoot so PlayerShoot will know what object to target
         if (otherObj.gameObject.tag == "EnemyShip") {
-            //pass this object to PlayerShoot.cs
-            //PlayerShoot is on Player -> Plane -> PlaneBody
             planeBody.gameObject.GetComponent<PlayerShoot>().chargedTarget = otherObj.gameObject;
         }
     }
-    
-    public GameObject GetTarget() {
-        return null;
-    }
-
 }
