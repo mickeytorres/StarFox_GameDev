@@ -6,19 +6,27 @@ using UnityEngine;
 
 public class PlayerNodeMovement : MonoBehaviour
 {
-  
-    
+    //USAGE:
+    //  Put this script on whatever that makes the plane system move in the Player system.
+    //  For now its "Plane"
+    //  Set "MyPlane" as "Plane"
+    //  Set "MyPlaneRigidbody" as "Plane" (Not used yet)
+
+    //PURPOSE:
+    //  --Makes the plane move UP and DOWN, LEFT and RIGHT in the player system
+    //  (Independent from the world transform of the player system)
+
+
     public GameObject MyPlane;
-    public Rigidbody MyPlaneRigidbody;
-    public float VerticalControlReverser = 1;
+    public Rigidbody MyPlaneRigidbody; 
     public float MoveSpeed;
     public float YLimit;
     public float XLimit;
 
-    void Start()
-    {
-        
-    }
+    //Sets if the vertical control is reversed
+    // 1 for yes
+    // -1 for no
+    public float VerticalControlReverser = 1;
 
     void Update()
     {
@@ -27,8 +35,7 @@ public class PlayerNodeMovement : MonoBehaviour
 
     private void Movement()
     {
-        //transform.eulerAngles = new Vector3(0, transform.position.x, 0);
-
+        //Move the plane Up and Down (stops it if both keys are pressed)
         if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y <= YLimit)
         {
             transform.localPosition += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
@@ -38,29 +45,14 @@ public class PlayerNodeMovement : MonoBehaviour
             transform.localPosition -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
 
+        //Move the plane Left and Right (stops it if both keys are pressed)
         if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && transform.localPosition.x >= -XLimit)
         {
             transform.localPosition -= transform.right * MoveSpeed * Time.deltaTime;
-
-            if (MyPlane.transform.eulerAngles.z > 310)
-            {
-                Plane.instance.IsMovingHorizontally = true;
-            }
         }
         else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && transform.localPosition.x <= XLimit && !Input.GetKey(KeyCode.LeftArrow))
         {
             transform.localPosition += transform.right * MoveSpeed * Time.deltaTime;
-
-            if (MyPlane.transform.eulerAngles.z < 50)
-            {
-                Plane.instance.IsMovingHorizontally = true;
-            }
-        }
-        else
-        {
-            Plane.instance.IsMovingHorizontally = false;
-        }
-
-        
+        }       
     }
 }

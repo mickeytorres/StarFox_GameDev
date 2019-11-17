@@ -48,6 +48,7 @@ public class Forward : MonoBehaviour
         {
             
             boost = true;
+            PlayerPlaneMovement.instance.Boosting = true;
             _speed = 30;
             Debug.Log(_speed);
             
@@ -56,6 +57,7 @@ public class Forward : MonoBehaviour
         {
             _speed = 10;
             boost = false;
+            PlayerPlaneMovement.instance.Boosting = false;
         }
     }
 
@@ -65,11 +67,13 @@ public class Forward : MonoBehaviour
         {
             brake = true;
             _speed = 5;
+            PlayerPlaneMovement.instance.Braking = true;
         }
         else if (!boost)
         {
             _speed = 10;
             brake = false;
+            PlayerPlaneMovement.instance.Braking = false;
         }
     }
 }
