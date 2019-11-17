@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     //USAGE:
-    //  Put this script on the Camrea Node (parent of Camrea).
+    //  Put this script on the Camrea.
     //  Set "PlaneTransform" as "Plane"
     //  Set "player" as player (the most outer layer).
     //  Set "Gyroscope" as plane's Gyroscope.
@@ -74,7 +74,7 @@ public class CameraMovement : MonoBehaviour
         YRotation *= 0.2f;
 
         //Implements the variables.
-        transform.localPosition = new Vector3(XPos, YPos, ZPos);
-        transform.localEulerAngles = new Vector3 (XRotation + shaker, YRotation, YRotation * 0.5f);
+        transform.localPosition = new Vector3(XPos, YPos + 1, ZPos);
+        transform.localEulerAngles = new Vector3 (XRotation + shaker - 5, YRotation, YRotation * 0.5f);
     }
 }

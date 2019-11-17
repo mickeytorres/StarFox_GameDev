@@ -36,11 +36,11 @@ public class PlayerNodeMovement : MonoBehaviour
     private void Movement()
     {
         //Move the plane Up and Down (stops it if both keys are pressed)
-        if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y <= YLimit)
+        if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && transform.localPosition.y <= YLimit + 3)
         {
             transform.localPosition += transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y >= -YLimit && !Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && transform.localPosition.y >= -YLimit + 3 && !Input.GetKey(KeyCode.DownArrow))
         {
             transform.localPosition -= transform.up * VerticalControlReverser * MoveSpeed * Time.deltaTime;
         }

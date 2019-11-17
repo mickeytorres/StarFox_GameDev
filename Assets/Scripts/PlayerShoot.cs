@@ -107,8 +107,7 @@ public class PlayerShoot : MonoBehaviour
             triTimer -= Time.deltaTime;
             if (triTimer <= 0) {
                 triTimer = 0.15f;
-                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform);
-                thisBlast.transform.parent = blastHolder.transform;
+                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform.position, blastSpawn.transform.rotation);
                 thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                 triCounter--;
             }
@@ -118,8 +117,7 @@ public class PlayerShoot : MonoBehaviour
             timeHeld = Time.time - startTime;
             if (timeHeld >= 1f) {
                 Debug.Log("Releasing charged laser");
-                GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
-                thisBlast.transform.parent = blastHolder.transform;
+                GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform.position, blastSpawn.transform.rotation);
                 thisBlast.gameObject.GetComponent<BlastMovement>().damage = chargedDamage;
             }
         }
@@ -128,8 +126,7 @@ public class PlayerShoot : MonoBehaviour
     //function to drop a bomb
     bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
-            thisBomb.transform.parent = blastHolder.transform;
+            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform.position, blastSpawn.transform.rotation);
             thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
             bombCount--;
             return true;
