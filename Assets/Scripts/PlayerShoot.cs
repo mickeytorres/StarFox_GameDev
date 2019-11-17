@@ -94,8 +94,7 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot() {
         Debug.Log("Charged status: " + charged);
 
-        //
-        if (Input.GetKeyDown(KeyCode.Space) && !charged) {
+        if (Input.GetKeyDown(KeyCode.Space) && !charged && !releaseCharged) {
             startTime = Time.time;
             triCounter = 3;
             triTimer = 0;
@@ -103,7 +102,7 @@ public class PlayerShoot : MonoBehaviour
         
         //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
         //will release a triple shot--holding indefinitely does not release blasts indefinitely
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space) && !charged) {
             if (triCounter > 0) {
                 triTimer -= Time.deltaTime;
                 if (triTimer <= 0) {
@@ -118,9 +117,12 @@ public class PlayerShoot : MonoBehaviour
             //check to see how long [SPACE] was held and if it was long enough to charge up the laser
             timeHeld = Time.time - startTime;
 
-            if (timeHeld >= 1f) {
+            if (timeHeld >= 1f && !releaseCharged) {
                 charged = true;
+                timeHeld = 0;
             }
+
+            Debug.Log("time held is: " + timeHeld);
         }
 
         //releasing a charged laser
@@ -136,6 +138,7 @@ public class PlayerShoot : MonoBehaviour
             //release a charged laser that targets a specific enemy 
             else if (Input.GetKeyUp(KeyCode.Space) && chargedTarget != null) {
                 releaseCharged = true;
+                charged = false;
             }
         }
 
@@ -147,6 +150,7 @@ public class PlayerShoot : MonoBehaviour
     //function to fire a charged laser.
     private void FireCharged() {
         //instantiate the blast 
+        Debug.Log("Firing");
         GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
         thisBlast.transform.parent = blastHolder.transform;
         thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
@@ -160,7 +164,7 @@ public class PlayerShoot : MonoBehaviour
         FireChargedHelper();
     }
 
-    //private helper function that simply resets all variables managing a charged blast
+    //helper function that simply resets all variables managing a charged blast
     private void FireChargedHelper() {
         charged = false;
         releaseCharged = false;
