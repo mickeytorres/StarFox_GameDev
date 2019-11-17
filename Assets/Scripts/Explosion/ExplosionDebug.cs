@@ -12,16 +12,10 @@ public class ExplosionDebug : MonoBehaviour
     //  Set "Explosion" as the prefab of explosion that you want to test
 
     //PURPOSE:
-
+    //  Spawns an Explosion everytime you press P to test what it look like.
 
     public GameObject Explosion;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

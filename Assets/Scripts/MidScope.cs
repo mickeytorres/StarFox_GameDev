@@ -8,7 +8,7 @@ public class MidScope : MonoBehaviour
     //  Put this script on the child of Scopes.
 
     //PURPOSE:
-    //  Makes the scope constantly lookforward at the camrea.
+    //  Makes the scope constantly lookforward while being at where it should be.
 
     public GameObject Midscope;
 

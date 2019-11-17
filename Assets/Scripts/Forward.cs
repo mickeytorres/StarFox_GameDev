@@ -15,9 +15,6 @@ public class Forward : MonoBehaviour
     public float _speed;
     public bool boost = false;
     public bool brake = false;
-    
-    
-   
         
     // Start is called before the first frame update
     void Start()

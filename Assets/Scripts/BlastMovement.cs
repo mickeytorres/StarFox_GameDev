@@ -39,7 +39,7 @@ public class BlastMovement : MonoBehaviour
             moveSpeed = 45f;
         }
         else {
-            moveSpeed = 80f;
+            moveSpeed = 100f;
         }
     }
 
