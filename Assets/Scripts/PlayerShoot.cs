@@ -98,6 +98,7 @@ public class PlayerShoot : MonoBehaviour
             triTimer = 0;
         }
         
+<<<<<<< HEAD
         //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
         //will release a triple shot--holding indefinitely does not release blasts indefinitely
         if (Input.GetKey(KeyCode.Space) && !charged) {
@@ -110,12 +111,22 @@ public class PlayerShoot : MonoBehaviour
                     thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                     triCounter--;
                 }
+=======
+        if (Input.GetKey(KeyCode.Space) && triCounter > 0) {
+            triTimer -= Time.deltaTime;
+            if (triTimer <= 0) {
+                triTimer = 0.15f;
+                GameObject thisBlast = Instantiate(laserType, blastSpawn.transform.position, blastSpawn.transform.rotation);
+                thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
+                triCounter--;
+>>>>>>> adf1a8da0b65b7e185694ed4f7f477c3df24bd77
             }
 
             //check to see how long [SPACE] was held and if it was long enough to charge up the laser
             timeHeld = Time.time - startTime;
 
             if (timeHeld >= 1f) {
+<<<<<<< HEAD
                 charged = true;
                 timeHeld = 0;
             }
@@ -140,6 +151,11 @@ public class PlayerShoot : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.Space) && chargedTarget != null) {
                 releaseCharged = true;
                 charged = false;
+=======
+                Debug.Log("Releasing charged laser");
+                GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform.position, blastSpawn.transform.rotation);
+                thisBlast.gameObject.GetComponent<BlastMovement>().damage = chargedDamage;
+>>>>>>> adf1a8da0b65b7e185694ed4f7f477c3df24bd77
             }
         }
 
@@ -176,8 +192,7 @@ public class PlayerShoot : MonoBehaviour
     //function to drop a bomb
     private bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
-            thisBomb.transform.parent = blastHolder.transform;
+            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform.position, blastSpawn.transform.rotation);
             thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
             bombCount--;
             return true;

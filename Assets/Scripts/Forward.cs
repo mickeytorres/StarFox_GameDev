@@ -12,12 +12,9 @@ public class Forward : MonoBehaviour
     private Rigidbody _rb;
 
     //MOVEMENT VARIABLES
-    private float _speed = 10;
+    public float _speed;
     public bool boost = false;
     public bool brake = false;
-    
-    
-   
         
     // Start is called before the first frame update
     void Start()
@@ -48,6 +45,7 @@ public class Forward : MonoBehaviour
         {
             
             boost = true;
+            PlayerPlaneMovement.instance.Boosting = true;
             _speed = 30;
             Debug.Log(_speed);
             
@@ -56,6 +54,7 @@ public class Forward : MonoBehaviour
         {
             _speed = 10;
             boost = false;
+            PlayerPlaneMovement.instance.Boosting = false;
         }
     }
 
@@ -65,11 +64,13 @@ public class Forward : MonoBehaviour
         {
             brake = true;
             _speed = 5;
+            PlayerPlaneMovement.instance.Braking = true;
         }
         else if (!boost)
         {
             _speed = 10;
             brake = false;
+            PlayerPlaneMovement.instance.Braking = false;
         }
     }
 }

@@ -5,6 +5,17 @@ using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
+    //WARNING: 
+    //  This script isn't used anymore.
+
+    //USAGE:
+    //  Put this script on "Plane".And set MyRigidbody to itself.
+
+    //PURPOSE:
+    //
+    //  --Restore it's Z rotaion with Rigidbody.(Not used anymore)
+    //  --Detect if the plane is moving horizontally.
+
     public Rigidbody MyRigidbody;
     public float AutoCorrectTorque;
     public bool IsMovingHorizontally;
@@ -21,30 +32,17 @@ public class Plane : MonoBehaviour
     void Update()
     {
         /*
-        if (!(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
+        if (!(Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)))
         {
             Z_Correction();
         }
         */
-       
     }
-
-
 
     public void Z_Correction()
     {
         /*
-        while (transform.eulerAngles.z > 360)
-        {
-            transform.eulerAngles -= new Vector3 (0,0,360);
-        }
-        while (transform.eulerAngles.z < 0)
-        {
-            transform.eulerAngles += new Vector3(0, 0, 360);
-        }
-        */
-
-        if (transform.eulerAngles.z >= 1 && transform.eulerAngles.z <= 180)
+                if (transform.eulerAngles.z >= 1 && transform.eulerAngles.z <= 180)
         {
             MyRigidbody.AddTorque(transform.forward * -AutoCorrectTorque * Time.deltaTime);
         }
@@ -52,5 +50,6 @@ public class Plane : MonoBehaviour
         {
             MyRigidbody.AddTorque(transform.forward * +AutoCorrectTorque * Time.deltaTime);
         }
+        */
     }
 }
