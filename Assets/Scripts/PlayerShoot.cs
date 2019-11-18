@@ -92,8 +92,6 @@ public class PlayerShoot : MonoBehaviour
 
     //function to shoot
     private void Shoot() {
-        Debug.Log("Charged status: " + charged);
-
         if (Input.GetKeyDown(KeyCode.Space) && !charged && !releaseCharged) {
             startTime = Time.time;
             triCounter = 3;
@@ -117,12 +115,10 @@ public class PlayerShoot : MonoBehaviour
             //check to see how long [SPACE] was held and if it was long enough to charge up the laser
             timeHeld = Time.time - startTime;
 
-            if (timeHeld >= 1f && !releaseCharged) {
+            if (timeHeld >= 1f) {
                 charged = true;
                 timeHeld = 0;
             }
-
-            Debug.Log("time held is: " + timeHeld);
         }
 
         //releasing a charged laser
@@ -130,8 +126,13 @@ public class PlayerShoot : MonoBehaviour
             //turn on the collider to check if something enters the lock-on zone for a charged laser
             targetCheck.GetComponent<MeshCollider>().enabled = true;
 
+            Debug.Log("release charged: " + releaseCharged);
+            Debug.Log("Charged status: " + charged);
+
             //if target not found and [SPACE] released, launch charged laser
-            if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null) {
+            if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null && !releaseCharged) {
+                
+                Debug.Log("Bug is occuring here");
                 FireCharged();
             }            
             //if a target was found, then [SPACE] must be released before being able to be pressed again to
@@ -150,14 +151,14 @@ public class PlayerShoot : MonoBehaviour
     //function to fire a charged laser.
     private void FireCharged() {
         //instantiate the blast 
-        Debug.Log("Firing");
         GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
         thisBlast.transform.parent = blastHolder.transform;
         thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
 
         //if the charged blast found a target to follow, set the target.
         //this also handles if the target was destroyed before you released the blast
-        if (chargedTarget != null) {
+        //and if the target goes off screen before you manage to release the laser
+        if (chargedTarget != null && GetTargetStatus()) {
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
         } 
 
@@ -197,5 +198,21 @@ public class PlayerShoot : MonoBehaviour
                 laserType = doubleBPrefab;
                 break;
         }
+    }
+
+    //getter function to check if the targeted object is still on screen
+    private bool GetTargetStatus() {
+        Vector3 targetPos = Camera.main.WorldToScreenPoint(chargedTarget.transform.position);
+        
+        if (targetPos.x < 0 || targetPos.y < 0 || targetPos.x > Screen.width || targetPos.y > Screen.height) {
+            SetTarget();
+            return false;
+        }
+        return true;
+    }
+
+    //setter function to set the target to null
+    private void SetTarget() {
+        chargedTarget = null;
     }
 }

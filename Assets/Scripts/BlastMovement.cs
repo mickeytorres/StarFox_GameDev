@@ -22,7 +22,6 @@ public class BlastMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Enemy position: " + moveTowards);
         //destroy the blast if it's been more than 2f seconds and hasn't hit anything yet
         destroyTimer -= Time.deltaTime;
 
@@ -39,7 +38,6 @@ public class BlastMovement : MonoBehaviour
     void OnTriggerEnter(Collider otherObj) {
         //check if it entered the trigger zone of an enemy
         if (otherObj.gameObject.tag == "EnemyShip") {
-            Debug.Log("Colliding with enemy");
             Destroy(gameObject);
         }
     }
@@ -56,7 +54,6 @@ public class BlastMovement : MonoBehaviour
     //Setter for settig the destination of this blast
     private void SetDestination() {
         if (gameObject.tag == "ChargedLaser" && lockedTarget != null) {
-            Debug.Log("I have a very specific target");
             moveTowards = lockedTarget.transform.position;
         }
         else {
