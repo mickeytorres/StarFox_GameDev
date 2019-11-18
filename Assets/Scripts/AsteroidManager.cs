@@ -70,6 +70,7 @@ public class AsteroidManager : MonoBehaviour
         _rb.angularVelocity = Random.insideUnitSphere * _tumble;
     }
 
+    //detects what laser type and damage amount 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Blast"))
