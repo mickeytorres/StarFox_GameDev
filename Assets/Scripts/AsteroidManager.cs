@@ -107,6 +107,7 @@ public class AsteroidManager : MonoBehaviour
         */
     }
 
+    //Destroys object and instantiates 3 smaller objects
     private void Explosion()
     {
         if (_health <= 0)
