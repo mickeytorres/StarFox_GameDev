@@ -44,8 +44,10 @@ public class PlayerShoot : MonoBehaviour
     float startTime = 0f;
     bool canShoot = true;
     float coolDown = 1.75f;
-    private bool charged = false;
-    private bool releaseCharged = false;
+    public bool charged = false;
+    private bool hasTarget = false;
+
+    public bool readyToShootTarget = false;
 
     void Start() {
         laserType = singlePrefab;
@@ -95,10 +97,11 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot() {
         Debug.Log("Charged status: " + charged);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !charged && !releaseCharged) {
+        if (Input.GetKeyDown(KeyCode.Space) && !charged && !hasTarget) {
             startTime = Time.time;
             triCounter = 3;
             triTimer = 0;
+            readyToShootTarget = false;
         }
         
         //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
@@ -118,30 +121,33 @@ public class PlayerShoot : MonoBehaviour
             //check to see how long [SPACE] was held and if it was long enough to charge up the laser
             timeHeld = Time.time - startTime;
 
-            if (timeHeld >= 1f && !releaseCharged) {
+            if (timeHeld >= 1f && !hasTarget) {
+                Debug.Log("Held for : " + timeHeld);
                 charged = true;
                 timeHeld = 0;
             }
         }
 
         //releasing a charged laser
-        if (charged) {
+        if (charged && !readyToShootTarget) {
             //turn on the collider to check if something enters the lock-on zone for a charged laser
             targetCheck.GetComponent<MeshCollider>().enabled = true;
 
             //if target not found and [SPACE] released, launch charged laser
-            if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null) {
+            if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null && !hasTarget) {
                 FireCharged();
             }            
             //if a target was found, then [SPACE] must be released before being able to be pressed again to
             //release a charged laser that targets a specific enemy 
             else if (Input.GetKeyUp(KeyCode.Space) && chargedTarget != null) {
-                releaseCharged = true;
+                hasTarget = true;
                 charged = false;
+                readyToShootTarget = true;
             }
         }
 
-        if (releaseCharged && Input.GetKey(KeyCode.Space)) {
+        if (hasTarget && Input.GetKeyDown(KeyCode.Space) && readyToShootTarget) {
+            hasTarget = false;
             FireCharged();
         }
     }
@@ -165,7 +171,7 @@ public class PlayerShoot : MonoBehaviour
     //helper function that simply resets all variables managing a charged blast
     private void FireChargedHelper() {
         charged = false;
-        releaseCharged = false;
+        hasTarget = false;
         targetCheck.GetComponent<MeshCollider>().enabled = false;
         chargedTarget = null;
     }
