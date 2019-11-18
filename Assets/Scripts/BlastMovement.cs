@@ -29,6 +29,10 @@ public class BlastMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (lockedTarget != null) {
+            moveTowards = lockedTarget.transform.position;
+        }
+
         //this blast will either just shoot forward if it didn't have a target and will chase a specific
         //enemy if it did
         transform.LookAt(moveTowards);
@@ -38,6 +42,7 @@ public class BlastMovement : MonoBehaviour
     void OnTriggerEnter(Collider otherObj) {
         //check if it entered the trigger zone of an enemy
         if (otherObj.gameObject.tag == "EnemyShip") {
+            Debug.Log("Collidng with enemy");
             Destroy(gameObject);
         }
     }
