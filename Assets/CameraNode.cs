@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class CameraNode : MonoBehaviour
 {
-    public Transform player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //USAGE:
+    //  Put this script on the Camrea Node (parent of Camrea).
+    //  Set Player (the most outer layer with script "Foward") gameObject as "player"
 
-    // Update is called once per frame
+    //PURPOSE:
+    //  --Makes the camera's node follow player;
+
+    public Transform player;
+
     void Update()
     {
         transform.position = player.transform.position;

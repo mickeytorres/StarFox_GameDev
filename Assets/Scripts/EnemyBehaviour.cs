@@ -14,6 +14,7 @@ using UnityEngine;
 //      - player health decreses
 //      - on screen shake, screen flahses red/white to indicate health
 // - decreases player health by ## amount when attacked by shots from enemy[Trail]Ships
+// - figure out why enemies won't lock onto the player's position like their supposed to? 
 // 
 
 public class EnemyBehaviour : MonoBehaviour
@@ -27,19 +28,18 @@ float thrustR;
 
 float shipPosX;
 
-int shipSpeed;
+float shipSpeed;
 
 // bool rightDir; 
 public GameObject[] EnemyAI; //not sure if i need this? 
-public GameObject Player; //have a distance check instead of actual position, do we want in scene script 
+public GameObject Trail;
 
-public GameObject Trail; 
+public GameObject blastPrefab;
+//public GameObject um; this is for another bullet prefab, i lost this section of code so idk. i need to look into more. 
 
 public Vector3 finalDestination; 
 
 public Rigidbody rb; 
-
-[HideInInspector]
 public Transform targetShip; 
 
 
@@ -50,14 +50,11 @@ public Transform targetShip;
         thrust = 2.0f;  
         //thrustR = 2.0f; 
         //rightDir = true;
-        shipSpeed = 1; 
-        shipPosX = EnemyAI[1].transform.position.x;
+        shipSpeed = 0.5f; 
+        shipPosX = EnemyAI[0].transform.position.x;
 
         rb = GetComponent<Rigidbody>(); 
         
-        if( targetShip != null ){
-            Transform targetShip = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); //make sure to put "Player" tag on player
-        }
         finalDestination = targetShip.transform.position; 
 
         
@@ -67,22 +64,29 @@ public Transform targetShip;
     void Update()
     {
         spawnEnemyShips();
+    
+    
+    // this is a section from code that Leo wrote, figuring out how to get it into this script or just unpack it to put on the enemyAIs. 
+        //  timer += Time.deltaTime;
+        // if (timer > 4)
+        // {
+        //     Instantiate(blastPrefab,transform.position,transform.rotation,MyParent);
+        //     timer = 0;
+        // }
+
+
     }
 
     void FixedUpdate(){
 
-        if(gameObject.CompareTag("EnemyShip") || gameObject.CompareTag("EnemyTrailShip")){
-            rb.AddForce(transform.right * thrust); 
-            //rb.AddForce(transform.right * thrustR); using this pushes the ship in a weird way ? 
+        if(gameObject.CompareTag("EnemyShip") || gameObject.CompareTag("EnemyTrailShip")){ //i think we can take out this second tag
+            rb.AddForce(transform.right * thrust); //makes the ship move forward
         }
         
     }
 
-    void OnTriggerEnter(Collider other){ //will this be a trigger or collider 
+    void OnTriggerEnter(Collider other){ 
         //if(check if something is in camera view?) {}
-         
-        // spawnEnemyShips();
-        // spawnTrailShips(); 
 
         if(other.CompareTag("Player")){ //do i need to add a tag that says if it's the asteroid and not a ship? 
             //screenshake & red flash screen, health decrese for player
@@ -98,47 +102,43 @@ public Transform targetShip;
 
     void spawnEnemyShips() //enemy ships spawn at different spaces here
     {
-
-        //targetShip = GameObject.FindGameObjectWithTag("player").GetComponent<Transform>();
-        //EnemyAI[1].transform.LookAt(targetShip); //looks at the player character, "smart" AI, should be connected to the object in the list? 
         transform.LookAt(targetShip); //need the scene and player script to test this works
 
         if(Vector3.Distance(transform.position, targetShip.position) < 3f){
             flyAway(); 
-            //basically if the player gets to the point of passing the enemy, they will EVENTUALLY fly left or right, 
-            //based on their on screen position
+            //basically if the player gets to the point of passing the enemy, they will EVENTUALLY fly left or right
         }
 
-        if(EnemyAI[1].transform.position.z <= Player.transform.position.z){ //instead this should check if the ship is past the player, then makes them "destroy" and player mvoes on
-            EnemyAI[1].transform.Translate(Vector3.right * shipSpeed); //i can't check this without having the scene scroller? 
+        if(EnemyAI[0].transform.position.z <= targetShip.transform.position.z){ //instead this should check if the ship is past the player, then makes them "destroy" and player mvoes on
+            EnemyAI[0].transform.Translate(Vector3.right * shipSpeed); //i can't check this without having the scene scroller? 
         }
+
+        Bullets();
         
             
 
     }
 
-    void spawnTrailShips() //asteroids spawn at different spaces here, save this guy for last. 
-    {
-        //get ship to go in a circle, first things first
-        
-
-        //move in specific patterns, choose randomly between way 1 or 2? 
-        //  - i'm working on figuring out the patterns now, didn't get to those this weekend. 
-        //  - 1 way: the zig sag type movement
-        //  - 2 way: the sprial type movement
-        
-        //instantiates a trail that CAN'T be run into - make trail object with a collider on it, player effect, sotre that list here: 
- 
-
-    }
-
     void flyAway(){
-        finalDestination = new Vector3(0, -1, 5); //this will change eventually, but I need the numbers just sa placeholders
 
         if(shipPosX <= 0f){
-            //ship flies away to the left, set the X position in the above Vector to a range to the left
+            shipPosX = Random.Range(-20, -10);//ship flies away to the left, set the X position in the above Vector to a range to the left
         }else{
-            //ship flies to the right side of the screen, same range but for the right. 
+            shipPosX = Random.Range(10, 20);//ship flies to the right side of the screen, same range but for the right. 
         }
+        
+        finalDestination = new Vector3(shipPosX, -1, 5); //this will change eventually, but I need the numbers just sa placeholders
+
+        //butterfly enemies, shooting code, they go up and shoot then go up, and do fly away to a new destination, they'll just call this 
+        //event system? butterflies come up based on player's z position (make that a public vector 3 so whoever assembles the )
+    }
+
+    void Bullets(){ //do i need this or should i use the enemy bullet scripts? 
+        Instantiate(blastPrefab, EnemyAI[0].transform.position, EnemyAI[0].transform.rotation);
+        blastPrefab.transform.LookAt(targetShip);
+        blastPrefab.transform.Translate(0, 0, 7f * Time.deltaTime); //this needs some tuning for sure, it goes way too fast
+        Debug.Log("pew pew"); 
+
+        //PROBLEM/HELP: It's firing under the player, not sure where in the numbers i need to change the destination for the bullets
     }
 }
