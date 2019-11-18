@@ -5,10 +5,13 @@ using UnityEngine.Rendering;
 
 public class Explosion : MonoBehaviour
 {
-    public GameObject Boxes;
+    //WARNING:
+    //This script is not currently used anymore.
+    //This is a port of Leo's Bike game's explosion function of cars where cars shreds to pieces of cubes after collision.
+
     public Transform RandomTransform;
     public float timer;
-    // Start is called before the first frame update
+
     void Start()
     {
         timer = 1.2f;
@@ -19,11 +22,9 @@ public class Explosion : MonoBehaviour
             RandomTransform.eulerAngles = new Vector3(Random.Range(0.0f, 360f), Random.Range(0.0f, 360f), Random.Range(0.0f, 360f));
 
             RandomTransform.position += transform.forward * 0.2f;
-            //Instantiate(Boxes, RandomTransform);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
