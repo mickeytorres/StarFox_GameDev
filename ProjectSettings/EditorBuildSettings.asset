@@ -6,11 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/slippy-scene.unity
+    guid: a35e893569faa46b4a9a488d5d4855e5
+  - enabled: 0
     path: Assets/Scenes/FoxLeoCopy.unity
     guid: b796b0e4230f4464fa98828ef0ab5066
-    
   m_configObjects: {}
