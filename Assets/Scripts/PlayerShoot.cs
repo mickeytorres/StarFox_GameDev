@@ -15,18 +15,18 @@ public class PlayerShoot : MonoBehaviour
     public GameObject chargedPrefab;
     public GameObject bombPrefab; 
     public GameObject targetCheck;
-    [HideInInspector]public GameObject laserType;
+    private GameObject laserType;
 
     public GameObject blastSpawn;
     public GameObject blastHolder;
     [HideInInspector]public GameObject chargedTarget;
 
     //damage constants for different types of lasers and the bomb
-    [HideInInspector]public float singleDamage = 4f;
-    [HideInInspector]public float doubleGDamage = 8f;
-    [HideInInspector]public float doubleBDamage = 12f;
-    [HideInInspector]public float chargedDamage = 16f;
-    [HideInInspector]public float bombDamage = 20f;
+    const float singleDamage = 4f;
+    const float doubleGDamage = 8f;
+    const float doubleBDamage = 12f;
+    const float chargedDamage = 16f;
+    const float bombDamage = 20f;
 
     //variables for handling triple shot--holding down space (indefinitely) will only release
     //up to 3 blasts. Will not fire indefinitely
@@ -36,14 +36,14 @@ public class PlayerShoot : MonoBehaviour
     //variables to handle powering up lasers and picking up more bombs
     private int powerupStatus = 1;
     private float damage = 4f;
-    [HideInInspector]public int bombCount = 3;
+    private int bombCount = 3;
     private int bombMax = 9;
 
     //button variables so player cannot spam bomb and to measure charging up (and locking on) laser
-    float timeHeld = 0f;
-    float startTime = 0f;
-    bool canShoot = true;
-    float coolDown = 1.75f;
+    private float timeHeld = 0f;
+    private float startTime = 0f;
+    private bool canShoot = true;
+    private float coolDown = 1.75f;
     public bool charged = false;
     private bool hasTarget = false;
 
@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
         //call shoot. Checks for actual shooting are handled within the function
-        Shoot();
+        TryShooting();
 
         //button cool down to not spam bombs 
         if (!canShoot) {
@@ -94,7 +94,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     //function to shoot
-    private void Shoot() {
+    private void TryShooting() {
         Debug.Log("Charged status: " + charged);
 
         if (Input.GetKeyDown(KeyCode.Space) && !charged && !hasTarget) {
