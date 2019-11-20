@@ -8,6 +8,12 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    // enum LaserType {
+    //     Single = 4f;
+    //     DoubleG = 8f;
+    //     DoubleB = 12f;
+    // }
+
     //prefabs for different types of shots and blasts spawns
     public GameObject singlePrefab;
     public GameObject doubleGPrefab;
@@ -192,11 +198,15 @@ public class PlayerShoot : MonoBehaviour
     //setter function to set the type of laser that the player will shoot (charged lasers not included)
     private void SetLaser() {
         switch (powerupStatus) {
+            // case LaserType.Single: 
+            //     damage = singleDamage;
+            //     laserType = singlePrefab;
+            //     break;
             case 1:
                 damage = doubleGDamage;
                 laserType = doubleGPrefab;
                 break;
-            case 2: 
+            case 2:
                 damage = doubleBDamage; 
                 laserType = doubleBPrefab;
                 break;
