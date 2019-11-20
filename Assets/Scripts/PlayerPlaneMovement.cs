@@ -41,7 +41,7 @@ public class PlayerPlaneMovement : MonoBehaviour
 
     //Detects double tapping and combo tapping
     //  For how long would the system wait for the next input.
-    public float InputBuffer;
+    public float InputComboTimeLeft;
     //  What was the last input.
     public string LoadedInput;
     
@@ -57,7 +57,7 @@ public class PlayerPlaneMovement : MonoBehaviour
     void Start()
     {
         FreeToMove();
-        InputBuffer = 0;
+        InputComboTimeLeft = 0;
         RollTimer = 0;
     }
 
@@ -76,7 +76,7 @@ public class PlayerPlaneMovement : MonoBehaviour
     }
 
     //Bool checking if the plane is free to tilt by turning (or auto correction)
-    public bool FreeTilt()
+    public bool CanFreeTilt()
     {
         if (!RollingL && !RollingR && !TiltingL && !TiltingR && !UTurning && !Somersaulting)
         {
@@ -92,13 +92,13 @@ public class PlayerPlaneMovement : MonoBehaviour
     void Update()
     {
         //Timer for InputBuffer, clears LoadedInput if time goes out
-        if (InputBuffer > 0)
+        if (InputComboTimeLeft > 0)
         {
-            InputBuffer -= Time.deltaTime;
+            InputComboTimeLeft -= Time.deltaTime;
         }
         else
         {
-            InputBuffer = 0;
+            InputComboTimeLeft = 0;
             LoadedInput = null;
         }
 
@@ -140,10 +140,10 @@ public class PlayerPlaneMovement : MonoBehaviour
             {
                 if (LoadedInput != "TiltingL")
                 {
-                    InputBuffer = 0.5f;
+                    InputComboTimeLeft = 0.5f;
                     LoadedInput = "TiltingL";
                 }
-                else if (LoadedInput == "TiltingL" && InputBuffer > 0)
+                else if (LoadedInput == "TiltingL" && InputComboTimeLeft > 0)
                 {
                     RollingL = true;
                     RollTimer = 0.5f;
@@ -155,10 +155,10 @@ public class PlayerPlaneMovement : MonoBehaviour
             {
                 if (LoadedInput != "TiltingR")
                 {
-                    InputBuffer = 0.5f;
+                    InputComboTimeLeft = 0.5f;
                     LoadedInput = "TiltingR";
                 }
-                else if (LoadedInput == "TiltingR" && InputBuffer > 0)
+                else if (LoadedInput == "TiltingR" && InputComboTimeLeft > 0)
                 {
                     RollingR = true;
                     RollTimer = 0.5f;
@@ -188,23 +188,24 @@ public class PlayerPlaneMovement : MonoBehaviour
             }
 
             //Rotation Goal System for Z rotation
+            //Input.GetAccess is better
             if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             {
-                if (FreeTilt())
+                if (CanFreeTilt())
                 {
                     RotationGoal = -30;
                 }
             }
             else if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
             {
-                if (FreeTilt())
+                if (CanFreeTilt())
                 {
                     RotationGoal = 30;
                 }
             }
             else
             {
-                if (FreeTilt())
+                if (CanFreeTilt())
                 {
                     RotationGoal = 0;
                 }
