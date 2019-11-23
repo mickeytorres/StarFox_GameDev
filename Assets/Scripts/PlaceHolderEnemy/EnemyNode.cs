@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyNode : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
      private BlastMovement _shot;
 
     private float _health = 1f;
@@ -12,6 +12,14 @@ public class EnemyNode : MonoBehaviour
     Vector3 direction = new Vector3(0f,0f,-1f);
 
     public GameObject asteroidChunksPrefab;
+
+    private void Start()
+    {
+        if (Player == null)
+        {
+            Player = GameObject.FindWithTag("Player");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,7 +33,6 @@ public class EnemyNode : MonoBehaviour
             _shot = other.transform.GetComponent<BlastMovement>();
             _health -= _shot.damage;
             Explosion();
-            //DamageCalculator();
         }
     }
     private void RandomTrajectory()
