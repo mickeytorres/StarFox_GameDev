@@ -4,15 +4,20 @@ using UnityEngine;
 
 //usage: put this on a user-controlled player character
 //intent: shoot blasts and bombs at enemies
-//controls: press space to shoot normal blasts, hold space down to charge laser, press shift to launch bomb
+//controls: press space to shoot normal blasts, hold space down to charge Laser, press shift to launch bomb
 
-public class PlayerShoot : MonoBehaviour
-{
-    // enum LaserType {
-    //     Single = 4f;
-    //     DoubleG = 8f;
-    //     DoubleB = 12f;
-    // }
+public class PlayerShoot : MonoBehaviour { 
+
+    //damage constants
+    enum Laser {
+        Single = 4,
+        DoubleG = 8,
+        DoubleB = 12,
+    }
+    const float chargedDamage = 16f;
+    const float bombDamage = 20f;
+
+    Laser currLaserType = Laser.Single;
 
     //prefabs for different types of shots and blasts spawns
     public GameObject singlePrefab;
@@ -21,31 +26,23 @@ public class PlayerShoot : MonoBehaviour
     public GameObject chargedPrefab;
     public GameObject bombPrefab; 
     public GameObject targetCheck;
-    private GameObject laserType;
+    private GameObject laserPrefab;
 
     public GameObject blastSpawn;
     public GameObject blastHolder;
     [HideInInspector]public GameObject chargedTarget;
-
-    //damage constants for different types of lasers and the bomb
-    const float singleDamage = 4f;
-    const float doubleGDamage = 8f;
-    const float doubleBDamage = 12f;
-    const float chargedDamage = 16f;
-    const float bombDamage = 20f;
 
     //variables for handling triple shot--holding down space (indefinitely) will only release
     //up to 3 blasts. Will not fire indefinitely
     private int triCounter;
     private float triTimer;
 
-    //variables to handle powering up lasers and picking up more bombs
-    private int powerupStatus = 1;
-    private float damage = 4f;
+    //variables to handle powering up Lasers and picking up more bombs
+    private int damage = 4;
     private int bombCount = 3;
     private int bombMax = 9;
 
-    //button variables so player cannot spam bomb and to measure charging up (and locking on) laser
+    //button variables so player cannot spam bomb and to measure charging up (and locking on) Laser
     private float timeHeld = 0f;
     private float startTime = 0f;
     private bool canShoot = true;
@@ -55,8 +52,7 @@ public class PlayerShoot : MonoBehaviour
 
     public bool readyToShootTarget = false;
 
-    void Start() {
-        laserType = singlePrefab;
+    void Start() { 
         chargedTarget = null;
     }
 
@@ -83,11 +79,10 @@ public class PlayerShoot : MonoBehaviour
         }
     }
     
-    //detect entering the trigger of a powerup (for powering up lasers and replenishing bombs)
+    //detect entering the trigger of a powerup (for powering up Lasers and replenishing bombs)
     void OnTriggerEnter(Collider otherObj) {
-        if (otherObj.gameObject.tag == "ShootPowerup" && powerupStatus < 2) {
-            powerupStatus += 1;
-            SetLaser();
+        if (otherObj.gameObject.tag == "ShootPowerup") {
+            currLaserType = UpgradeLaser(currLaserType);
         }
         
         if (otherObj.gameObject.tag == "BombPowerup") {
@@ -117,14 +112,14 @@ public class PlayerShoot : MonoBehaviour
                 triTimer -= Time.deltaTime;
                 if (triTimer <= 0) {
                     triTimer = 0.15f;
-                    GameObject thisBlast = Instantiate(laserType, blastSpawn.transform);
+                    GameObject thisBlast = Instantiate(LaserType, blastSpawn.transform);
                     thisBlast.transform.parent = blastHolder.transform;
                     thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                     triCounter--;
                 }
             }
 
-            //check to see how long [SPACE] was held and if it was long enough to charge up the laser
+            //check to see how long [SPACE] was held and if it was long enough to charge up the Laser
             timeHeld = Time.time - startTime;
 
             if (timeHeld >= 1f && !hasTarget) {
@@ -134,17 +129,17 @@ public class PlayerShoot : MonoBehaviour
             }
         }
 
-        //releasing a charged laser
+        //releasing a charged Laser
         if (charged && !readyToShootTarget) {
-            //turn on the collider to check if something enters the lock-on zone for a charged laser
+            //turn on the collider to check if something enters the lock-on zone for a charged Laser
             targetCheck.GetComponent<MeshCollider>().enabled = true;
 
-            //if target not found and [SPACE] released, launch charged laser
+            //if target not found and [SPACE] released, launch charged Laser
             if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null && !hasTarget) {
                 FireCharged();
             }            
             //if a target was found, then [SPACE] must be released before being able to be pressed again to
-            //release a charged laser that targets a specific enemy 
+            //release a charged Laser that targets a specific enemy 
             else if (Input.GetKeyUp(KeyCode.Space) && chargedTarget != null) {
                 hasTarget = true;
                 charged = false;
@@ -158,7 +153,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    //function to fire a charged laser.
+    //function to fire a charged Laser.
     private void FireCharged() {
         //instantiate the blast 
         GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
@@ -195,21 +190,18 @@ public class PlayerShoot : MonoBehaviour
         return false;
     }
 
-    //setter function to set the type of laser that the player will shoot (charged lasers not included)
-    private void SetLaser() {
-        switch (powerupStatus) {
-            // case LaserType.Single: 
-            //     damage = singleDamage;
-            //     laserType = singlePrefab;
-            //     break;
-            case 1:
-                damage = doubleGDamage;
-                laserType = doubleGPrefab;
-                break;
-            case 2:
-                damage = doubleBDamage; 
-                laserType = doubleBPrefab;
-                break;
+    //function to upgrade the laser
+    private Laser UpgradeLaser (Laser newLaser) {
+        if (newLaser == Laser.Single) {
+            newLaser = Laser.DoubleG;
+            laserPrefab = doubleGPrefab;
         }
+        else if (newLaser == Laser.DoubleG) {
+            newLaser = Laser.DoubleB;
+            laserPrefab = doubleBPrefab;
+        }
+
+        damage = (int)newLaser;
+        return newLaser;
     }
 }
