@@ -54,6 +54,7 @@ public class PlayerShoot : MonoBehaviour {
 
     void Start() { 
         chargedTarget = null;
+        laserPrefab = singlePrefab;
     }
 
     // Update is called once per frame
@@ -112,7 +113,7 @@ public class PlayerShoot : MonoBehaviour {
                 triTimer -= Time.deltaTime;
                 if (triTimer <= 0) {
                     triTimer = 0.15f;
-                    GameObject thisBlast = Instantiate(LaserType, blastSpawn.transform);
+                    GameObject thisBlast = Instantiate(laserPrefab, blastSpawn.transform);
                     thisBlast.transform.parent = blastHolder.transform;
                     thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                     triCounter--;
@@ -191,7 +192,7 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     //function to upgrade the laser
-    private Laser UpgradeLaser (Laser newLaser) {
+    private Laser UpgradeLaser(Laser newLaser) {
         if (newLaser == Laser.Single) {
             newLaser = Laser.DoubleG;
             laserPrefab = doubleGPrefab;
