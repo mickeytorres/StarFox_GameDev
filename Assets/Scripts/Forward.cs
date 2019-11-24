@@ -53,6 +53,10 @@ public class Forward : MonoBehaviour
     {
         Boost();
         Brake();
+        if (PlayerPlaneMovement.instance.Somersaulting)
+        {
+            _speed = 0f;
+        }
     }
 
     private void FixedUpdate()
