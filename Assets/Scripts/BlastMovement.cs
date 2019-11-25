@@ -52,7 +52,7 @@ public class BlastMovement : MonoBehaviour
         Collider[] inRange = Physics.OverlapSphere(transform.position, 2f);
 
         foreach (Collider enemy in inRange) {
-            enemy.gameObject.GetComponent<AsteroidManager>().bombRange = true;
+            enemy.gameObject.GetComponent<AsteroidManager>().inbombRange = true;
         }
     }
 
