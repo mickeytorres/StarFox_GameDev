@@ -166,12 +166,10 @@ public class PlayerShoot : MonoBehaviour {
         Debug.Log("Drawing raycast");
         Debug.DrawRay(enemyDetectRay.origin, enemyDetectRay.direction * enemyDetectRayDist, Color.blue);
 
-        if (itemFound) {
+        if (itemFound) 
             return rayHit.collider.gameObject;
-        }
-        else {
+        else 
             return null;
-        }
     }
 
     //function to fire a charged Laser.
@@ -194,7 +192,7 @@ public class PlayerShoot : MonoBehaviour {
     private void FireChargedHelper() {
         charged = false;
         hasTarget = false;
-        targetCheck.GetComponent<MeshCollider>().enabled = false;
+        //targetCheck.GetComponent<MeshCollider>().enabled = false;
         chargedTarget = null;
     }
 
