@@ -24,7 +24,7 @@ public class AsteroidManager : MonoBehaviour
     
     //Movement  and rotation variables
     private float _speed = .5f;
-    private float _tumble = 10;
+    private float _tumble = 2;
    
     //Asteroid direction
     Vector3 direction = new Vector3(0f,0f,-1f);
