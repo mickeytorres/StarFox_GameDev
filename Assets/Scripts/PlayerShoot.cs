@@ -133,7 +133,9 @@ public class PlayerShoot : MonoBehaviour {
         //releasing a charged Laser
         if (charged && !readyToShootTarget) {
             //turn on the collider to check if something enters the lock-on zone for a charged Laser
-            targetCheck.GetComponent<MeshCollider>().enabled = true;
+            //targetCheck.GetComponent<MeshCollider>().enabled = true;
+
+            chargedTarget = GetTarget();
 
             //if target not found and [SPACE] released, launch charged Laser
             if (Input.GetKeyUp(KeyCode.Space) && chargedTarget == null && !hasTarget) {
@@ -151,6 +153,24 @@ public class PlayerShoot : MonoBehaviour {
         if (hasTarget && Input.GetKeyDown(KeyCode.Space) && readyToShootTarget) {
             hasTarget = false;
             FireCharged();
+        }
+    }
+
+    //function to find the target for a charged laser to follow
+    private GameObject GetTarget() {
+        Ray enemyDetectRay = new Ray(transform.position, Vector3.forward);
+        RaycastHit rayHit = new RaycastHit();
+        float enemyDetectRayDist = 15f;
+        bool itemFound = Physics.SphereCast(enemyDetectRay, 1f, out rayHit, enemyDetectRayDist);
+
+        Debug.Log("Drawing raycast");
+        Debug.DrawRay(enemyDetectRay.origin, enemyDetectRay.direction * enemyDetectRayDist, Color.blue);
+
+        if (itemFound) {
+            return rayHit.collider.gameObject;
+        }
+        else {
+            return null;
         }
     }
 
