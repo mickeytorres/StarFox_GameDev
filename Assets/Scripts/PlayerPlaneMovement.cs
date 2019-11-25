@@ -251,6 +251,7 @@ public class PlayerPlaneMovement : MonoBehaviour
                 SomersaultFlipAngle -= 120 * Time.deltaTime;
                 transform.localEulerAngles = new Vector3(SomersaultFlipAngle, 0, 0);
                 transform.localPosition += transform.forward * Forward.instance._boostspeed * Time.deltaTime * (1 + 0.05f * (3 - SomersaultTimer));
+                /*
                 if (transform.eulerAngles.y == 180)
                 {
                     Model.transform.localEulerAngles = new Vector3(0, 0, 180);
@@ -259,6 +260,7 @@ public class PlayerPlaneMovement : MonoBehaviour
                 {
                     Model.transform.localEulerAngles = new Vector3(0, 0, 0);
                 }
+                */
 
             }
             else
