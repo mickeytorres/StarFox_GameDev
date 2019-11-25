@@ -48,6 +48,11 @@ public class PlayerPlaneMovement : MonoBehaviour
     //Times the rolling
     public float RollTimer;
 
+    //Timers the somersault
+    public float SomersaultTimer;
+    public float SomersaultFlipAngle;
+    public GameObject Model;
+
     void Awake()
     {
         instance = this;
@@ -91,6 +96,16 @@ public class PlayerPlaneMovement : MonoBehaviour
 
     void Update()
     {
+        if (!Somersaulting)
+        {
+            transform.localPosition += (new Vector3(0, 0, 0) - transform.localPosition) * 0.1f;
+            if (Mathf.Abs(transform.localPosition.z) < 0.01f)
+            {
+                transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+
+
         //Timer for InputBuffer, clears LoadedInput if time goes out
         if (InputComboTimeLeft > 0)
         {
@@ -135,6 +150,7 @@ public class PlayerPlaneMovement : MonoBehaviour
         //Input controls
         if (!RollingL && !RollingR && !UTurning && !Somersaulting)
         {
+           
             //Initiates test for double tapping to barrel rolling left
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -165,6 +181,36 @@ public class PlayerPlaneMovement : MonoBehaviour
                 }
             }
 
+            //Initiates test for combo tapping to somersault
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (LoadedInput == "Boost" && InputComboTimeLeft > 0)
+                {
+                    Somersaulting = true;
+                    SomersaultTimer = 3f;
+                    SomersaultFlipAngle = 0;
+                }
+                else if (LoadedInput != "DownArrow")
+                {
+                    InputComboTimeLeft = 0.5f;
+                    LoadedInput = "DownArrow";
+                    SomersaultFlipAngle = 0;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (LoadedInput == "DownArrow" && InputComboTimeLeft > 0)
+                {
+                    Somersaulting = true;
+                    SomersaultTimer = 3f;
+                }
+                else if (LoadedInput != "Boost")
+                {
+                    InputComboTimeLeft = 0.5f;
+                    LoadedInput = "Boost";
+                }
+            }
+
             //90 degree tilting
             if (Input.GetKey(KeyCode.Q) && !TiltingR)
             {
@@ -187,16 +233,56 @@ public class PlayerPlaneMovement : MonoBehaviour
                 TiltingR = false;
             }
 
-            //Rotation Goal System for Z rotation
-            //Input.GetAccess is better
-            if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+            
+            
+        }
+
+        //Somersaulting
+        if (Somersaulting)
+        {
+            SomersaultTimer -= Time.deltaTime;
+            if (SomersaultTimer > 0)
+            {
+                
+                GyroScope.instance.RotationGoalX = 0;
+                GyroScope.instance.RotationGoalY = 0;
+                RotationGoal = 0;
+
+                SomersaultFlipAngle -= 120 * Time.deltaTime;
+                transform.localEulerAngles = new Vector3(SomersaultFlipAngle, 0, 0);
+                transform.localPosition += transform.forward * Forward.instance._boostspeed * Time.deltaTime * (1 + 0.05f * (3 - SomersaultTimer));
+                if (transform.eulerAngles.y == 180)
+                {
+                    Model.transform.localEulerAngles = new Vector3(0, 0, 180);
+                }
+                else
+                {
+                    Model.transform.localEulerAngles = new Vector3(0, 0, 0);
+                }
+
+            }
+            else
+            {
+                transform.localEulerAngles = new Vector3(0, 0, 0);
+                //transform.localPosition = new Vector3(0, 0, 0);
+                Somersaulting = false;
+            }
+
+            
+
+
+        }
+
+        //Rotation Goal System for Z rotation
+        //Input.GetAccess is better
+        if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Somersaulting)
             {
                 if (CanFreeTilt())
                 {
                     RotationGoal = -30;
                 }
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Somersaulting)
             {
                 if (CanFreeTilt())
                 {
@@ -232,5 +318,12 @@ public class PlayerPlaneMovement : MonoBehaviour
             //Implements variables.
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
         }
-    }
+
+        IEnumerator Somersault()
+        {
+        yield return new WaitForSeconds(3f);
+        }
 }
+
+    
+

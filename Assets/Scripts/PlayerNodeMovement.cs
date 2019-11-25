@@ -30,7 +30,11 @@ public class PlayerNodeMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        if (!PlayerPlaneMovement.instance.Somersaulting)
+        {
+            Movement();
+        }
+
     }
 
     private void Movement()

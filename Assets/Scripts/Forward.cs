@@ -7,18 +7,44 @@ using UnityEngine;
 //INTENT: CONTROLS MOVEMENT, BOOST, BRAKING, MANAGES HEALTH AND ENERGY;
 public class Forward : MonoBehaviour
 {
+    public static Forward instance;
+
     public HealthManager energyBar;
     
     private Rigidbody _rb;
 
     //MOVEMENT VARIABLES
+    public float _normalspeed;
+    public float _boostspeed;
+    public float _brakespeed;
     public float _speed;
+
     public bool boost = false;
     public bool brake = false;
-        
-    // Start is called before the first frame update
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
+        if (_normalspeed == 0)
+        {
+            _normalspeed = 10;
+        }
+        if (_brakespeed == 0)
+        {
+            _brakespeed = 5;
+        }
+        if (_boostspeed == 0)
+        {
+            _boostspeed = 30;
+        }
+        instance = this;
         _rb = GetComponent<Rigidbody>();
     }
 
@@ -27,6 +53,10 @@ public class Forward : MonoBehaviour
     {
         Boost();
         Brake();
+        if (PlayerPlaneMovement.instance.Somersaulting)
+        {
+            _speed = 0f;
+        }
     }
 
     private void FixedUpdate()
@@ -46,13 +76,13 @@ public class Forward : MonoBehaviour
             
             boost = true;
             PlayerPlaneMovement.instance.Boosting = true;
-            _speed = 30;
+            _speed = _boostspeed;
             Debug.Log(_speed);
             
         }
         else
         {
-            _speed = 10;
+            _speed = _normalspeed;
             boost = false;
             PlayerPlaneMovement.instance.Boosting = false;
         }
@@ -63,12 +93,12 @@ public class Forward : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             brake = true;
-            _speed = 5;
+            _speed = _brakespeed;
             PlayerPlaneMovement.instance.Braking = true;
         }
         else if (!boost)
         {
-            _speed = 10;
+            _speed = _normalspeed;
             brake = false;
             PlayerPlaneMovement.instance.Braking = false;
         }

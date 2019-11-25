@@ -1225,7 +1225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6406182114441937788}
   - component: {fileID: 6406182114441937786}
-  - component: {fileID: 6406182114441937789}
   - component: {fileID: 6406182114441937787}
   m_Layer: 0
   m_Name: Plane
@@ -1265,21 +1264,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &6406182114441937789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6406182114441937784}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed0e72b5aa2e9dd479ad2d946c92dd5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyRigidbody: {fileID: 6406182114441937786}
-  AutoCorrectTorque: 20
-  IsMovingHorizontally: 0
 --- !u!114 &6406182114441937787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,6 +1817,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBar: {fileID: 2456670518520521522}
+  _normalspeed: 0
+  _boostspeed: 0
+  _brakespeed: 0
   _speed: 5
   boost: 0
   brake: 0
@@ -1936,16 +1923,9 @@ MonoBehaviour:
   bombPrefab: {fileID: 8091004951608317233, guid: f76f0026b264148d29594565d07ac852,
     type: 3}
   targetCheck: {fileID: 0}
-  laserType: {fileID: 0}
   blastSpawn: {fileID: 7517494367827929964}
   blastHolder: {fileID: 0}
   chargedTarget: {fileID: 0}
-  singleDamage: 4
-  doubleGDamage: 8
-  doubleBDamage: 12
-  chargedDamage: 16
-  bombDamage: 20
-  bombCount: 3
   charged: 0
   readyToShootTarget: 0
 --- !u!1 &7517494366889714359

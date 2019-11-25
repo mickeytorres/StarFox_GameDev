@@ -21,6 +21,11 @@ public class GyroScope : MonoBehaviour
     public float RotationGoalX;
     public float RotateSpeed;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     //Resets all rotations.
     void Start()
     {
@@ -34,11 +39,11 @@ public class GyroScope : MonoBehaviour
     void Update()
     {
         //Rotation Goal System for Y rotation (left and right)
-        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !PlayerPlaneMovement.instance.Somersaulting)
         {
             RotationGoalY = -45;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && !PlayerPlaneMovement.instance.Somersaulting)
         {
             RotationGoalY = 45;
         }
