@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class GyroScope : MonoBehaviour
 {
+    //USAGE:
+    //  Put this script on the "GyroScope" of "Plane".
+
+    //PURPOSE:
+    //  --Makes player tilt toward the direction its moving towards.
+    //  (Independent from the tilting of "PlaneBody")
 
     public static GyroScope instance;
 
-    public Transform scope;
+    //Uses RotationGoal System: 
+    //Player inputs sets Rotationgoal for object, then the object would rotate towards goal constantly.
     public float RotationY;
     public float RotationGoalY;
     public float RotationX;
     public float RotationGoalX;
     public float RotateSpeed;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    //Resets all rotations.
     void Start()
     {
         RotationY = 0;
@@ -24,21 +36,25 @@ public class GyroScope : MonoBehaviour
         RotateSpeed = 3f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        //Rotation Goal System for Y rotation (left and right)
+        if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !PlayerPlaneMovement.instance.Somersaulting)
         {
             RotationGoalY = -45;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow) && !PlayerPlaneMovement.instance.Somersaulting)
         {
             RotationGoalY = 45;
         }
         else
         {
+            //If player dosen't input anything, the plane slowly resets its rotation,
+            //back to pointing forward.
             RotationGoalY = 0;
         }
+
+        //Clips rotation back to RotationGoal to prevent overturning.
         if (RotationY > RotationGoalY)
         {
             RotationY -= Mathf.Abs(RotationGoalY - RotationY) * RotateSpeed * Time.deltaTime;
@@ -56,6 +72,7 @@ public class GyroScope : MonoBehaviour
             }
         }
 
+        //Rotation Goal System for X rotation (up and down)
         if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
         {
             RotationGoalX = 45;
@@ -66,8 +83,12 @@ public class GyroScope : MonoBehaviour
         }
         else
         {
+            //If player dosen't input anything, the plane slowly resets its rotation,
+            //back to pointing forward.
             RotationGoalX = 0;
         }
+
+        //Clips rotation back to RotationGoal to prevent overturning.
         if (RotationX > RotationGoalX)
         {
             RotationX -= Mathf.Abs(RotationGoalX - RotationX) * RotateSpeed * Time.deltaTime;
@@ -84,6 +105,8 @@ public class GyroScope : MonoBehaviour
                 RotationX = RotationGoalX;
             }
         }
+
+        //Implements the rotations.
         transform.localEulerAngles = new Vector3(RotationX, RotationY, transform.localEulerAngles.z);
 
 

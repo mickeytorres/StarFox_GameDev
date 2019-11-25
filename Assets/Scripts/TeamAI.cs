@@ -2,46 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//usage: 
+//intent: manage scripted movement of team AI
+
 public class TeamAI : MonoBehaviour
 {
     public Vector3 myDestination;
-    float health = 10f;
-    float hitChance;
+    float health = 20f;
 
-    void Start() {
-        hitChance = Random.Range(0f, 100f);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        transform.LookAt(myDestination);
-        transform.Translate(0, 0, 5f * Time.deltaTime); //swim 5 metres/second
+    private float lifeSpan = 13.5f;
 
-        Debug.DrawLine(transform.position, myDestination, Color.blue);
-
-        //pick a new destination once we reach the current destination 
-        if (Vector3.Distance(transform.position, myDestination) < 5f) {
-            PickNewDestination();
-        }
-
-        LoseHealth();
+    void Update() {
+        lifeSpan -= Time.deltaTime;
     }
 
-    void LoseHealth() {
-        if (hitChance >= 95) {
-            health -= 0.1f;
-        }
-        // Debug.Log("Team health " + health);
+    // void OnTriggerEnter(Collider otherObj) {
 
-        hitChance = Random.Range(0f, 100f);
+    // }
 
-        if (health <= 0) {
-            Debug.Log("Team member down");
-            Destroy(gameObject);
-        }
-    }
+    // //function to handle Team Star Fox members getting hit by Fox :'(
+    // void FriendlyFire() {
 
-    public void PickNewDestination () {
-        myDestination = new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0f);
-    }
+    // }
 }

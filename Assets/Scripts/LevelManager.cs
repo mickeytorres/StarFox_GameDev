@@ -7,8 +7,9 @@ public class LevelManager : MonoBehaviour
 { // Update is called once per frame
     void Update()
     {
-       if (Input.GetKey(KeyCode.R)) {
-           SceneManager.LoadScene(0);
-       } 
+        //eventually will want some kind of "press [ ] to start game"
+        if (Input.GetKey(KeyCode.R)) {
+            SceneManager.LoadScene(0);
+        } 
     }
 }
