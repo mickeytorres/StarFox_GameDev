@@ -13,7 +13,7 @@ public class BlastMovement : MonoBehaviour
     public float damage;
     public float moveSpeed;
 
-    public float destroyTimer = 2f;
+    private float destroyTimer = 0.3f;
 
     void Start() {
         SetSpeed();
