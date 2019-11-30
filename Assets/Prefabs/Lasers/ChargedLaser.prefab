@@ -467,7 +467,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7576713973549209217
 MonoBehaviour:
@@ -482,5 +482,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedTarget: {fileID: 0}
-  damage: 16
+  damage: 0
   moveSpeed: 0
+  IsAnExplosion: 0
+  IsABombExplosion: 0
+  IsABomb: 0
+  destroyTimer: 0.3
+  Explosion: {fileID: 281349171270525415, guid: 689d345e6a29a2e459bd43a95d32c190,
+    type: 3}

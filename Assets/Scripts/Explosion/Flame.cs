@@ -12,21 +12,29 @@ public class Flame : MonoBehaviour
     //  --Makes a expanding fireball by expanding a sphere while rotating and shifting its texture.
     //  --Destroys itself after a few seconds.
 
+    public bool Spin = true;
     public Vector3 SpinSpeed;
     public Renderer MyRenderer;
     Material m_Material;
     private float timer = 0;
     public float ScaleSpeed;
+    public float LifeTime = 0.5f;
 
     //Initializes variables
     void Start()
     {
-        transform.eulerAngles = new Vector3(Random.Range(0.0f, 360f), Random.Range(0.0f, 360f), Random.Range(0.0f, 360f));
+        if (Spin)
+        {
+            transform.eulerAngles = new Vector3(Random.Range(0.0f, 360f), Random.Range(0.0f, 360f), Random.Range(0.0f, 360f));
+        }
 
         m_Material = GetComponent<Renderer>().material;
-        
+
         //Randomizes spindirection && speed.
-        SpinSpeed = new Vector3(Random.Range(0.0f, 360f), Random.Range(0.0f, 360f), Random.Range(0.0f, 360f));
+        if (Spin)
+        {
+            SpinSpeed = new Vector3(Random.Range(0.0f, 360f), Random.Range(0.0f, 360f), Random.Range(0.0f, 360f));
+        }
         ScaleSpeed = 20;
 
         //Reinitialize the local scale
@@ -36,7 +44,10 @@ public class Flame : MonoBehaviour
     void Update()
     {
         //Spinning the fireball
-        transform.eulerAngles += SpinSpeed * Time.deltaTime;
+        if (Spin)
+        {
+            transform.eulerAngles += SpinSpeed * Time.deltaTime;
+        }
 
         //Shifting the texture.
         m_Material.SetTextureOffset("_MainTex",new Vector2(1.42f, timer/2.5f));
@@ -45,13 +56,13 @@ public class Flame : MonoBehaviour
         transform.localScale += Time.deltaTime * new Vector3(ScaleSpeed, ScaleSpeed, ScaleSpeed);
 
         //Timer
-        timer += 2 * Time.deltaTime;
+        timer += Time.deltaTime;
 
         //ScaleSpeed slows down as fireball reaches the end of its life
         ScaleSpeed = 20/(1+(timer * timer));
 
         //Destroys the fireball after time runs out
-        if (timer > 2)
+        if (timer > LifeTime)
         {
             Destroy(this.gameObject); 
         }

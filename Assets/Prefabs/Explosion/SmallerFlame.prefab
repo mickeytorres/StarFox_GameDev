@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7daf263ca713a71449173784dbcc953c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecondsTillDestroy: 2
+  SecondsTillDestroy: 0.5
   DestroyWhat: {fileID: 0}
 --- !u!1001 &6526985390989427269
 PrefabInstance:
@@ -127,6 +127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4.1490993
+      objectReference: {fileID: 0}
+    - target: {fileID: 921101108095998338, guid: 7096a00c4ccbb474f92ba8f2481b6c7f,
+        type: 3}
+      propertyPath: LifeTime
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7096a00c4ccbb474f92ba8f2481b6c7f, type: 3}

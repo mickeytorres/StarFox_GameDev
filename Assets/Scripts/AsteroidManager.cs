@@ -77,6 +77,10 @@ public class AsteroidManager : MonoBehaviour
         {
             _shot = other.transform.GetComponent<BlastMovement>();
             _health -= _shot.damage;
+            if (!_shot.IsABombExplosion)
+            {
+                Destroy(_shot.gameObject);
+            }
             Explosion();
             //DamageCalculator();
         }

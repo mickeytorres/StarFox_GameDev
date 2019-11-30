@@ -39,7 +39,10 @@ public class Enemy_HealthManager : MonoBehaviour
         {
             _shot = other.transform.GetComponent<BlastMovement>();
             _health -= _shot.damage;
-            Destroy(_shot.gameObject);
+            if (!_shot.IsABombExplosion)
+            {
+                Destroy(_shot.gameObject);
+            }
             Explosion();
             //DamageCalculator();
         }

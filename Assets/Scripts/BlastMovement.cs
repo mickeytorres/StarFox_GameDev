@@ -13,7 +13,11 @@ public class BlastMovement : MonoBehaviour
     public float damage;
     public float moveSpeed;
 
-    private float destroyTimer = 0.3f;
+    public bool IsAnExplosion = false;
+    public bool IsABombExplosion = false;
+    public bool IsABomb = false;
+
+    public float destroyTimer = 0.5f;
 
     public GameObject Explosion;
 
@@ -36,9 +40,12 @@ public class BlastMovement : MonoBehaviour
         }
 
         //this blast will either just shoot forward if it didn't have a target and will chase a specific
-        //enemy if it did
-        transform.LookAt(moveTowards);
-        transform.Translate(0, 0, moveSpeed * Time.deltaTime); 
+        //enemy if it did, if it isn't an explosion (like the explosion of bomb for instance.)
+        if (!IsAnExplosion)
+        {
+            transform.LookAt(moveTowards);
+            transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+        }
     }
 
     /*
@@ -53,7 +60,7 @@ public class BlastMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(destroyTimer >= 0)
+        if(destroyTimer >= 0 || IsABomb)
         Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
