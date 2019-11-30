@@ -95,7 +95,7 @@ public class AsteroidManager : MonoBehaviour
             {
                 Instantiate(asteroidChunksPrefab, transform.position, Quaternion.identity);
 
-                asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
+                //asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
             Destroy(gameObject);

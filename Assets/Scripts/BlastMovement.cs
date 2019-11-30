@@ -15,6 +15,8 @@ public class BlastMovement : MonoBehaviour
 
     private float destroyTimer = 0.3f;
 
+    public GameObject Explosion;
+
     void Start() {
         SetSpeed();
         SetDestination();
@@ -39,12 +41,20 @@ public class BlastMovement : MonoBehaviour
         transform.Translate(0, 0, moveSpeed * Time.deltaTime); 
     }
 
-    void OnTriggerEnter(Collider otherObj) {
+    /*
+    void OnCollisionEnter(Collision otherObj) {
         //check if it entered the trigger zone of an enemy
         if (otherObj.gameObject.tag == "EnemyShip") {
             Debug.Log("Collidng with enemy");
             Destroy(gameObject);
         }
+    }
+    */
+
+    private void OnDestroy()
+    {
+        if(destroyTimer >= 0)
+        Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
     //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
