@@ -13,10 +13,12 @@ GameObject:
   - component: {fileID: 4587548330309603300}
   - component: {fileID: 4587548330309603307}
   - component: {fileID: 4587548330309603306}
-  - component: {fileID: 4587548330309603305}
+  - component: {fileID: 6929951323437438898}
   - component: {fileID: 4587548330309603304}
+  - component: {fileID: 2909547266063804111}
+  - component: {fileID: 2707352849683406607}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Butterfly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +94,7 @@ SphereCollider:
   m_GameObject: {fileID: 4587548330309603310}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 3.39
   m_Center: {x: 0, y: 0, z: 0}
@@ -112,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4587548330309603305
+--- !u!114 &6929951323437438898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +123,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4587548330309603310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9798728dd56164f0bb4894acc0eba75d, type: 3}
+  m_Script: {fileID: 11500000, guid: c389caa0337d9704eada981f569b467b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
+  ExplosionPrefab: {fileID: 921101108095998341, guid: 7096a00c4ccbb474f92ba8f2481b6c7f,
     type: 3}
-  bombRange: 0
+  _health: 6
+  inbombRange: 0
 --- !u!111 &4587548330309603304
 Animation:
   m_ObjectHideFlags: 0
@@ -143,6 +146,33 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2909547266063804111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587548330309603310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7daf263ca713a71449173784dbcc953c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsTillDestroy: 6
+  DestroyWhat: {fileID: 0}
+--- !u!65 &2707352849683406607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587548330309603310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 2.7, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4587548330332732761
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,11 +555,12 @@ GameObject:
   - component: {fileID: 4587548330765684312}
   - component: {fileID: 4587548330765684319}
   - component: {fileID: 4587548330765684318}
-  - component: {fileID: 4587548330765684317}
+  - component: {fileID: 5834943933198757857}
   - component: {fileID: 4587548330765684316}
   - component: {fileID: 3884190117683776127}
+  - component: {fileID: 7892943248502881052}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Butterfly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +636,7 @@ SphereCollider:
   m_GameObject: {fileID: 4587548330765684290}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 3.39
   m_Center: {x: 0, y: 0, z: 0}
@@ -625,7 +656,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4587548330765684317
+--- !u!114 &5834943933198757857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -634,12 +665,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4587548330765684290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9798728dd56164f0bb4894acc0eba75d, type: 3}
+  m_Script: {fileID: 11500000, guid: c389caa0337d9704eada981f569b467b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
+  ExplosionPrefab: {fileID: 921101108095998341, guid: 7096a00c4ccbb474f92ba8f2481b6c7f,
     type: 3}
-  bombRange: 0
+  _health: 6
+  inbombRange: 0
 --- !u!111 &4587548330765684316
 Animation:
   m_ObjectHideFlags: 0
@@ -670,6 +702,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SecondsTillDestroy: 6
   DestroyWhat: {fileID: 0}
+--- !u!65 &7892943248502881052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587548330765684290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 2.7, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4587548330801565407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1209,7 @@ Transform:
   m_GameObject: {fileID: 4587548331365942025}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.41, y: 0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.64, z: 1}
   m_Children: []
   m_Father: {fileID: 4587548330390976504}
   m_RootOrder: 0
@@ -1598,7 +1643,7 @@ Transform:
   m_GameObject: {fileID: 4587548331670654543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.41, y: 0.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.64, z: 1}
   m_Children: []
   m_Father: {fileID: 4587548330863654585}
   m_RootOrder: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3098358148117309282}
   - component: {fileID: 3098358148117309283}
   - component: {fileID: 2547450769369640956}
-  - component: {fileID: 2215733964304907405}
   - component: {fileID: -8319848798366252748}
   m_Layer: 0
   m_Name: ButterflyAmbush
@@ -62,18 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SecondsTillDestroy: 10
   DestroyWhat: {fileID: 3098358148117309284}
---- !u!114 &2215733964304907405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3098358148117309284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a325a414eb1d7d4aafecdc98cea5f3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8319848798366252748
 MonoBehaviour:
   m_ObjectHideFlags: 0

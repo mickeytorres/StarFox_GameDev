@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 7576713973549209217}
   m_Layer: 2
   m_Name: ChargedLaser
-  m_TagString: ChargedLaser
+  m_TagString: Blast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7576713973549209217
 MonoBehaviour:
@@ -481,7 +481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4ecb41f4c8e4a4fb73684457ff6ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 16
-  moveSpeed: 0
   lockedTarget: {fileID: 0}
-  destroyTimer: 2
+  damage: 0
+  moveSpeed: 0
+  IsAnExplosion: 0
+  IsABombExplosion: 0
+  IsABomb: 0
+  destroyTimer: 0.3
+  Explosion: {fileID: 281349171270525415, guid: 689d345e6a29a2e459bd43a95d32c190,
+    type: 3}

@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4ecb41f4c8e4a4fb73684457ff6ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockedTarget: {fileID: 0}
   damage: 4
   moveSpeed: 100
-  destroyTimer: 2
+  Explosion: {fileID: 6526985390708462869, guid: d5e2140dc44562348a5d3dae6d10dddc,
+    type: 3}
 --- !u!65 &8535335878957255648
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.042200714, g: 0.03880017, b: 0.044592425, a: 1}
+  m_IndirectSpecularColor: {r: 0.03966773, g: 0.037033997, b: 0.04194157, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &93707266
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &108690664
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &126309442
 GameObject:
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &126682962
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &137787962
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &141122937
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &153787133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &181393624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &208813997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &209721541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &234731646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &236018574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &266610633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &270559539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &271701961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &280486527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &286513111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &295878330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &329500630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &329522825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &348768797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,7 +2781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &353024413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,7 +2906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &371810201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,7 +3105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &386223936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,7 +3230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &398255524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!135 &417770744
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3523,7 +3523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &472009690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +3648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &476746402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,7 +3773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &484851755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,7 +3863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &485178157
 GameObject:
@@ -3989,7 +3989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &491758256
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &503685436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,7 +4239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &507057798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,7 +4364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &513162444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,7 +4489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &543033158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,7 +4614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &545182776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,7 +4739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &545606181
 GameObject:
   m_ObjectHideFlags: 0
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &548183233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &551380519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,7 +5114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &555893168
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &576286075
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &595429512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,7 +5489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &603209557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,7 +5595,7 @@ Transform:
   m_Children:
   - {fileID: 1285405671}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605725827
 GameObject:
@@ -5721,7 +5721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &611729393
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,7 +5773,7 @@ Transform:
   m_LocalScale: {x: 69.79085, y: 34.0446, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628896693
 GameObject:
@@ -5899,7 +5899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &633221790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,7 +6097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &653278757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,7 +6222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &668989589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6347,7 +6347,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
+--- !u!1001 &685272785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8180350548923898898, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerNov25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898898, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.9875679
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef6db3e78cb3d46d9ad60861ce642ae8, type: 3}
 --- !u!1 &685607676
 GameObject:
   m_ObjectHideFlags: 0
@@ -6472,7 +6546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &701393695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6627,7 +6701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &717642627
 GameObject:
   m_ObjectHideFlags: 0
@@ -6752,7 +6826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &742782307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,7 +6951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &744797648
 GameObject:
   m_ObjectHideFlags: 0
@@ -7002,7 +7076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &777908102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7127,7 +7201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &790794859
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,7 +7326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &793483401
 GameObject:
   m_ObjectHideFlags: 0
@@ -7377,7 +7451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &808051762
 GameObject:
   m_ObjectHideFlags: 0
@@ -7502,7 +7576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &808722511
 GameObject:
   m_ObjectHideFlags: 0
@@ -7627,7 +7701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &808802821
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,7 +7826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &813977265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7877,7 +7951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &824027927
 GameObject:
   m_ObjectHideFlags: 0
@@ -8002,7 +8076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &830664367
 GameObject:
   m_ObjectHideFlags: 0
@@ -8127,7 +8201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &832878614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8252,7 +8326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &834085031
 GameObject:
   m_ObjectHideFlags: 0
@@ -8377,7 +8451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &841632396
 GameObject:
   m_ObjectHideFlags: 0
@@ -8502,7 +8576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &850827431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8627,7 +8701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &862650108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8752,7 +8826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &864647532
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,7 +8951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &865362645
 GameObject:
   m_ObjectHideFlags: 0
@@ -9002,7 +9076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &871189276
 GameObject:
   m_ObjectHideFlags: 0
@@ -9127,7 +9201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &885142485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9252,7 +9326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &887485530
 GameObject:
   m_ObjectHideFlags: 0
@@ -9377,7 +9451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &910837364
 GameObject:
   m_ObjectHideFlags: 0
@@ -9502,7 +9576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &910891154
 GameObject:
   m_ObjectHideFlags: 0
@@ -9627,7 +9701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &929992983
 GameObject:
   m_ObjectHideFlags: 0
@@ -9752,7 +9826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &931369074
 GameObject:
   m_ObjectHideFlags: 0
@@ -9877,7 +9951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &933092156
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,7 +10076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &934099411
 GameObject:
   m_ObjectHideFlags: 0
@@ -10127,7 +10201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &934114169
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,7 +10326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &935456150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10377,7 +10451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &936321625
 GameObject:
   m_ObjectHideFlags: 0
@@ -10502,7 +10576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &940086925
 GameObject:
   m_ObjectHideFlags: 0
@@ -10627,7 +10701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &944776023
 GameObject:
   m_ObjectHideFlags: 0
@@ -10752,7 +10826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &945821198
 GameObject:
   m_ObjectHideFlags: 0
@@ -10877,7 +10951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &950291644
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,7 +11076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &958168908
 GameObject:
   m_ObjectHideFlags: 0
@@ -11127,7 +11201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &964200099
 GameObject:
   m_ObjectHideFlags: 0
@@ -11252,7 +11326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &982321294
 GameObject:
   m_ObjectHideFlags: 0
@@ -11377,7 +11451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &991001270
 GameObject:
   m_ObjectHideFlags: 0
@@ -11502,7 +11576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &993227568
 GameObject:
   m_ObjectHideFlags: 0
@@ -11627,7 +11701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &998422988
 GameObject:
   m_ObjectHideFlags: 0
@@ -11752,7 +11826,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
+--- !u!1 &1007671972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007671974}
+  - component: {fileID: 1007671973}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1007671973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007671972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c216b8eb181d34978921ceac2eb2c8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1007671974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007671972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13, y: 16.300001, z: 5.4707294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022430458
 GameObject:
   m_ObjectHideFlags: 0
@@ -11877,7 +11994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1056118662
 GameObject:
   m_ObjectHideFlags: 0
@@ -12002,7 +12119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1065417011
 GameObject:
   m_ObjectHideFlags: 0
@@ -12127,7 +12244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1074428272
 GameObject:
   m_ObjectHideFlags: 0
@@ -12252,7 +12369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1084516527
 GameObject:
   m_ObjectHideFlags: 0
@@ -12377,7 +12494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1088957969
 GameObject:
   m_ObjectHideFlags: 0
@@ -12502,7 +12619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1088980142
 GameObject:
   m_ObjectHideFlags: 0
@@ -12627,7 +12744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1096848968
 GameObject:
   m_ObjectHideFlags: 0
@@ -12752,7 +12869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1097962086
 GameObject:
   m_ObjectHideFlags: 0
@@ -12877,7 +12994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1108518075
 GameObject:
   m_ObjectHideFlags: 0
@@ -12909,7 +13026,7 @@ Transform:
   - {fileID: 2081661487}
   - {fileID: 701393696}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1108518078
 Rigidbody:
@@ -13051,7 +13168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1114126040
 GameObject:
   m_ObjectHideFlags: 0
@@ -13176,7 +13293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1134867303
 GameObject:
   m_ObjectHideFlags: 0
@@ -13301,7 +13418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1148386517
 GameObject:
   m_ObjectHideFlags: 0
@@ -13426,7 +13543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1153158511
 GameObject:
   m_ObjectHideFlags: 0
@@ -13551,7 +13668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1162144672
 GameObject:
   m_ObjectHideFlags: 0
@@ -13676,7 +13793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1163680835
 GameObject:
   m_ObjectHideFlags: 0
@@ -13801,7 +13918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1173507683
 GameObject:
   m_ObjectHideFlags: 0
@@ -13926,7 +14043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1174648172
 GameObject:
   m_ObjectHideFlags: 0
@@ -14051,7 +14168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1187545816
 GameObject:
   m_ObjectHideFlags: 0
@@ -14176,7 +14293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1194587185
 GameObject:
   m_ObjectHideFlags: 0
@@ -14301,7 +14418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1207441327
 GameObject:
   m_ObjectHideFlags: 0
@@ -14426,7 +14543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1208190593
 GameObject:
   m_ObjectHideFlags: 0
@@ -14551,7 +14668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1239697854
 GameObject:
   m_ObjectHideFlags: 0
@@ -14676,7 +14793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1251176875
 GameObject:
   m_ObjectHideFlags: 0
@@ -14801,7 +14918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1255641473
 GameObject:
   m_ObjectHideFlags: 0
@@ -14926,7 +15043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1262994586
 GameObject:
   m_ObjectHideFlags: 0
@@ -15051,7 +15168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1265639381
 GameObject:
   m_ObjectHideFlags: 0
@@ -15176,7 +15293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1285405670
 GameObject:
   m_ObjectHideFlags: 0
@@ -15393,7 +15510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1295761037
 GameObject:
   m_ObjectHideFlags: 0
@@ -15518,7 +15635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1303114430
 GameObject:
   m_ObjectHideFlags: 0
@@ -15643,7 +15760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1314670454
 GameObject:
   m_ObjectHideFlags: 0
@@ -15768,7 +15885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1322346736
 GameObject:
   m_ObjectHideFlags: 0
@@ -15893,7 +16010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1362786584
 GameObject:
   m_ObjectHideFlags: 0
@@ -16018,7 +16135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1367380014
 GameObject:
   m_ObjectHideFlags: 0
@@ -16143,7 +16260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1372236189
 GameObject:
   m_ObjectHideFlags: 0
@@ -16268,7 +16385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1394455272
 GameObject:
   m_ObjectHideFlags: 0
@@ -16540,7 +16657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1419001124
 GameObject:
   m_ObjectHideFlags: 0
@@ -16665,7 +16782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1425347478
 GameObject:
   m_ObjectHideFlags: 0
@@ -16790,7 +16907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1437983645
 GameObject:
   m_ObjectHideFlags: 0
@@ -16915,7 +17032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1493517484
 GameObject:
   m_ObjectHideFlags: 0
@@ -17040,7 +17157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1513031277
 GameObject:
   m_ObjectHideFlags: 0
@@ -17165,7 +17282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1532313811
 GameObject:
   m_ObjectHideFlags: 0
@@ -17290,7 +17407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1539998193
 GameObject:
   m_ObjectHideFlags: 0
@@ -17415,7 +17532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1540575033
 GameObject:
   m_ObjectHideFlags: 0
@@ -17540,7 +17657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1541462232
 GameObject:
   m_ObjectHideFlags: 0
@@ -17665,7 +17782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1542555802
 GameObject:
   m_ObjectHideFlags: 0
@@ -17790,7 +17907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1550985019
 GameObject:
   m_ObjectHideFlags: 0
@@ -17915,7 +18032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1555456722
 GameObject:
   m_ObjectHideFlags: 0
@@ -18040,7 +18157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1556976147
 GameObject:
   m_ObjectHideFlags: 0
@@ -18165,7 +18282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1574676249
 GameObject:
   m_ObjectHideFlags: 0
@@ -18290,7 +18407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1584217347
 GameObject:
   m_ObjectHideFlags: 0
@@ -18415,7 +18532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1605790914
 GameObject:
   m_ObjectHideFlags: 0
@@ -18540,7 +18657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1621289279
 GameObject:
   m_ObjectHideFlags: 0
@@ -18665,7 +18782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1622586328
 GameObject:
   m_ObjectHideFlags: 0
@@ -18790,7 +18907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1624486510
 GameObject:
   m_ObjectHideFlags: 0
@@ -18915,7 +19032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1632970995
 GameObject:
   m_ObjectHideFlags: 0
@@ -19040,7 +19157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1634777855
 GameObject:
   m_ObjectHideFlags: 0
@@ -19165,7 +19282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1682980754
 GameObject:
   m_ObjectHideFlags: 0
@@ -19290,7 +19407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1690950997
 GameObject:
   m_ObjectHideFlags: 0
@@ -19503,7 +19620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1706473140
 GameObject:
   m_ObjectHideFlags: 0
@@ -19628,7 +19745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1715000778
 GameObject:
   m_ObjectHideFlags: 0
@@ -19753,7 +19870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1736098750
 GameObject:
   m_ObjectHideFlags: 0
@@ -19878,7 +19995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1739770244
 GameObject:
   m_ObjectHideFlags: 0
@@ -20003,7 +20120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1742048499
 GameObject:
   m_ObjectHideFlags: 0
@@ -20128,7 +20245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1742310230
 GameObject:
   m_ObjectHideFlags: 0
@@ -20253,7 +20370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1746380543
 GameObject:
   m_ObjectHideFlags: 0
@@ -20378,7 +20495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1747822382
 GameObject:
   m_ObjectHideFlags: 0
@@ -20503,7 +20620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1749680832
 GameObject:
   m_ObjectHideFlags: 0
@@ -20628,7 +20745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1758430694
 GameObject:
   m_ObjectHideFlags: 0
@@ -20753,7 +20870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1760292731
 GameObject:
   m_ObjectHideFlags: 0
@@ -20878,7 +20995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1781092754
 GameObject:
   m_ObjectHideFlags: 0
@@ -21003,7 +21120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1788754630
 GameObject:
   m_ObjectHideFlags: 0
@@ -21128,7 +21245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1806075144
 GameObject:
   m_ObjectHideFlags: 0
@@ -21253,7 +21370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1816598517
 GameObject:
   m_ObjectHideFlags: 0
@@ -21378,7 +21495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1826062030
 GameObject:
   m_ObjectHideFlags: 0
@@ -21503,7 +21620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1834543866
 GameObject:
   m_ObjectHideFlags: 0
@@ -21628,7 +21745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1841777587
 GameObject:
   m_ObjectHideFlags: 0
@@ -21753,7 +21870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1851562324
 GameObject:
   m_ObjectHideFlags: 0
@@ -21878,7 +21995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1856782487
 GameObject:
   m_ObjectHideFlags: 0
@@ -22003,7 +22120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1857529883
 GameObject:
   m_ObjectHideFlags: 0
@@ -22128,7 +22245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1875894413
 GameObject:
   m_ObjectHideFlags: 0
@@ -22253,7 +22370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1884784352
 GameObject:
   m_ObjectHideFlags: 0
@@ -22378,7 +22495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1891466857
 GameObject:
   m_ObjectHideFlags: 0
@@ -22503,7 +22620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1905022567
 GameObject:
   m_ObjectHideFlags: 0
@@ -22628,7 +22745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1905303145
 GameObject:
   m_ObjectHideFlags: 0
@@ -22693,7 +22810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925371662
 GameObject:
@@ -22819,7 +22936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1928107304
 GameObject:
   m_ObjectHideFlags: 0
@@ -22944,7 +23061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1931192734
 GameObject:
   m_ObjectHideFlags: 0
@@ -23069,7 +23186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1946710003
 GameObject:
   m_ObjectHideFlags: 0
@@ -23194,7 +23311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1970911197
 GameObject:
   m_ObjectHideFlags: 0
@@ -23319,7 +23436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1979807076
 GameObject:
   m_ObjectHideFlags: 0
@@ -23444,7 +23561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &1980608119
 GameObject:
   m_ObjectHideFlags: 0
@@ -23569,7 +23686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2005835813
 GameObject:
   m_ObjectHideFlags: 0
@@ -23694,7 +23811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2016164770
 GameObject:
   m_ObjectHideFlags: 0
@@ -23819,7 +23936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2018289102
 GameObject:
   m_ObjectHideFlags: 0
@@ -23944,7 +24061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2030759769
 GameObject:
   m_ObjectHideFlags: 0
@@ -24143,7 +24260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2032969752
 GameObject:
   m_ObjectHideFlags: 0
@@ -24268,7 +24385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2071926738
 GameObject:
   m_ObjectHideFlags: 0
@@ -24393,7 +24510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2074132236
 GameObject:
   m_ObjectHideFlags: 0
@@ -24518,7 +24635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2077497810
 GameObject:
   m_ObjectHideFlags: 0
@@ -24643,7 +24760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2081661486
 GameObject:
   m_ObjectHideFlags: 0
@@ -25008,7 +25125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2089054285
 GameObject:
   m_ObjectHideFlags: 0
@@ -25038,7 +25155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2089054287
 MonoBehaviour:
@@ -25190,7 +25307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2110758094
 GameObject:
   m_ObjectHideFlags: 0
@@ -25284,7 +25401,7 @@ RectTransform:
   - {fileID: 2030759770}
   - {fileID: 371810202}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -25415,7 +25532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2128385491
 GameObject:
   m_ObjectHideFlags: 0
@@ -25540,7 +25657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!1 &2146299060
 GameObject:
   m_ObjectHideFlags: 0
@@ -25665,7 +25782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
     type: 3}
-  bombRange: 0
+  inbombRange: 0
 --- !u!114 &359188160133974833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25694,7 +25811,7 @@ Transform:
   m_Children:
   - {fileID: 359188161302552592}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &359188160133974839
 GameObject:
@@ -26572,6 +26689,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerNov20th
       objectReference: {fileID: 0}
+    - target: {fileID: 8180350548923898898, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26610,7 +26732,7 @@ PrefabInstance:
     - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
@@ -26637,6 +26759,51 @@ PrefabInstance:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 633221792}
+    - target: {fileID: 5180740590879991557, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180740590879991557, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180740590879991557, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350550181524629, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350550181524629, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350550181524629, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 826125863925159376, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 826125863925159376, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 826125863925159376, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6db3e78cb3d46d9ad60861ce642ae8, type: 3}
 --- !u!1001 &4350450643086528542
@@ -26689,7 +26856,7 @@ PrefabInstance:
     - target: {fileID: 4350450642995123700, guid: 2f6328271cfe0434fbae78e8a750e195,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4350450642995123700, guid: 2f6328271cfe0434fbae78e8a750e195,
         type: 3}
