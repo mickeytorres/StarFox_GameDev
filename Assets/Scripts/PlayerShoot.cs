@@ -47,7 +47,7 @@ public class PlayerShoot : MonoBehaviour {
     //button variables so player cannot spam bomb and to measure charging up (and locking on) Laser
     private float timeHeld = 0f;
     private float startTime = 0f;
-    private bool canShoot = true;
+    private bool canBomb = true;
     private float coolDown = 1.75f;
 
     //variables to handle the charged laser looking for/locking onto a target
@@ -55,6 +55,7 @@ public class PlayerShoot : MonoBehaviour {
     private bool charged = false;
     private bool hasTarget = false;
     private bool readyToShootCharged = false;
+    private bool canShoot = true;
 
     void Start() { 
         chargedTarget = null;
@@ -68,18 +69,18 @@ public class PlayerShoot : MonoBehaviour {
         TryShooting();
 
         //button cool down to not spam bombs 
-        if (!canShoot) {
+        if (!canBomb) {
             coolDown -= Time.deltaTime;
         }
 
         if (coolDown <= 0) {
             coolDown = 1.75f;
-            canShoot = true;
+            canBomb = true;
         }
 
-        if (bombCount > 0 && canShoot) {
+        if (bombCount > 0 && canBomb) {
             if (DropBomb()) {
-                canShoot = false;
+                canBomb = false;
             }
         }
     }
@@ -99,14 +100,28 @@ public class PlayerShoot : MonoBehaviour {
         }
     }
 
+    private bool GetTime() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            startTime = Time.time;
+        }
+
+        if (Input.GetKey(KeyCode.Space)) {
+            timeHeld = Time.time - startTime;
+        }
+
+        if (timeHeld >= 1f) {
+            return true;
+        }
+
+        return false;
+    }
+
     //function to shoot
     private void TryShooting() {
-        if (Input.GetKeyDown(KeyCode.Space) && !charged && !readyToShootCharged) {
-            startTime = Time.time;
+        if (Input.GetKeyDown(KeyCode.Space) && !charged && !readyToShootCharged && canShoot) {
             triCounter = 3;
             triTimer = 0;
             readyToShootCharged = false;
-            timeHeld = 0f;
         }
         
         //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
@@ -122,15 +137,10 @@ public class PlayerShoot : MonoBehaviour {
                     triCounter--;
                 }
             }
+        }
 
-            //check to see how long [SPACE] was held and if it was long enough to charge up the Laser
-            timeHeld = Time.time - startTime;
-
-            if (timeHeld >= 1f) {
-                Debug.Log("Held for: " + timeHeld);
-                charged = true;
-                timeHeld = 0f;
-            }
+        if (GetTime()) {
+            charged = true;
         }
 
         //releasing a charged Laser
@@ -143,7 +153,7 @@ public class PlayerShoot : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && readyToShootCharged && charged) {
-            FireCharged();
+            canShoot = FireCharged();
         }
     }
 
@@ -163,7 +173,7 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     //function to fire a charged Laser.
-    private void FireCharged() {
+    private bool FireCharged() {
         //instantiate the blast 
         GameObject thisBlast = Instantiate(chargedPrefab, blastSpawn.transform);
         thisBlast.transform.parent = blastHolder.transform;
@@ -176,6 +186,8 @@ public class PlayerShoot : MonoBehaviour {
         } 
 
         FireChargedHelper();
+
+        return true;
     }
 
     //helper function that simply resets all variables managing a charged blast
@@ -183,6 +195,7 @@ public class PlayerShoot : MonoBehaviour {
         chargedTarget = null;
         charged = false;
         readyToShootCharged = false;
+        timeHeld = 0f;
     }
 
     //function to drop a bomb
