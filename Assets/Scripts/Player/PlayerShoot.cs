@@ -6,8 +6,6 @@ using UnityEngine;
 //intent: shoot blasts and bombs at enemies
 //controls: press space to shoot normal blasts, hold space down to charge Laser, press shift to launch bomb
 
-#pragma warning disable XY
-
 public class PlayerShoot : MonoBehaviour { 
 
     //damage constants
@@ -19,6 +17,7 @@ public class PlayerShoot : MonoBehaviour {
     const float chargedDamage = 16f;
     const float bombDamage = 20f;
 
+    //Laser setter variable for handling laser switches
     Laser currLaserType = Laser.Single;
 
     //prefabs for different types of shots and blasts spawns
@@ -27,7 +26,6 @@ public class PlayerShoot : MonoBehaviour {
     public GameObject doubleBPrefab;
     public GameObject chargedPrefab;
     public GameObject bombPrefab; 
-    public GameObject targetCheck;
     //setter variable that will change the prefab associated with each laser type
     private GameObject laserPrefab;
 
@@ -35,7 +33,7 @@ public class PlayerShoot : MonoBehaviour {
     public GameObject blastHolder;
 
     //variables for handling triple shot--holding down space (indefinitely) will only release
-    //up to 3 blasts. Will not fire indefinitely
+    //up to 3 blasts. Will not fire indefinitely.
     private int triCounter;
     private float triTimer;
 
@@ -53,7 +51,6 @@ public class PlayerShoot : MonoBehaviour {
     //variables to handle the charged laser looking for/locking onto a target
     private GameObject chargedTarget;
     private bool charged = false;
-    private bool hasTarget = false;
     private bool readyToShootCharged = false;
     private bool canShoot = true;
 
@@ -100,22 +97,6 @@ public class PlayerShoot : MonoBehaviour {
         }
     }
 
-    private bool GetTime() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            startTime = Time.time;
-        }
-
-        if (Input.GetKey(KeyCode.Space)) {
-            timeHeld = Time.time - startTime;
-        }
-
-        if (timeHeld >= 1f) {
-            return true;
-        }
-
-        return false;
-    }
-
     //function to shoot
     private void TryShooting() {
         if (Input.GetKeyDown(KeyCode.Space) && !charged && !readyToShootCharged && canShoot) {
@@ -155,6 +136,22 @@ public class PlayerShoot : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && readyToShootCharged && charged) {
             canShoot = FireCharged();
         }
+    }
+
+    private bool GetTime() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            startTime = Time.time;
+        }
+
+        if (Input.GetKey(KeyCode.Space)) {
+            timeHeld = Time.time - startTime;
+        }
+
+        if (timeHeld >= 1f) {
+            return true;
+        }
+
+        return false;
     }
 
     //function to find the target for a charged laser to follow
