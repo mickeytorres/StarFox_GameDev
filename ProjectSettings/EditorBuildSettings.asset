@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Sammy/slippy-scene.unity
     guid: a35e893569faa46b4a9a488d5d4855e5
   - enabled: 0
-    path: Assets/Scenes/FoxLeoCopy.unity
+    path: Assets/Scenes/Leo/FoxLeoCopy.unity
     guid: b796b0e4230f4464fa98828ef0ab5066
   m_configObjects: {}

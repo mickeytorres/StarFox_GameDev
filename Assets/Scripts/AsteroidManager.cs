@@ -77,6 +77,10 @@ public class AsteroidManager : MonoBehaviour
         {
             _shot = other.transform.GetComponent<BlastMovement>();
             _health -= _shot.damage;
+            if (!_shot.IsABombExplosion)
+            {
+                Destroy(_shot.gameObject);
+            }
             Explosion();
             //DamageCalculator();
         }
@@ -95,7 +99,7 @@ public class AsteroidManager : MonoBehaviour
             {
                 Instantiate(asteroidChunksPrefab, transform.position, Quaternion.identity);
 
-                asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
+                //asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
             Destroy(gameObject);

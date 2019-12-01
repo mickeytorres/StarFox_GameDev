@@ -10,6 +10,10 @@ public class TimedDestroy : MonoBehaviour
     void Start()
     {
         StartCoroutine(Timer());
+        if (DestroyWhat == null)
+        {
+            DestroyWhat = this.gameObject;
+        }
     }
 
     IEnumerator Timer()
