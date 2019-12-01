@@ -17,7 +17,7 @@ public class BlastMovement : MonoBehaviour
     public bool IsABombExplosion = false;
     public bool IsABomb = false;
 
-    public float destroyTimer = 0.5f;
+    private float destroyTimer = 0.5f;
 
     public GameObject Explosion;
 

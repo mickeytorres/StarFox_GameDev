@@ -198,9 +198,9 @@ public class PlayerShoot : MonoBehaviour {
     //function to drop a bomb
     private bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
+            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform.position, Quaternion.Euler(90f, 0f, 0f));
             thisBomb.transform.parent = blastHolder.transform;
-            thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
+            thisBomb.gameObject.GetComponent<BlastMovement>().damage = bombDamage;
             bombCount--;
             return true;
         }
