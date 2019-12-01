@@ -48,16 +48,6 @@ public class BlastMovement : MonoBehaviour
         }
     }
 
-    /*
-    void OnCollisionEnter(Collision otherObj) {
-        //check if it entered the trigger zone of an enemy
-        if (otherObj.gameObject.tag == "EnemyShip") {
-            Debug.Log("Collidng with enemy");
-            Destroy(gameObject);
-        }
-    }
-    */
-
     private void OnDestroy()
     {
         if(destroyTimer >= 0 || IsABomb)
