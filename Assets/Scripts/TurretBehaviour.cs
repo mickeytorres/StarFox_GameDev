@@ -15,7 +15,7 @@ public class TurretBehaviour : MonoBehaviour
     public float turretHealthScore = 20f;  
 
     void Start(){
-
+        InvokeRepeating("fireBullets", 1.0f, 0.5f); 
     }
 
     void Update()
