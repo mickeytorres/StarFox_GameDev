@@ -17,7 +17,7 @@ public class BlastMovement : MonoBehaviour
     public bool IsABombExplosion = false;
     public bool IsABomb = false;
 
-    public float destroyTimer = 0.5f;
+    private float destroyTimer = 0.5f;
 
     public GameObject Explosion;
 
@@ -47,16 +47,6 @@ public class BlastMovement : MonoBehaviour
             transform.Translate(0, 0, moveSpeed * Time.deltaTime);
         }
     }
-
-    /*
-    void OnCollisionEnter(Collision otherObj) {
-        //check if it entered the trigger zone of an enemy
-        if (otherObj.gameObject.tag == "EnemyShip") {
-            Debug.Log("Collidng with enemy");
-            Destroy(gameObject);
-        }
-    }
-    */
 
     private void OnDestroy()
     {

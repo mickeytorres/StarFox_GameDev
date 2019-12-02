@@ -1102,11 +1102,22 @@ PrefabInstance:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 371810203}
+    - target: {fileID: 4697998259639438091, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.28
+      objectReference: {fileID: 0}
     - target: {fileID: 826125864630662381, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: blastHolder
       value: 
       objectReference: {fileID: 1943702382}
+    - target: {fileID: 826125864630662381, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: bombPrefab
+      value: 
+      objectReference: {fileID: 2035848635302227078, guid: f32aa69210b7f43a59777e8495d88dca,
+        type: 3}
     - target: {fileID: 8180350550181524629, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1532,6 +1543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007671974}
   - component: {fileID: 1007671973}
+  - component: {fileID: 1007671975}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1565,6 +1577,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1007671975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007671972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba96358da2725415e87104db9542f77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1032367924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2776,7 +2800,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909820016 stripped
 GameObject:
@@ -4365,7 +4389,7 @@ PrefabInstance:
     - target: {fileID: 4350450642995123700, guid: 2f6328271cfe0434fbae78e8a750e195,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4350450642995123700, guid: 2f6328271cfe0434fbae78e8a750e195,
         type: 3}
@@ -4402,5 +4426,10 @@ PrefabInstance:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 108570646}
+    - target: {fileID: 1807469104084261013, guid: 2f6328271cfe0434fbae78e8a750e195,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6328271cfe0434fbae78e8a750e195, type: 3}

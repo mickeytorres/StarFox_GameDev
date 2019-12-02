@@ -128,6 +128,13 @@ public class PlayerShoot : MonoBehaviour {
         if (charged) {
             chargedTarget = GetTarget();
 
+            //locks onto the object it first saw. 
+            //if (charged) will run every frame, so if GetTarget() already found something in a previous iteration
+            //do not find a new target
+            if (chargedTarget == null) {
+                GetTarget();
+            }
+
             if (Input.GetKeyUp(KeyCode.Space)) {
                 readyToShootCharged = true;
             }
@@ -159,7 +166,7 @@ public class PlayerShoot : MonoBehaviour {
         Ray enemyDetectRay = new Ray(transform.position, Vector3.forward);
         RaycastHit rayHit = new RaycastHit();
         float enemyDetectRayDist = 50f;
-        bool itemFound = Physics.SphereCast(enemyDetectRay, 2f, out rayHit, enemyDetectRayDist);
+        bool itemFound = Physics.SphereCast(enemyDetectRay, 4f, out rayHit, enemyDetectRayDist);
 
         Debug.DrawRay(enemyDetectRay.origin, enemyDetectRay.direction * enemyDetectRayDist, Color.blue);
 
@@ -178,11 +185,24 @@ public class PlayerShoot : MonoBehaviour {
 
         //if the charged blast found a target to follow, set the target.
         //this also handles if the target was destroyed before you released the blast
-        if (chargedTarget != null) {
+        if (chargedTarget != null && TargetCheck(chargedTarget)) {
+            Debug.Log("name of the targeted object: " + chargedTarget.name);
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
         } 
 
         FireChargedHelper();
+
+        return true;
+    }
+
+    //function to check if a previously locked onto target is still in view of the camera. 
+    //If it is not, the targeted shot is lost and it's just a normal charged laser
+    private bool TargetCheck(GameObject chargedTarget) {
+        Vector3 chargedTargetPos = Camera.main.WorldToScreenPoint(chargedTarget.transform.position);
+
+		if (chargedTargetPos.x < 0 || chargedTargetPos.y < 0 || chargedTargetPos.x > Screen.width || chargedTargetPos.y > Screen.height) {
+			return false;
+		}
 
         return true;
     }
@@ -198,9 +218,9 @@ public class PlayerShoot : MonoBehaviour {
     //function to drop a bomb
     private bool DropBomb() {
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform);
+            GameObject thisBomb = Instantiate(bombPrefab, blastSpawn.transform.position, Quaternion.Euler(90f, 0f, 0f));
             thisBomb.transform.parent = blastHolder.transform;
-            thisBomb.gameObject.GetComponent<BlastMovement>().damage = damage;
+            thisBomb.gameObject.GetComponent<BlastMovement>().damage = bombDamage;
             bombCount--;
             return true;
         }
