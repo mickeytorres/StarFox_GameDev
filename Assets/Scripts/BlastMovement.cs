@@ -48,10 +48,15 @@ public class BlastMovement : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
+    // private void Awake() {
+    //     if (PlayerPlaneMovement.Instance.GameObject.transform.position.z < -10) {
+    //         Destroy(this.gameObject);
+    //     }
+    // }
+
+    private void OnDestroy() {
         if(destroyTimer >= 0 || IsABomb)
-        Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
     //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
