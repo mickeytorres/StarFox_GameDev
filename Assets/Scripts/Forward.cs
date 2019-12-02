@@ -34,15 +34,15 @@ public class Forward : MonoBehaviour
     {
         if (_normalspeed == 0)
         {
-            _normalspeed = 10;
+            _normalspeed = 20;
         }
         if (_brakespeed == 0)
         {
-            _brakespeed = 5;
+            _brakespeed = 10;
         }
         if (_boostspeed == 0)
         {
-            _boostspeed = 30;
+            _boostspeed = 50;
         }
         instance = this;
         _rb = GetComponent<Rigidbody>();
