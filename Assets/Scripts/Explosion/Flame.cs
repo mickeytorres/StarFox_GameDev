@@ -50,7 +50,7 @@ public class Flame : MonoBehaviour
         }
 
         //Shifting the texture.
-        m_Material.SetTextureOffset("_MainTex",new Vector2(1.42f, timer/2.5f));
+        m_Material.SetTextureOffset("_MainTex",new Vector2(1.42f, timer/0.7f));
 
         //Bloats the fireball according to ScaleSpeed
         transform.localScale += Time.deltaTime * new Vector3(ScaleSpeed, ScaleSpeed, ScaleSpeed);
