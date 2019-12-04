@@ -18,6 +18,7 @@ TagManager:
   - Bomb
   - enemyShip
   - EnemyBlast
+  - PlayerModel
   layers:
   - Default
   - TransparentFX
