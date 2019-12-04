@@ -32,6 +32,7 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         energyBar.fillAmount = _energy / _maxEnergy;
         healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
@@ -50,7 +51,9 @@ public class HealthManager : MonoBehaviour
     {
         if (player.boost && canBoost)
         {
+            
             _energy -= 10f * Time.deltaTime;
+   
 
         }
 
