@@ -12,10 +12,15 @@ public class TurretBehaviour : MonoBehaviour
     public GameObject blastPrefab; 
     public Transform Player; 
 
-    public float turretHealthScore = 20f;  
-
     void Start(){
-        InvokeRepeating("fireBullets", 1.0f, 0.5f); 
+
+            Turret = this.gameObject;
+
+
+            Player = GameObject.FindWithTag("PlayerModel").transform;
+
+        InvokeRepeating("fireBullets", 1.0f, 3f);
+        
     }
 
     void Update()
@@ -24,9 +29,8 @@ public class TurretBehaviour : MonoBehaviour
     }
 
     void fireBullets(){
+        transform.LookAt(new Vector3(Player.transform.position.x,Player.transform.position.y,Player.position.z + Forward.instance._speed));
         Instantiate(blastPrefab, Turret.transform.position, Turret.transform.rotation);
-        blastPrefab.transform.LookAt(Player);
-        blastPrefab.transform.Translate(0, 0, 7f * Time.deltaTime); //bullet speed 
         Debug.Log("pew pew");
     }
 
