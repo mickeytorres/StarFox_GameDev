@@ -34,15 +34,15 @@ public class Forward : MonoBehaviour
     {
         if (_normalspeed == 0)
         {
-            _normalspeed = 20;
+            _normalspeed = 50;
         }
         if (_brakespeed == 0)
         {
-            _brakespeed = 10;
+            _brakespeed = 20;
         }
         if (_boostspeed == 0)
         {
-            _boostspeed = 50;
+            _boostspeed = 100;
         }
         instance = this;
         _rb = GetComponent<Rigidbody>();
@@ -75,6 +75,7 @@ public class Forward : MonoBehaviour
         {
             
             boost = true;
+            Debug.Log(boost);
             PlayerPlaneMovement.instance.Boosting = true;
             _speed = _boostspeed;
             Debug.Log(_speed);

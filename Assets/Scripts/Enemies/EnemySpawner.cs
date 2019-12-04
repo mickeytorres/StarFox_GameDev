@@ -35,6 +35,22 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(FirstWaveButterfly);
             Has_FirstWaveButterfly_Spawned = true;
         }
+        
+        if (Player.transform.position.z >= Mech_SpawnZpos&& !Has_Mech_Spawned)
+        {
+            Instantiate(Mech);
+            Has_Mech_Spawned = true;
+        }
+        if (Player.transform.position.z >= FirstWaveWorm_SpawnZpos&& !Has_FirstWaveWorm_Spawned)
+        {
+            Instantiate(FirstWaveWorm);
+            Has_FirstWaveButterfly_Spawned = true;
+        }
+        if (Player.transform.position.z >= ConeHeads_SpawnZpos && !Has_ConeHeads_Spawned)
+        {
+            Instantiate(ConeHeads);
+            Has_ConeHeads_Spawned= true;
+        }
 
 
     }
