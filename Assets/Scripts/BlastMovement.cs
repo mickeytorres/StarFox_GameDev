@@ -22,6 +22,7 @@ public class BlastMovement : MonoBehaviour
     public GameObject Explosion;
 
     void Start() {
+        SetLifeTime();
         SetSpeed();
         SetDestination();
     }
@@ -48,10 +49,15 @@ public class BlastMovement : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
+    // private void Awake() {
+    //     if (PlayerPlaneMovement.Instance.GameObject.transform.position.z < -10) {
+    //         Destroy(this.gameObject);
+    //     }
+    // }
+
+    private void OnDestroy() {
         if(destroyTimer >= 0 || IsABomb)
-        Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
     //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
@@ -76,11 +82,32 @@ public class BlastMovement : MonoBehaviour
     //Setter for setting type of blast this instance will be.
     //bombs move slower than regular blasts.
     private void SetSpeed() {
-        if (gameObject.tag == "Bomb") {
-            moveSpeed = 55f;
+        if (IsABomb) {
+            moveSpeed = 100f;
         }
         else {
-            moveSpeed = 100f;
+            moveSpeed = 200f;
+        }
+
+   
+    }
+
+    private void SetLifeTime()
+    {
+        if (IsABomb)
+        {
+            if (IsABombExplosion)
+            {
+                destroyTimer = 2f;
+            }
+            else
+            {
+                destroyTimer = 1f;
+            }
+        }
+        else
+        {
+            destroyTimer = 0.5f;
         }
     }
 }
