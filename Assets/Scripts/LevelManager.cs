@@ -6,27 +6,43 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     private bool pause = false;
-    private bool play = true;
+
+    public Canvas pauseMenu;
 
     void Update()
     {
-        //eventually will want some kind of "press [ ] to start game"
-        if (Input.GetKey(KeyCode.Return)) {
-            SceneManager.LoadScene(0);
-        } 
+        SelectOption();
+        Pause();
+    }
+
+    public void SelectOption() {
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            if (pauseMenu.GetComponent<PauseMenu>().GetOption() == PauseMenu.Option.Retry) {
+                SceneManager.LoadScene(0);
+                Time.timeScale = 1;
+            }
+
+            else if (pauseMenu.GetComponent<PauseMenu>().GetOption() == PauseMenu.Option.Continue) {
+                pauseMenu.gameObject.SetActive(false);
+                Time.timeScale = 1;
+                pause = false;
+            }
+        }
     }
 
     //function to pause in-game
     public void Pause() {
-        if (Input.GetKey(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!pause) {
+                pauseMenu.gameObject.SetActive(true);
                 Time.timeScale = 0;
                 pause = true;
             }
-            else {
-                Time.timeScale = 1;
-                pause = false;
-            }
+            // else {
+            //     pauseMenu.gameObject.SetActive(false);
+            //     Time.timeScale = 1;
+            //     pause = false;
+            // }
         }
     }
 }
