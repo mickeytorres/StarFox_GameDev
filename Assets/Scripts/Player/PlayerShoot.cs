@@ -228,6 +228,11 @@ public class PlayerShoot : MonoBehaviour {
         return false;
     }
 
+    //Getter function to get number of bombs player currently has
+    public int GetBombCount() {
+        return bombCount;
+    }
+
     //function to upgrade the laser
     private Laser UpgradeLaser(Laser newLaser) {
         if (newLaser == Laser.Single) {
