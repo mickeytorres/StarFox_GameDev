@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public static HealthManager instance;
 
     public Image healthBar;
     public Image energyBar;
@@ -21,13 +20,9 @@ public class HealthManager : MonoBehaviour
 
 
     public bool canBoost = true;
-
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +45,7 @@ public class HealthManager : MonoBehaviour
         {
             _health -= 7f;
         }
+        
     }
 
     public void DrainEnergy()
