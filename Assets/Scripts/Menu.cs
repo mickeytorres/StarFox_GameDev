@@ -3,28 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//usage: put this on a canvas with two choices
-//intent: in-game pause menu (accessed by pressing [ESC]) that allows the player to restart level or continue
+//usage: put this on a canvas with two choices, one of which is to start a level from the beginning
+//intent: 
 
-public class PauseMenu : MonoBehaviour {
-
+public class Menu : MonoBehaviour {
     //enum for the two choices
     public enum Option {
-        Continue,
-        Retry,
+        FromBeginning,
+        OtherOption,
     }
-    public Option currOption = Option.Continue;
+    [HideInInspector]public Option currOption;
     
     //text elements
-    public TextMeshProUGUI continueText;
-    public TextMeshProUGUI retryText;
+    public TextMeshProUGUI otherOptionText;
+    public TextMeshProUGUI fromBeginningText;
 
     private TextMeshProUGUI currText;
     private TextMeshProUGUI otherText;
 
     void Start() {
-        currText = continueText;
-        otherText = retryText;
+        Debug.Log("Option is: " + currOption.ToString());
+        if (currOption == Option.OtherOption) {
+            currText = otherOptionText;
+            otherText = fromBeginningText;
+        }
+        else if (currOption == Option.FromBeginning) {
+            currText = fromBeginningText;
+            otherText = otherOptionText;
+        }
     }
 
     void Update() {
@@ -38,15 +44,15 @@ public class PauseMenu : MonoBehaviour {
 
     //allow the player to change between the two options 
     private Option ChangeOption(Option nextOption) {
-        if (nextOption == Option.Continue) {
-            nextOption = Option.Retry;
-            currText = retryText;
-            otherText = continueText;
+        if (nextOption == Option.OtherOption) {
+            nextOption = Option.FromBeginning;
+            currText = fromBeginningText;
+            otherText = otherOptionText;
         }
-        else if (nextOption == Option.Retry) {
-            nextOption = Option.Continue;
-            currText = continueText;
-            otherText = retryText;
+        else if (nextOption == Option.FromBeginning) {
+            nextOption = Option.OtherOption;
+            currText = otherOptionText;
+            otherText = fromBeginningText;
         }
         
         return nextOption;

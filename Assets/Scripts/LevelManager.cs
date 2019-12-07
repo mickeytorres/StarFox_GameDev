@@ -13,8 +13,7 @@ public class LevelManager : MonoBehaviour
 
     public Canvas pauseMenu;
 
-    void Update()
-    {
+    void Update() {
         SelectOption();
         Pause();
     }
@@ -23,12 +22,12 @@ public class LevelManager : MonoBehaviour
     //(continue or restart)
     public void SelectOption() {
         if (Input.GetKeyDown(KeyCode.Return)) {
-            if (pauseMenu.GetComponent<PauseMenu>().GetOption() == PauseMenu.Option.Retry) {
+            if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
                 SceneManager.LoadScene(0);
                 Time.timeScale = 1;
             }
 
-            else if (pauseMenu.GetComponent<PauseMenu>().GetOption() == PauseMenu.Option.Continue) {
+            else if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
                 pauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1;
                 pause = false;

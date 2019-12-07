@@ -49,4 +49,8 @@ public class UIManager : MonoBehaviour {
 
         bombCountText.text = "x   " + bombCount.ToString();
     }
+
+    private void UpdateLifeCount() {
+        //
+    }
 }
