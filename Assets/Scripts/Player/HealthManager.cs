@@ -7,27 +7,27 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public static HealthManager instance;
 
     public Image healthBar;
     public Image energyBar;
 
     public Forward player;
 
+    public int PlayerLives = 3;
+    
+
     private float _energy = 50f;
     private float _health = 100f;
     private float _maxEnergy = 50f;
     private float _maxHealth = 100f;
+    
+    
 
 
     public bool canBoost = true;
-
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,13 @@ public class HealthManager : MonoBehaviour
         if(other.gameObject.CompareTag("EnemyBlast"))
         {
             _health -= 7f;
+            if (_health <= 0)
+            {
+                PlayerLives--;
+                _health = 100;
+            }
         }
+        
     }
 
     public void DrainEnergy()
