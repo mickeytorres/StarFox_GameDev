@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sammy/Dec9th-Sammy.unity
     guid: 301d3a6e3f4ca4e65a4739849ec99d8e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Sammy/Dec4th-Sammy.unity
     guid: e26906f194d9f480980ed45da09e3f46
   - enabled: 1

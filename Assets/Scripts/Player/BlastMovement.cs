@@ -17,7 +17,9 @@ public class BlastMovement : MonoBehaviour
     public bool IsABombExplosion = false;
     public bool IsABomb = false;
 
-    private float destroyTimer = 0.75f;
+    public AudioSource bombSoundSource;
+
+    private float destroyTimer;
 
     public GameObject Explosion;
 
@@ -29,10 +31,15 @@ public class BlastMovement : MonoBehaviour
 
     void Update()
     {
-        //destroy the blast if it's been more than 2f seconds and hasn't hit anything yet
+        //destroy the blast if it's been more than destroyTimer's initial value # of seconds and hasn't hit anything yet
         destroyTimer -= Time.deltaTime;
 
         if (destroyTimer <= 0f) {
+            if (IsABomb) {
+                Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                Debug.Log("Trying to play sound effect");
+                bombSoundSource.Play();
+            }
             Destroy(gameObject);
         }
 
@@ -47,17 +54,6 @@ public class BlastMovement : MonoBehaviour
             transform.LookAt(moveTowards);
             transform.Translate(0, 0, moveSpeed * Time.deltaTime);
         }
-    }
-
-    // private void Awake() {
-    //     if (PlayerPlaneMovement.Instance.GameObject.transform.position.z < -10) {
-    //         Destroy(this.gameObject);
-    //     }
-    // }
-
-    private void OnDestroy() {
-        if(destroyTimer >= 0 || IsABomb)
-            Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
     //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
@@ -107,7 +103,7 @@ public class BlastMovement : MonoBehaviour
         }
         else
         {
-            destroyTimer = 0.5f;
+            destroyTimer = 0.75f;
         }
     }
 }
