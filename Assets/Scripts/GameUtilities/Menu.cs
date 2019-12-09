@@ -13,6 +13,8 @@ public class Menu : MonoBehaviour {
         OtherOption,
     }
     [HideInInspector]public Option currOption;
+
+    private Option[] optionsArray = new Option[2];
     
     //text elements
     public TextMeshProUGUI otherOptionText;
@@ -22,7 +24,7 @@ public class Menu : MonoBehaviour {
     private TextMeshProUGUI otherText;
 
     void Start() {
-        Debug.Log("Option is: " + currOption.ToString());
+        //optionsArray = {FromBeginning, OtherOption};
         if (currOption == Option.OtherOption) {
             currText = otherOptionText;
             otherText = fromBeginningText;
