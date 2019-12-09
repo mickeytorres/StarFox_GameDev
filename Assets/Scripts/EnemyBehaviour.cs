@@ -5,9 +5,7 @@ using UnityEngine;
 //USAGE: put this on a EnemyAI PreFab 
 //INTENT: enemies start acting when the player enters a certain section of the scene. should contain the screen shake and effects it has on player/companion
 //        AI when they collide. As of right now, this script focuses on the "horde" enemies, not the boss. 
-//TODO:  
-// - move enemy script (for calling when triggered by player?)
-//      - three types of moves, asteroids & enemyShips & turrets
+//TODO: 
 // - screen shake on trigger enter (trigger on the enemy)
 //      - on screen shake, screen flahses red/white to indicate health 
 // 
