@@ -53,6 +53,10 @@ public class PlayerShoot : MonoBehaviour {
     private bool charged = false;
     private bool readyToShootCharged = false;
     private bool canShoot = true;
+    //public GameObject frontNode;
+
+    //audio components
+    public AudioSource shootSoundSource;
 
     void Start() { 
         chargedTarget = null;
@@ -103,6 +107,7 @@ public class PlayerShoot : MonoBehaviour {
             triCounter = 3;
             triTimer = 0;
             readyToShootCharged = false;
+            shootSoundSource.Play();
         }
         
         //quickly tapping the spacebar will only release one blast, but holding it down for some amount of time
@@ -170,8 +175,11 @@ public class PlayerShoot : MonoBehaviour {
 
         Debug.DrawRay(enemyDetectRay.origin, enemyDetectRay.direction * enemyDetectRayDist, Color.blue);
 
-        if (itemFound) 
+        if (itemFound) {
+            //change the front node to red to let player know a target has been locked onto
+            //frontNode.gameObject.GetComponent<SpriteRenderer>().material.color = Color.red;
             return rayHit.collider.gameObject;
+        }
         else 
             return null;
     }
@@ -186,9 +194,10 @@ public class PlayerShoot : MonoBehaviour {
         //if the charged blast found a target to follow, set the target.
         //this also handles if the target was destroyed before you released the blast
         if (chargedTarget != null && TargetCheck(chargedTarget)) {
-            Debug.Log("name of the targeted object: " + chargedTarget.name);
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
         } 
+
+        shootSoundSource.Play();
 
         FireChargedHelper();
 
@@ -209,6 +218,7 @@ public class PlayerShoot : MonoBehaviour {
 
     //helper function that simply resets all variables managing a charged blast
     private void FireChargedHelper() {
+        //frontNode.gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
         chargedTarget = null;
         charged = false;
         readyToShootCharged = false;

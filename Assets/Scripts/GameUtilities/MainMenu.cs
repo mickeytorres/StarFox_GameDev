@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
     public Canvas mainMenu;
     public Canvas howToPlay;
 
-    void Start() {
+    void Awake() {
         gameObject.GetComponent<Menu>().currOption = Menu.Option.FromBeginning;
         Debug.Log("Setting the original option");
     }
