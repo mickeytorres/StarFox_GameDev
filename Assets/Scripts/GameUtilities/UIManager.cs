@@ -22,11 +22,7 @@ public class UIManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            levelManager.gameObject.GetComponent<ScoreManager>().ScoreSetter();
-            UpdateScore();
-        }
-
+        UpdateScore();
         UpdateBombCount();
     }
 
