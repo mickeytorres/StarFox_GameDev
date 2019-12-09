@@ -840,6 +840,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56282266}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &70168174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8180350548844631735, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 685272785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &78262406
 GameObject:
   m_ObjectHideFlags: 0
@@ -6952,6 +6958,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350550279299864, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548844631735, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.05002077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548844631735, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9987482
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548844631735, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5.734
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548844631734, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: maxSomersaultHeight
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180350548844631734, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: Braking
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 826125864630662381, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
@@ -22500,6 +22536,11 @@ PrefabInstance:
       propertyPath: Gyroscope
       value: 
       objectReference: {fileID: 108570646}
+    - target: {fileID: 4350450642014442317, guid: 2f6328271cfe0434fbae78e8a750e195,
+        type: 3}
+      propertyPath: PlaneBody
+      value: 
+      objectReference: {fileID: 70168174}
     - target: {fileID: 2938225060148460915, guid: 2f6328271cfe0434fbae78e8a750e195,
         type: 3}
       propertyPath: m_FOVAxisMode
