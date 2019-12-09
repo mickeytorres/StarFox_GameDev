@@ -28,8 +28,9 @@ Transform:
   m_LocalScale: {x: 1.5076, y: 1, z: 1}
   m_Children:
   - {fileID: 7678999295471431944}
+  - {fileID: 8081647158146719867}
   m_Father: {fileID: 6393095298699860622}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3705637345823539053
 GameObject:
@@ -132,13 +133,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5255520422497131487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0, z: 0}
-  m_LocalScale: {x: 1.5076, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9286282, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5927756872625860849}
-  m_Father: {fileID: 6393095298699860622}
-  m_RootOrder: 0
+  m_Father: {fileID: 1112593737711460321}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6393095298699860611
 GameObject:
@@ -167,9 +168,8 @@ Transform:
   m_GameObject: {fileID: 6393095298699860611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children:
-  - {fileID: 8081647158146719867}
   - {fileID: 1112593737711460321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -189,6 +189,9 @@ MonoBehaviour:
   lockedTarget: {fileID: 0}
   damage: 12
   moveSpeed: 0
+  IsAnExplosion: 0
+  IsABombExplosion: 0
+  IsABomb: 0
   Explosion: {fileID: 6526985390708462869, guid: d5e2140dc44562348a5d3dae6d10dddc,
     type: 3}
 --- !u!65 &6393095298699860623
@@ -202,8 +205,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 1.2, z: 4.5}
-  m_Center: {x: 0, y: 0, z: 4.5}
+  m_Size: {x: 2.4, y: 1.2, z: 8}
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!1 &7212733197961413346
 GameObject:
   m_ObjectHideFlags: 0
