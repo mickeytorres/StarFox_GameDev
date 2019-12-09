@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!pause) {
                 pauseMenu.gameObject.SetActive(true);
+                pauseMenu.GetComponent<Menu>().currOption = Menu.Option.OtherOption;
                 Time.timeScale = 0;
                 pause = true;
             }
