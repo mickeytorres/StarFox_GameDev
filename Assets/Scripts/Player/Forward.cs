@@ -55,7 +55,7 @@ public class Forward : MonoBehaviour
         Brake();
         if (PlayerPlaneMovement.instance.Somersaulting)
         {
-            _speed = 0f;
+            _speed = _boostspeed;
         }
     }
 

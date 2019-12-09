@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class BoostTrap : MonoBehaviour
 {
-    // Start is called before the first frame update
+   public Transform player;
+   public Transform target;
+
+
+   // Start is called before the first frame update
     void Start()
     {
         
