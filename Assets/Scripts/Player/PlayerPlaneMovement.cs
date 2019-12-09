@@ -27,6 +27,7 @@ public class PlayerPlaneMovement : MonoBehaviour
     public float RotateSpeed;
     public float Rotation;
     public float RotationGoal;
+    public float maxSomersaultHeight;
 
     //list of bools that restricts player from performing certain acts according to what the plane is currently doing.
     public bool TiltingL;
@@ -144,7 +145,7 @@ public class PlayerPlaneMovement : MonoBehaviour
                     Rotation = transform.localEulerAngles.z;
                 }
             }
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
+           transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
         }
 
         //Input controls
@@ -250,8 +251,21 @@ public class PlayerPlaneMovement : MonoBehaviour
 
                 SomersaultFlipAngle -= 120 * Time.deltaTime;
                 //transform.localEulerAngles = new Vector3(SomersaultFlipAngle, 0, 0);
-                transform.RotateAround(Forward.instance.gameObject.transform.position, new Vector3 (0,0,0), SomersaultFlipAngle);
-                transform.localPosition += transform.forward * Forward.instance._boostspeed * Time.deltaTime * (1 + 0.05f * (3 - SomersaultTimer));
+
+                
+                // Dec/9/19  commented lines out for debug purposes - george 
+                transform.Rotate(new Vector3(-120f, 0f, -0f) * Time.deltaTime);
+                if (SomersaultTimer > 1.5)
+                {
+                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, new Vector3(0f,maxSomersaultHeight,2f), Time.deltaTime * maxSomersaultHeight/1.5f);
+                }
+                else if (SomersaultTimer < 1.5)
+                {
+                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, new Vector3(0f,0f,0f), Time.deltaTime * maxSomersaultHeight/1.5f);
+                }
+
+                // transform.RotateAround(Forward.instance.gameObject.transform.position, new Vector3 (0,0,0), SomersaultFlipAngle);
+                //transform.localPosition += transform.forward * Forward.instance._boostspeed * Time.deltaTime * (1 + 0.05f * (3 - SomersaultTimer));
                 /*
                 if (transform.eulerAngles.y == 180)
                 {
@@ -266,8 +280,8 @@ public class PlayerPlaneMovement : MonoBehaviour
             }
             else
             {
-                transform.localEulerAngles = new Vector3(0, 0, 0);
-                //transform.localPosition = new Vector3(0, 0, 0);
+             transform.localEulerAngles = new Vector3(0, 0, 0);
+             transform.localPosition = new Vector3(0, 0, 0);
                 Somersaulting = false;
             }
 
@@ -318,9 +332,14 @@ public class PlayerPlaneMovement : MonoBehaviour
                 }
             }
 
-            //Implements variables.
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
-        }
+            //If somersaulting allow full rotation 
+            if (!Somersaulting)
+            {
+                //Implements variables.
+                transform.localEulerAngles =
+                    new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, Rotation);
+            }
+    }
 
         IEnumerator Somersault()
         {

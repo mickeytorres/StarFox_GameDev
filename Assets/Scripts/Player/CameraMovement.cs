@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour
     //  --Makes the camera shake up and down.
 
     public Transform PlaneTransform;
+    public Transform PlaneBody;
     public GameObject player;
     public Transform Gyroscope;
 
@@ -54,7 +55,7 @@ public class CameraMovement : MonoBehaviour
         //Both GameObjects has their transform isolated from world position
         //therefore their localposition should both be displacement from 0,0,0.
         XPos = PlaneTransform.localPosition.x * XRatio;
-        YPos = PlaneTransform.localPosition.y * YRatio;
+        YPos = (PlaneTransform.localPosition.y + PlaneBody.localPosition.y)* YRatio;
 
         //Set the rotation of camrea to a portion of of the Gyroscope's.
         //Positive rotations over 180 degree will be set to negative numbers to make sure the
