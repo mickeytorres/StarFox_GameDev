@@ -9,11 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject FirstWaveButterfly;
     public float FirstWaveButterfly_SpawnZpos;
     public bool Has_FirstWaveButterfly_Spawned = false;
-
-    public GameObject Mech;
-    public float Mech_SpawnZpos;
-    public bool Has_Mech_Spawned = false;
-
+    
     public GameObject FirstWaveWorm;
     public float FirstWaveWorm_SpawnZpos;
     public bool Has_FirstWaveWorm_Spawned = false;
@@ -36,11 +32,7 @@ public class EnemySpawner : MonoBehaviour
             Has_FirstWaveButterfly_Spawned = true;
         }
         
-        if (Player.transform.position.z >= Mech_SpawnZpos&& !Has_Mech_Spawned)
-        {
-            Instantiate(Mech);
-            Has_Mech_Spawned = true;
-        }
+       
         if (Player.transform.position.z >= FirstWaveWorm_SpawnZpos&& !Has_FirstWaveWorm_Spawned)
         {
             Instantiate(FirstWaveWorm);
