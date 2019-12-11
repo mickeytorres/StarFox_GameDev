@@ -47,7 +47,7 @@ public class EnemyHealthManager : MonoBehaviour
     void EnemyDeathState(){ //when enemy's health runs out
         if(enemyHealthScore <= 0){
             Destroy(gameObject); 
-            //play explosion animation
+            //play explosion animation?
         }
     }
 }

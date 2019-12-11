@@ -9,7 +9,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-    float enemyHealthScore = 20f; //up this value later, just low now for easy quick testing. 
+    float enemyHealthScore = 20f; 
 
     float thrust;
 
@@ -63,7 +63,7 @@ public class EnemyBehaviour : MonoBehaviour
     void OnTriggerEnter(Collider other){ 
 
         if(other.CompareTag("Player")){ 
-            enemyHealthScore--; //these numbers will be edited later in the health script
+            enemyHealthScore--; 
         }else if(other.CompareTag("Bullet")){ //if a bullet goes through this trigger, these tags are changed 
             enemyHealthScore--;
             Debug.Log("Enemy Health: " + enemyHealthScore);
