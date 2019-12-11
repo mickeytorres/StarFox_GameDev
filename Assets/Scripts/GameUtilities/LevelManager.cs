@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public void SelectOption() {
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
                 Time.timeScale = 1;
             }
 

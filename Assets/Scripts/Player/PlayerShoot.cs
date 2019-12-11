@@ -121,6 +121,8 @@ public class PlayerShoot : MonoBehaviour {
                     thisBlast.transform.parent = blastHolder.transform;
                     thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                     triCounter--;
+
+                    shootSoundSource.Play();
                 }
             }
         }

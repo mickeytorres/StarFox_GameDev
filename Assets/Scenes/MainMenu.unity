@@ -388,7 +388,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.056292273, g: 0.11878237, b: 0.21698111, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0.078431375, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3561,11 +3561,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4042381667599581239, guid: 97fdad64846ee463eb755c2fec3e1c42,
-        type: 3}
-      propertyPath: m_Name
-      value: AsteroidMiddle
-      objectReference: {fileID: 0}
     - target: {fileID: 1027442408876798500, guid: 97fdad64846ee463eb755c2fec3e1c42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3636,6 +3631,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.29590836
       objectReference: {fileID: 0}
+    - target: {fileID: 4042381667599581239, guid: 97fdad64846ee463eb755c2fec3e1c42,
+        type: 3}
+      propertyPath: m_Name
+      value: AsteroidMiddle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fdad64846ee463eb755c2fec3e1c42, type: 3}
 --- !u!1001 &5693318208999604917
@@ -3645,11 +3645,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4333403650879569542, guid: f04a084dc0bdb44c88e0f026c6eb5d8c,
-        type: 3}
-      propertyPath: m_Name
-      value: AsteroidFront
-      objectReference: {fileID: 0}
     - target: {fileID: 754368819578293397, guid: f04a084dc0bdb44c88e0f026c6eb5d8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3719,6 +3714,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.54165167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333403650879569542, guid: f04a084dc0bdb44c88e0f026c6eb5d8c,
+        type: 3}
+      propertyPath: m_Name
+      value: AsteroidFront
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04a084dc0bdb44c88e0f026c6eb5d8c, type: 3}
