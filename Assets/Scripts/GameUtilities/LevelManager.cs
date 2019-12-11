@@ -21,12 +21,15 @@ public class LevelManager : MonoBehaviour
     //function to detect when the player presses return/enter and execute the action of the option it's on 
     //(continue or restart)
     public void SelectOption() {
+        //KeyCode for selecting choices is return 
         if (Input.GetKeyDown(KeyCode.Return)) {
+            //restart the level
             if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
                 SceneManager.LoadScene(1);
                 Time.timeScale = 1;
             }
 
+            //continue the game
             else if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
                 pauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1;

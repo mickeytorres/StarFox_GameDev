@@ -30,8 +30,7 @@ public class AsteroidManager : MonoBehaviour
     Vector3 direction = new Vector3(0f,0f,-1f);
 
     public bool inbombRange; 
-        
-    
+    private GameObject levelManager;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +39,8 @@ public class AsteroidManager : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         AsteroidRotation();
         RandomTrajectory();
+
+        levelManager = GameObject.FindWithTag("LevelManager");
     }
 
     // Update is called once per frame
@@ -102,11 +103,10 @@ public class AsteroidManager : MonoBehaviour
                 //asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
+
+            levelManager.gameObject.GetComponent<ScoreManager>().ScoreSetter();
+            Debug.Log("This asteroid was destroyed, incrementing the score");
             Destroy(gameObject);
-
         }
-       
     }
-    
-
 }
