@@ -21,7 +21,7 @@ public class TurretBehaviour : MonoBehaviour
         InvokeRepeating("fireBullets", 1.0f, 3f);
         
     }
-    
+
     void fireBullets(){
         transform.LookAt(new Vector3(Player.transform.position.x,Player.transform.position.y,Player.position.z + Forward.instance._speed));
         Instantiate(blastPrefab, Turret.transform.position, Turret.transform.rotation);

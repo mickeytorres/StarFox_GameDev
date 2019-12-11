@@ -68,6 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
             enemyHealthScore--;
             Debug.Log("Enemy Health: " + enemyHealthScore);
             if(enemyHealthScore <= 0f){
+                
                 Destroy(gameObject); //dies when the health runs out
             }
         }

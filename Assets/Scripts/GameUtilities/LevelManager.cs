@@ -13,6 +13,10 @@ public class LevelManager : MonoBehaviour
 
     public Canvas pauseMenu;
 
+    void Awake() {
+        //fade into the scene
+    }
+
     void Update() {
         SelectOption();
         Pause();

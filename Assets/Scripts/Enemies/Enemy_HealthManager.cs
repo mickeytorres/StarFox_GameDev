@@ -6,8 +6,7 @@ using UnityEngine;
 //USAGE: PUT ON ALL ASTEROIDS
 //INTENT: ASTEROID MOVEMENT, ROTATION, HEALTH
 
-public class Enemy_HealthManager : MonoBehaviour
-{
+public class Enemy_HealthManager : MonoBehaviour {
     private BlastMovement _shot;
     
     private Rigidbody _rb;
@@ -19,6 +18,8 @@ public class Enemy_HealthManager : MonoBehaviour
     public float _health = 6;
 
     public bool inbombRange; 
+
+
 
     // Start is called before the first frame update
     void Start()
