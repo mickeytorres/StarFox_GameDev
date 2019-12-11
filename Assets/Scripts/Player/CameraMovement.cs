@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -33,10 +35,24 @@ public class CameraMovement : MonoBehaviour
     public float YPos;
     public float ZPos;
 
+    public float normalCameraZDist = -4f;
+    public float boostCameraZDist = -6f;
+    public float brakeCameraZDist = -2;
+
+    public float zMovementTimer;
+    public float timeForZMovementSpeed = 1f;
+
     //Rotation of Gyroscope (so its independent from the barrelrolling of the plane)
     public float XRotation;
     public float YRotation;
     public float ZRotation;
+
+    public static CameraMovement instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     //Resets shaker and timer
     void Start()
@@ -74,6 +90,34 @@ public class CameraMovement : MonoBehaviour
         }
         YRotation *= 0.2f;
 
+        if (Forward.instance.boost || Forward.instance.brake)
+        {
+            zMovementTimer += Time.deltaTime;
+            var t = zMovementTimer / timeForZMovementSpeed;
+            if (t > 1)
+            {
+                t = 1;
+            }
+
+            var finalDistance = 0f;
+            if (Forward.instance.boost)
+            {
+                finalDistance = boostCameraZDist;
+            }
+            else
+            {
+                finalDistance = brakeCameraZDist;
+            }
+
+            ZPos = Mathf.Lerp(normalCameraZDist, finalDistance, t);
+        }
+        else
+        {
+            
+            ZPos = Mathf.Lerp(ZPos, normalCameraZDist, 0.1f);
+        }
+        
+        
         //Implements the variables.
         transform.localPosition = new Vector3(XPos, YPos + 1, ZPos);
         transform.localEulerAngles = new Vector3 (XRotation + shaker - 5, YRotation, YRotation * 0.5f);
