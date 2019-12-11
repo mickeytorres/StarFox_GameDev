@@ -17,7 +17,9 @@ public class BlastMovement : MonoBehaviour
     public bool IsABombExplosion = false;
     public bool IsABomb = false;
 
-    private float destroyTimer = 0.75f;
+    public AudioSource bombSoundSource;
+
+    private float destroyTimer;
 
     public GameObject Explosion;
 
@@ -29,35 +31,31 @@ public class BlastMovement : MonoBehaviour
 
     void Update()
     {
-        //destroy the blast if it's been more than 2f seconds and hasn't hit anything yet
+        //destroy the blast if it's been more than destroyTimer's initial value # of seconds and hasn't hit anything yet
         destroyTimer -= Time.deltaTime;
 
+        //decrement the destroyTimer (which is representative of each blast's lifetime)
         if (destroyTimer <= 0f) {
+            if (IsABomb) {
+                //insantiate a special explosio nfor bomb detonation
+                Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                Debug.Log("Trying to play sound effect");
+                bombSoundSource.Play();
+            }
             Destroy(gameObject);
         }
 
+        //move towards a target if one was found 
         if (lockedTarget != null) {
             moveTowards = lockedTarget.transform.position;
         }
 
         //this blast will either just shoot forward if it didn't have a target and will chase a specific
         //enemy if it did, if it isn't an explosion (like the explosion of bomb for instance.)
-        if (!IsAnExplosion)
-        {
+        if (!IsAnExplosion) {
             transform.LookAt(moveTowards);
             transform.Translate(0, 0, moveSpeed * Time.deltaTime);
         }
-    }
-
-    // private void Awake() {
-    //     if (PlayerPlaneMovement.Instance.GameObject.transform.position.z < -10) {
-    //         Destroy(this.gameObject);
-    //     }
-    // }
-
-    private void OnDestroy() {
-        if(destroyTimer >= 0 || IsABomb)
-            Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
     }
 
     //helper function for bombs to do radius damage (damage calculations handled by AsteroidManager.cs)
@@ -88,26 +86,21 @@ public class BlastMovement : MonoBehaviour
         else {
             moveSpeed = 200f;
         }
-
-   
     }
 
-    private void SetLifeTime()
-    {
-        if (IsABomb)
-        {
-            if (IsABombExplosion)
-            {
+    //Setter for setting the lifetime of types of attacks players can launch: bombs and laser blasts
+    private void SetLifeTime() {
+        if (IsABomb) {
+            if (IsABombExplosion) {
                 destroyTimer = 2f;
             }
-            else
-            {
+            else {
                 destroyTimer = 1f;
             }
         }
-        else
-        {
-            destroyTimer = 0.5f;
+
+        else {
+            destroyTimer = 1f;
         }
     }
 }
