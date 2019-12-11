@@ -9,18 +9,21 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Sammy/Dec9th-Sammy.unity
+    path: Assets/__DELETED_GUID_Trash/301d3a6e3f4ca4e65a4739849ec99d8e
     guid: 301d3a6e3f4ca4e65a4739849ec99d8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sammy/Dec4th-Sammy.unity
     guid: e26906f194d9f480980ed45da09e3f46
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3d2c4f028ada94be5a5eb62ba42c3e7e
   - enabled: 1
+    path: Assets/Scenes/MasterScenes/Dec9th.unity
+    guid: 38edea5a2a4714542aa8be0bc2d0fca6
+  - enabled: 0
     path: Assets/Scenes/George/Nov30th-Fox.unity
     guid: 1675899b2b02a4371b1653c04a75d1d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sammy/Dec2nd-Sammy.unity
     guid: e3c48131a4131484f8d9b825e7a1bf64
   - enabled: 0

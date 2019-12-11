@@ -58,9 +58,19 @@ public class PlayerShoot : MonoBehaviour {
     //audio components
     public AudioSource shootSoundSource;
 
+    //scope components 
+    public GameObject frontScope; 
+    public GameObject midScope;
+    private SpriteRenderer frontScopeSpriteRenderer;
+    private SpriteRenderer midScopeSpriteRenderer;
+
     void Start() { 
         chargedTarget = null;
         laserPrefab = singlePrefab;
+        frontScopeSpriteRenderer = frontScope.gameObject.GetComponent<SpriteRenderer>();
+        midScopeSpriteRenderer = midScope.gameObject.GetComponent<SpriteRenderer>();
+
+        SetDefaultScopeColours();
     }
 
     // Update is called once per frame
@@ -121,6 +131,8 @@ public class PlayerShoot : MonoBehaviour {
                     thisBlast.transform.parent = blastHolder.transform;
                     thisBlast.gameObject.GetComponent<BlastMovement>().damage = damage;
                     triCounter--;
+
+                    shootSoundSource.Play();
                 }
             }
         }
@@ -131,13 +143,11 @@ public class PlayerShoot : MonoBehaviour {
 
         //releasing a charged Laser
         if (charged) {
-            chargedTarget = GetTarget();
-
             //locks onto the object it first saw. 
             //if (charged) will run every frame, so if GetTarget() already found something in a previous iteration
             //do not find a new target
             if (chargedTarget == null) {
-                GetTarget();
+                chargedTarget = GetTarget();
             }
 
             if (Input.GetKeyUp(KeyCode.Space)) {
@@ -177,12 +187,25 @@ public class PlayerShoot : MonoBehaviour {
 
         if (itemFound) {
             //change the front node to red to let player know a target has been locked onto
-            //frontNode.gameObject.GetComponent<SpriteRenderer>().material.color = Color.red;
+            SetLockedScopeColours();
             return rayHit.collider.gameObject;
         }
         else 
             return null;
     }
+
+    //function to check if a previously locked onto target is still in view of the camera. 
+    //If it is not, the targeted shot is lost and it's just a normal charged laser
+    // private bool CheckTarget(GameObject chargedTarget) {
+    //     Vector3 chargedTargetPos = Camera.main.WorldToScreenPoint(chargedTarget.transform.position);
+
+	// 	if (chargedTargetPos.x < 0 || chargedTargetPos.y < 0 || chargedTargetPos.x > Screen.width || chargedTargetPos.y > Screen.height) {
+	// 		ChangeFrontScopeColour();
+    //         return false;
+	// 	}
+
+    //     return true;
+    // }
 
     //function to fire a charged Laser.
     private bool FireCharged() {
@@ -193,25 +216,13 @@ public class PlayerShoot : MonoBehaviour {
 
         //if the charged blast found a target to follow, set the target.
         //this also handles if the target was destroyed before you released the blast
-        if (chargedTarget != null && TargetCheck(chargedTarget)) {
+        if (chargedTarget != null) {//&& CheckTarget(chargedTarget)) {
             thisBlast.gameObject.GetComponent<BlastMovement>().lockedTarget = chargedTarget;
         } 
 
         shootSoundSource.Play();
 
         FireChargedHelper();
-
-        return true;
-    }
-
-    //function to check if a previously locked onto target is still in view of the camera. 
-    //If it is not, the targeted shot is lost and it's just a normal charged laser
-    private bool TargetCheck(GameObject chargedTarget) {
-        Vector3 chargedTargetPos = Camera.main.WorldToScreenPoint(chargedTarget.transform.position);
-
-		if (chargedTargetPos.x < 0 || chargedTargetPos.y < 0 || chargedTargetPos.x > Screen.width || chargedTargetPos.y > Screen.height) {
-			return false;
-		}
 
         return true;
     }
@@ -223,6 +234,7 @@ public class PlayerShoot : MonoBehaviour {
         charged = false;
         readyToShootCharged = false;
         timeHeld = 0f;
+        SetDefaultScopeColours();
     }
 
     //function to drop a bomb
@@ -257,5 +269,24 @@ public class PlayerShoot : MonoBehaviour {
         damage = (int)newLaser;
 
         return newLaser;
+    }
+
+    // private void ChangeFrontScopeColour() {
+    //     if (frontScopeSpriteRenderer.color == Color.green) {
+    //         Debug.Log("It is currently green, trying to change it to white");
+    //         frontScopeSpriteRenderer.color = Color.white;
+    //     }
+    //     else {
+    //         frontScopeSpriteRenderer.color = Color.green;
+    //     }
+    // }
+    private void SetDefaultScopeColours() {
+        frontScopeSpriteRenderer.color = Color.green;
+        midScopeSpriteRenderer.color = Color.green;
+    }
+
+    private void SetLockedScopeColours() {
+        frontScopeSpriteRenderer.color = Color.red;
+        midScopeSpriteRenderer.color = Color.yellow;
     }
 }
