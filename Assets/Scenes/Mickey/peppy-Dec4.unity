@@ -9005,9 +9005,6 @@ MonoBehaviour:
     type: 3}
   FirstWaveButterfly_SpawnZpos: 20
   Has_FirstWaveButterfly_Spawned: 0
-  Mech: {fileID: 0}
-  Mech_SpawnZpos: 0
-  Has_Mech_Spawned: 0
   FirstWaveWorm: {fileID: 0}
   FirstWaveWorm_SpawnZpos: 0
   Has_FirstWaveWorm_Spawned: 0
