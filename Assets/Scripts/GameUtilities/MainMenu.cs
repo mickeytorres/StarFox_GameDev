@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour {
     public void SelectOption() {
         if (Input.GetKeyDown(KeyCode.Return)) {
             if (gameObject.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
 
             //in this case, the OtherOption choice will open the "How To Play" menu
