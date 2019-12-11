@@ -123,7 +123,8 @@ public class PlayerPlaneMovement : MonoBehaviour
         {
             if (RollingL)
             {
-                Rotation += RotateSpeed * 50 * Time.deltaTime;
+                Rotation += RotateSpeed * 300 * Time.deltaTime;
+                Debug.Log("Rolling");
                 RollTimer -= Time.deltaTime;
                 if (RollTimer <= 0)
                 {
@@ -135,7 +136,7 @@ public class PlayerPlaneMovement : MonoBehaviour
             }
             else if (RollingR)
             {
-                Rotation -= RotateSpeed * 50 * Time.deltaTime;
+                Rotation -= RotateSpeed * 300 * Time.deltaTime;
                 RollTimer -= Time.deltaTime;
                 if (RollTimer <= 0)
                 {
