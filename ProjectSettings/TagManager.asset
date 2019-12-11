@@ -19,6 +19,9 @@ TagManager:
   - enemyShip
   - EnemyBlast
   - PlayerModel
+  - AsteroidFront
+  - AsteroidMiddle
+  - StarBack
   layers:
   - Default
   - TransparentFX
