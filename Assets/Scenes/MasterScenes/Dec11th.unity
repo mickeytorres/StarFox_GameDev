@@ -324,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 6696436522225313197, guid: 4b3e72541781349d49624c58f5b8a1f9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 6696436522225313197, guid: 4b3e72541781349d49624c58f5b8a1f9,
         type: 3}
@@ -3063,7 +3063,7 @@ PrefabInstance:
     - target: {fileID: 4037277960236876151, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4037277960236876151, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
         type: 3}
@@ -3073,7 +3073,7 @@ PrefabInstance:
     - target: {fileID: 4037277960236876151, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.9
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 4037277960236876151, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
         type: 3}
@@ -3129,6 +3129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.4769087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977884739065267377, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3577e48e2a442a8bcb7b5c3e79641f, type: 3}
@@ -4169,7 +4174,7 @@ PrefabInstance:
     - target: {fileID: 6696436522225313197, guid: 4b3e72541781349d49624c58f5b8a1f9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -31
       objectReference: {fileID: 0}
     - target: {fileID: 6696436522225313197, guid: 4b3e72541781349d49624c58f5b8a1f9,
         type: 3}
@@ -4509,6 +4514,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &416594378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416594375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b779e9a1008406596081437280a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -1
 --- !u!135 &417770744
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7487,12 +7505,12 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1394455274}
+      objectReference: {fileID: 1289158200}
     - target: {fileID: 826125865162326870, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: energyBar
       value: 
-      objectReference: {fileID: 633221792}
+      objectReference: {fileID: 2009641078}
     - target: {fileID: 826125864630662381, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: blastSpawn
@@ -10518,6 +10536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.4769087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977884739065267377, guid: 2c3577e48e2a442a8bcb7b5c3e79641f,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3577e48e2a442a8bcb7b5c3e79641f, type: 3}
@@ -17469,6 +17492,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1500736436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500736434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b779e9a1008406596081437280a33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -1
 --- !u!1 &1509366214
 GameObject:
   m_ObjectHideFlags: 0
@@ -17834,6 +17870,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1546563413
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546563411}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.01
+  m_Height: 2.81
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.14}
 --- !u!4 &1546563415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180350548923898925, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
@@ -24282,12 +24332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28ec50b64d5b4647a31a5655856372d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  _shot: {fileID: 0}
-  _health: 1
-  direction: {x: 0, y: 0, z: -1}
-  asteroidChunksPrefab: {fileID: 3697291562206676040, guid: 753b7f5f8f70c4c9dbea10b34d7fc738,
-    type: 3}
 --- !u!4 &359188160133974838
 Transform:
   m_ObjectHideFlags: 0
@@ -24424,14 +24468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21474afe8f5cd443b8d7afcb3da6b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Z: 0
-  X: 0
-  Speed: 0
-  Mode: 0
-  timer: 10
-  MyParent: {fileID: 359188160133974839}
-  Player: {fileID: 0}
-  Bullet: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b, type: 3}
 --- !u!4 &359188160606046999
 Transform:
   m_ObjectHideFlags: 0
@@ -25071,10 +25107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7445fe9f0f3a4a41b0eee18439f38ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  Player: {fileID: 0}
-  Bullet: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b, type: 3}
-  MyParent: {fileID: 359188160133974838}
 --- !u!33 &359188162093968792
 MeshFilter:
   m_ObjectHideFlags: 0
