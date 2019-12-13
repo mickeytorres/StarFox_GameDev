@@ -46,15 +46,16 @@ public class HealthManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("EnemyBlast"))
+        _health -= 7f;
+        if (_health <= 0)
         {
-            _health -= 7f;
-            if (_health <= 0)
-            {
-                PlayerLives--;
-                _health = 100;
-            }
+            PlayerLives--;
+            _health = 100;
         }
+        /*if(other.gameObject.CompareTag()
+        {
+           
+        }*/
         
     }
 

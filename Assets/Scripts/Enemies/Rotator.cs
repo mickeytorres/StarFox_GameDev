@@ -14,11 +14,12 @@ public class Rotator : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.angularVelocity = Random.insideUnitSphere * rotationSpeed;
+       
     }
 }

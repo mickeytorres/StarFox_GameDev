@@ -68,24 +68,30 @@ public class Forward : MonoBehaviour
     {
         _rb.velocity = transform.forward * _speed;
     }
-
+  
     public void Boost()
     {
         if (Input.GetKey(KeyCode.W) && energyBar.canBoost)
         {
+           
             
             boost = true;
             Debug.Log(boost);
             PlayerPlaneMovement.instance.Boosting = true;
             _speed = _boostspeed;
             Debug.Log(_speed);
-            
+            if  (CameraMovement.instance.zMovementTimer < 0)
+            {
+                CameraMovement.instance.zMovementTimer = 0;
+            }
+
         }
         else
         {
             _speed = _normalspeed;
             boost = false;
             PlayerPlaneMovement.instance.Boosting = false;
+            CameraMovement.instance.zMovementTimer = -1;
         }
     }
 
@@ -96,12 +102,18 @@ public class Forward : MonoBehaviour
             brake = true;
             _speed = _brakespeed;
             PlayerPlaneMovement.instance.Braking = true;
+            
+            if  (CameraMovement.instance.zMovementTimer < 0)
+            {
+                CameraMovement.instance.zMovementTimer = 0;
+            }
         }
         else if (!boost)
         {
             _speed = _normalspeed;
             brake = false;
             PlayerPlaneMovement.instance.Braking = false;
+            CameraMovement.instance.zMovementTimer = -1;
         }
     }
-}
+} 
