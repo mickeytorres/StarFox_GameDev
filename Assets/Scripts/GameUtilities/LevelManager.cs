@@ -12,32 +12,63 @@ public class LevelManager : MonoBehaviour
     private bool pause = false;
 
     public Canvas pauseMenu;
+    public Canvas endScreen;
 
-    void Awake() {
-        //fade into the scene
-    }
+    public GameObject player;
+
+    private float restartTimer = 3f;
+
+    private bool livesLeft = true;
 
     void Update() {
-        SelectOption();
         Pause();
+        if (pause) {
+            PauseSelectOption();
+        }
+
+        //CheckLives() will return true if the player has lives left. False if not.
+        if (!CheckLives()) {
+            Time.timeScale = 0;
+            endScreen.GetComponent<Menu>().currOption = Menu.Option.FromBeginning;
+            endScreen.gameObject.SetActive(true);
+            EndSelectOption();
+        }
     }
 
     //function to detect when the player presses return/enter and execute the action of the option it's on 
     //(continue or restart)
-    public void SelectOption() {
+    public void PauseSelectOption() {
         //KeyCode for selecting choices is return 
         if (Input.GetKeyDown(KeyCode.Return)) {
             //restart the level
             if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
+                Debug.Log("Restarting the level");
                 SceneManager.LoadScene(1);
                 Time.timeScale = 1;
             }
 
-            //continue the game
+            //select the other option
             else if (pauseMenu.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
+                Debug.Log("Returning to main menu");
                 pauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1;
                 pause = false;
+            }
+        }
+    }
+
+    public void EndSelectOption() {
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            //retry the game
+            if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
+                player.gameObject.GetComponent<HealthManager>().GameRestart();
+                SceneManager.LoadScene(1);
+                Time.timeScale = 1;
+            }
+
+            //select the other option
+            else if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
+                SceneManager.LoadScene(0);
             }
         }
     }
@@ -52,5 +83,9 @@ public class LevelManager : MonoBehaviour
                 pause = true;
             }
         }
+    }
+
+    private bool CheckLives() {
+        return player.gameObject.GetComponent<HealthManager>().LifeCheck();
     }
 }

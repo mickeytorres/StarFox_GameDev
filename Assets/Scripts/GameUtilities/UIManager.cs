@@ -9,21 +9,26 @@ using TMPro;
 public class UIManager : MonoBehaviour {
     public GameObject levelManager;
     public GameObject player;
+    public GameObject playerToDelete; //this reference will be deleted once the player model final is in
 
     public TextMeshProUGUI scoreText; 
     public TextMeshProUGUI bombCountText;
+    public TextMeshProUGUI lifeCountText;
 
     private int scoreLength = 3;
     private int bombCount;
+    private int lifeCount;
 
     void Start() {
         bombCountText.text = player.GetComponent<PlayerShoot>().GetBombCount().ToString();
+        lifeCountText.text = playerToDelete.GetComponent<HealthManager>().GetLives().ToString();
     }
 
     // Update is called once per frame
     void Update() {
         UpdateScore();
         UpdateBombCount();
+        UpdateLifeCount();
     }
 
     //display the score in a format with leading 0s (ex. 001 instead of 1. 010 instead of 10, etc...)
@@ -47,6 +52,8 @@ public class UIManager : MonoBehaviour {
     }
 
     private void UpdateLifeCount() {
-        //
+        lifeCount = playerToDelete.GetComponent<HealthManager>().GetLives();
+
+        lifeCountText.text = "x   " + lifeCount.ToString();
     }
 }

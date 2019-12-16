@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/301d3a6e3f4ca4e65a4739849ec99d8e
-    guid: 301d3a6e3f4ca4e65a4739849ec99d8e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Sammy/Dec4th-Sammy.unity
     guid: e26906f194d9f480980ed45da09e3f46
   - enabled: 1
     path: Assets/Scenes/MasterScenes/MainMenu.unity
     guid: 3d2c4f028ada94be5a5eb62ba42c3e7e
+  - enabled: 1
+    path: Assets/Scenes/Sammy/Dec11th-Sammy.unity
+    guid: 79bd242a238ac43d9954a99d16f696d0
   - enabled: 0
     path: Assets/Scenes/MasterScenes/Dec9th.unity
     guid: 38edea5a2a4714542aa8be0bc2d0fca6
@@ -38,7 +41,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Leo/FoxLeoCopy.unity
     guid: b796b0e4230f4464fa98828ef0ab5066
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MasterScenes/Dec11th.unity
     guid: 5896fa6aca01e44ce8319dbe2a92c446
   m_configObjects: {}
