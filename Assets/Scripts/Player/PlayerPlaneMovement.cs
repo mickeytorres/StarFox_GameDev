@@ -258,11 +258,15 @@ public class PlayerPlaneMovement : MonoBehaviour
                 transform.Rotate(new Vector3(-120f, 0f, -0f) * Time.deltaTime);
                 if (SomersaultTimer > 1.5)
                 {
-                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, new Vector3(0f,maxSomersaultHeight,2f), Time.deltaTime * maxSomersaultHeight/1.5f);
+                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, 
+                        new Vector3(0f,maxSomersaultHeight,2f), 
+                        Time.deltaTime * maxSomersaultHeight/1.5f);
                 }
                 else if (SomersaultTimer < 1.5)
                 {
-                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, new Vector3(0f,0f,0f), Time.deltaTime * maxSomersaultHeight/1.5f);
+                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, 
+                        new Vector3(0f,0f,0f),
+                        Time.deltaTime * maxSomersaultHeight/1.5f);
                 }
 
                 // transform.RotateAround(Forward.instance.gameObject.transform.position, new Vector3 (0,0,0), SomersaultFlipAngle);
@@ -305,7 +309,7 @@ public class PlayerPlaneMovement : MonoBehaviour
                 if (CanFreeTilt())
                 {
                     RotationGoal = 30;
-                }
+                }    
             }
             else
             {
