@@ -12,14 +12,24 @@ public class HealthManager : MonoBehaviour
     public Image healthBar;
     public Image energyBar;
 
+    public Renderer playerRenderer;
+    public Color lerpedColor = Color.red;
+    public Color currentColor;
+
     public Forward player;
 
     public static int PlayerLives = 3;
 
+    //health and damage variables
     private float _energy = 50f;
     private float _health = 100f;
     private float _maxEnergy = 50f;
     private float _maxHealth = 100f;
+    private float invincibilityTime = 0f;
+    private float colorFlashTimer;
+    private float colorFlashDuration = 3f;
+    private float lerpSpeed = 30f;
+    public bool shouldBeFlashing;
 
     public bool canBoost = true;
 
@@ -39,17 +49,58 @@ public class HealthManager : MonoBehaviour
         energyBar.fillAmount = _energy / _maxEnergy;
         healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
+        if (shouldBeFlashing)
+        {
+            ColorFlash();
+            Debug.Log("flash");
+        }
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _health -= 7f;
+        if (Time.time < invincibilityTime)
+        {
+            
+        }
+        else
+        {
+            _health -= 7f;
+            invincibilityTime = Time.time + 3;
+            shouldBeFlashing = true;
+            colorFlashTimer = 0;
+        }
+        
 
         if (_health <= 0 && PlayerLives > 0) {
+            
             PlayerLives--;
             _health = 100;
             SceneManager.LoadScene(1);
+        }
+    }
+
+    public void ColorFlash()
+    {
+        colorFlashTimer += Time.deltaTime;
+        
+        Material[] allMaterials = playerRenderer.materials;
+
+        if (colorFlashTimer < colorFlashDuration)
+        {
+            Debug.Log(colorFlashTimer);
+            for (int i = 0; i < allMaterials.Length; i++)
+            {
+                 allMaterials[i].SetColor("_EmissionColor",Color.Lerp(currentColor, lerpedColor, Mathf.Sin(colorFlashTimer*lerpSpeed)));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < allMaterials.Length; i++)
+            {
+                allMaterials[i].SetColor("_EmissionColor", currentColor);
+            }
+            shouldBeFlashing = false;
         }
     }
 
