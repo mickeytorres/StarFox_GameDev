@@ -20,6 +20,11 @@ public class LevelManager : MonoBehaviour
 
     private bool livesLeft = true;
 
+    void Awake() {
+        endScreen.GetComponent<Menu>().currOption = Menu.Option.FromBeginning;
+        pauseMenu.GetComponent<Menu>().currOption = Menu.Option.OtherOption;
+    }
+
     void Update() {
         Pause();
         if (pause) {
@@ -29,7 +34,6 @@ public class LevelManager : MonoBehaviour
         //CheckLives() will return true if the player has lives left. False if not.
         if (!CheckLives()) {
             Time.timeScale = 0;
-            endScreen.GetComponent<Menu>().currOption = Menu.Option.FromBeginning;
             endScreen.gameObject.SetActive(true);
             EndSelectOption();
         }
@@ -61,13 +65,15 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)) {
             //retry the game
             if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
+                Debug.Log("Restarting level");
                 player.gameObject.GetComponent<HealthManager>().GameRestart();
                 SceneManager.LoadScene(1);
                 Time.timeScale = 1;
             }
 
-            //select the other option
+            //select the other option which in this case is return to the mainMenu
             else if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
+                Debug.Log("Returning to main menu");
                 SceneManager.LoadScene(0);
             }
         }
@@ -78,7 +84,6 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!pause) {
                 pauseMenu.gameObject.SetActive(true);
-                pauseMenu.GetComponent<Menu>().currOption = Menu.Option.OtherOption;
                 Time.timeScale = 0;
                 pause = true;
             }
