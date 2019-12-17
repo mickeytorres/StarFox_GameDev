@@ -28,29 +28,19 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this if statement is all just for testing, it will be removed soon! 
         if (Input.GetKeyDown(KeyCode.G)) {
             PlayerLives -= 1;
-            SceneManager.LoadScene(1);
+            if (PlayerLives > 0) {
+                SceneManager.LoadScene(1);
+            } 
         }
-
-        // if (Input.GetKeyDown(KeyCode.T)) {
-        //     DecrementHealth();
-        // }
 
         energyBar.fillAmount = _energy / _maxEnergy;
         healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
         
     }
-
-    //ignore this, it's just for testing
-    // private void DecrementHealth() {
-    //     _health -= 100;
-        
-    //     if (_health <= 0 && PlayerLives > 0) {
-    //         PlayerLives -= 1;
-    //     }
-    // }
 
     private void OnTriggerEnter(Collider other)
     {
