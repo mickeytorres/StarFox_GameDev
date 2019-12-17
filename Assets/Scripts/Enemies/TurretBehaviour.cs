@@ -8,6 +8,7 @@ public class TurretBehaviour : MonoBehaviour
     //intent: shoots bullets at the player, follows where the player is. 
 
     public GameObject Turret;
+    public float FireTime = 3;
 
     public GameObject blastPrefab; 
     public Transform Player; 
@@ -16,15 +17,20 @@ public class TurretBehaviour : MonoBehaviour
 
             Turret = this.gameObject;
 
-            Player = GameObject.FindWithTag("Player").transform;
+            Player = GameObject.FindWithTag("PlayerModel").transform;
 
-        InvokeRepeating("fireBullets", 1.0f, 3f);
+        InvokeRepeating("fireBullets", 1.0f, FireTime);
         
     }
 
+    private void Update()
+    {
+        transform.LookAt(new Vector3(Player.transform.position.x, Player.transform.position.y, Player.position.z + 20));
+    }
+
     void fireBullets(){
-        transform.LookAt(new Vector3(Player.transform.position.x,Player.transform.position.y,Player.position.z + Forward.instance._speed));
-        Instantiate(blastPrefab, Turret.transform.position, Turret.transform.rotation);
+        
+        Instantiate(blastPrefab, transform.position, transform.rotation);
         Debug.Log("pew pew");
     }
 

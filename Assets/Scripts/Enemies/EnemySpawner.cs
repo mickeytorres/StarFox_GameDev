@@ -4,46 +4,32 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject Player;
+    private GameObject Player;
 
-    public GameObject FirstWaveButterfly;
-    public float FirstWaveButterfly_SpawnZpos;
-    public bool Has_FirstWaveButterfly_Spawned = false;
-    
-    public GameObject FirstWaveWorm;
-    public float FirstWaveWorm_SpawnZpos;
-    public bool Has_FirstWaveWorm_Spawned = false;
+    //What am I spawning
+    public GameObject SpawnWhat;
 
-    public GameObject ConeHeads;
-    public float ConeHeads_SpawnZpos;
-    public bool Has_ConeHeads_Spawned = false;
+    //When do I spawn it according to player's z position
+    public float SpawnZpos;
+
+    //Have I spawned it
+    public bool Has_Spawned = false;
 
     void Start()
     {
-        
+        if (Player == null)
+        {
+            Player = GameObject.FindWithTag("Player");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player.transform.position.z >= FirstWaveButterfly_SpawnZpos && !Has_FirstWaveButterfly_Spawned)
+        if (Player.transform.position.z >= SpawnZpos && !Has_Spawned)
         {
-            Instantiate(FirstWaveButterfly);
-            Has_FirstWaveButterfly_Spawned = true;
+            Instantiate(SpawnWhat);
+            Has_Spawned = true;
         }
-        
-       
-        if (Player.transform.position.z >= FirstWaveWorm_SpawnZpos&& !Has_FirstWaveWorm_Spawned)
-        {
-            Instantiate(FirstWaveWorm);
-            Has_FirstWaveButterfly_Spawned = true;
-        }
-        if (Player.transform.position.z >= ConeHeads_SpawnZpos && !Has_ConeHeads_Spawned)
-        {
-            Instantiate(ConeHeads);
-            Has_ConeHeads_Spawned= true;
-        }
-
-
     }
 }

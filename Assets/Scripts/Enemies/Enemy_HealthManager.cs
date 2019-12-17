@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//USAGE: PUT ON ALL ASTEROIDS
-//INTENT: ASTEROID MOVEMENT, ROTATION, HEALTH
+//USAGE: PUT ON ALL ENEMIES (The layer with trigger)
+//INTENT: Health managing, identifys and destorys incoming bullets.
 
 public class Enemy_HealthManager : MonoBehaviour {
     private BlastMovement _shot;
@@ -49,7 +49,6 @@ public class Enemy_HealthManager : MonoBehaviour {
         }
     }
 
-    //Destroys object and instantiates 3 smaller objects
     private void Explosion()
     {
         if (_health <= 0)
@@ -64,9 +63,7 @@ public class Enemy_HealthManager : MonoBehaviour {
 
             }
             Destroy(gameObject);
-
         }
-       
     }
     
 

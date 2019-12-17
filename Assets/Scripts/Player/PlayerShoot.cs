@@ -64,6 +64,8 @@ public class PlayerShoot : MonoBehaviour {
     private SpriteRenderer frontScopeSpriteRenderer;
     private SpriteRenderer midScopeSpriteRenderer;
 
+    public Camera mainCamera;
+
     void Start() { 
         chargedTarget = null;
         laserPrefab = singlePrefab;
@@ -76,6 +78,9 @@ public class PlayerShoot : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            StartCoroutine(mainCamera.GetComponent<ScreenShake>().Shake(0.15f, 0.4f));
+        }
         //call shoot. Checks for actual shooting are handled within the function
         TryShooting();
 
