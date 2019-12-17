@@ -256,13 +256,13 @@ public class PlayerPlaneMovement : MonoBehaviour
                 
                 // Dec/9/19  commented lines out for debug purposes - george 
                 transform.Rotate(new Vector3(-120f, 0f, -0f) * Time.deltaTime);
-                if (SomersaultTimer > 1.5)
+                if (SomersaultTimer > 1.5f)
                 {
-                    transform.localPosition =  Vector3.MoveTowards(transform.localPosition, 
-                        new Vector3(0f,maxSomersaultHeight,0f), 
-                        Time.deltaTime * maxSomersaultHeight/1.5f);
+                    transform.localPosition = Vector3.MoveTowards(transform.localPosition,
+                        new Vector3(0f, maxSomersaultHeight, 0f),
+                        Time.deltaTime * maxSomersaultHeight / 1.5f);
                 }
-                else if (SomersaultTimer < 1.5)
+                else 
                 {
                     transform.localPosition =  Vector3.MoveTowards(transform.localPosition, 
                         new Vector3(0f,0f,0f),
