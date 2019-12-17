@@ -3592,7 +3592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enemies Down
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 483cc8d8b74184dcb86b06c8025be864, type: 2}
   m_sharedMaterial: {fileID: 9160010201198869243, guid: 483cc8d8b74184dcb86b06c8025be864,
@@ -3662,13 +3662,13 @@ MonoBehaviour:
   m_margin: {x: -72.603294, y: 0, z: -76.269714, w: 0}
   m_textInfo:
     textComponent: {fileID: 306315215}
-    characterCount: 12
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -10857,7 +10857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -131.8}
+  m_AnchoredPosition: {x: 0, y: -183}
   m_SizeDelta: {x: -0.000061035156, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962647212
@@ -16869,7 +16869,7 @@ RectTransform:
   m_GameObject: {fileID: 1458602677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -39.793076}
-  m_LocalScale: {x: 3.4831336, y: 5.332912, z: 2.141343}
+  m_LocalScale: {x: 3.7879076, y: 5.332912, z: 2.141343}
   m_Children: []
   m_Father: {fileID: 59333306}
   m_RootOrder: 2
@@ -16897,7 +16897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Accumulated Total:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 483cc8d8b74184dcb86b06c8025be864, type: 2}
   m_sharedMaterial: {fileID: 9160010201198869243, guid: 483cc8d8b74184dcb86b06c8025be864,
@@ -16926,8 +16926,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15.7
-  m_fontSizeBase: 15.7
+  m_fontSize: 13.08
+  m_fontSizeBase: 13.08
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16967,13 +16967,13 @@ MonoBehaviour:
   m_margin: {x: -46.76523, y: 0, z: -47.530785, w: 0}
   m_textInfo:
     textComponent: {fileID: 1458602679}
-    characterCount: 18
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -23646,17 +23646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae6140df79a97c4c97b813b0c0b1de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1546563411}
-  FirstWaveButterfly: {fileID: 3098358148117309284, guid: c1bf74ed9c8e9ef44b7085871f0fae88,
-    type: 3}
-  FirstWaveButterfly_SpawnZpos: -2430
-  Has_FirstWaveButterfly_Spawned: 0
-  FirstWaveWorm: {fileID: 0}
-  FirstWaveWorm_SpawnZpos: 0
-  Has_FirstWaveWorm_Spawned: 0
-  ConeHeads: {fileID: 0}
-  ConeHeads_SpawnZpos: 0
-  Has_ConeHeads_Spawned: 0
+  SpawnWhat: {fileID: 0}
+  SpawnZpos: 0
+  Has_Spawned: 0
 --- !u!1 &2092347266
 GameObject:
   m_ObjectHideFlags: 0

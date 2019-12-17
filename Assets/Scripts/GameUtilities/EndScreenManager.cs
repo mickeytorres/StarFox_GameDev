@@ -17,6 +17,6 @@ public class EndScreenManager : MonoBehaviour {
         enemyDownCount = levelManager.gameObject.GetComponent<ScoreManager>().GetScore().ToString();
 
         enemyDownCountText.text = enemyDownCount;
-        accumulatedTotalCountText.text = "Accumulated total: " + enemyDownCount;    
+        accumulatedTotalCountText.text = "Accumulated total: " + enemyDownCount;
     }
 }
