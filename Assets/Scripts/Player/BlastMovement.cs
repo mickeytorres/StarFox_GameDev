@@ -105,7 +105,9 @@ public class BlastMovement : MonoBehaviour
     }
 
     private void OnDestroy() {	
-        if(destroyTimer >= 0 || IsABomb)	
+        if (destroyTimer >= 0 || IsABomb) {
+            
             Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);	
+        }
     }
 }

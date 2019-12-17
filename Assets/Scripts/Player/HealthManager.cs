@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -13,31 +14,28 @@ public class HealthManager : MonoBehaviour
 
     public Forward player;
 
-    public int PlayerLives = 3;
-    
+    public static int PlayerLives = 3;
 
     private float _energy = 50f;
     private float _health = 100f;
     private float _maxEnergy = 50f;
     private float _maxHealth = 100f;
-    
-    
-
 
     public bool canBoost = true;
-    
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    private bool justLost = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        //this if statement is all just for testing, it will be removed soon! 
+        if (Input.GetKeyDown(KeyCode.G)) {
+            PlayerLives -= 1;
+            if (PlayerLives > 0) {
+                SceneManager.LoadScene(1);
+            } 
+        }
+
         energyBar.fillAmount = _energy / _maxEnergy;
         healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
@@ -47,16 +45,20 @@ public class HealthManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _health -= 7f;
-        if (_health <= 0)
-        {
+
+        if (_health <= 0 && PlayerLives > 0) {
             PlayerLives--;
             _health = 100;
+            SceneManager.LoadScene(1);
         }
-        /*if(other.gameObject.CompareTag()
-        {
-           
-        }*/
-        
+    }
+
+    public bool LifeCheck() {
+        //returns true as long as the player has lives left
+        if (PlayerLives > 0) 
+            return true;
+        else   
+            return false;
     }
 
     public void DrainEnergy()
@@ -88,4 +90,11 @@ public class HealthManager : MonoBehaviour
         }
     }
     
+    public int GetLives() {
+        return PlayerLives;
+    }
+
+    public void GameRestart() {
+        PlayerLives = 3;
+    }
 }

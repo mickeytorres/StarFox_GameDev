@@ -10,7 +10,8 @@ public class EnemyBullet : MonoBehaviour
     //PURPOSE:
     //  Makes bullet move foward and disapper shortly after contact with player/upon the end of its life.
 
-    public float timer = 10;
+    public float timer = 7;
+    public float speed = 30;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         //Moving foward
-        transform.position += 20 * transform.forward * Time.deltaTime;
+        transform.position += speed * transform.forward * Time.deltaTime;
 
         //Timer for life time of bullet.
         timer -= Time.deltaTime;
