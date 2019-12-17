@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2798504181228211115}
   - component: {fileID: 5314005020463276069}
   - component: {fileID: 7857019238981173952}
+  - component: {fileID: -3170025606019158313}
   m_Layer: 0
   m_Name: GoldRingPowerup
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &-3170025606019158313
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870800178162167789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1998168
+  m_Center: {x: -0.02175641, y: 0, z: 0}

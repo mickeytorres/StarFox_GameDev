@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2557474127520273394}
   - component: {fileID: 7639139943562919163}
   - component: {fileID: 8899964059739925518}
+  - component: {fileID: 4206375034914059360}
   m_Layer: 0
   m_Name: BombPowerup
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &4206375034914059360
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726176192123254981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1820045
+  m_Center: {x: 0, y: 0, z: 0}
