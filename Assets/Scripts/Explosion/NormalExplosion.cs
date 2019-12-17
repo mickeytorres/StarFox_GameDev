@@ -30,7 +30,7 @@ public class NormalExplosion : MonoBehaviour
         liltimer -= Time.deltaTime;
         if (liltimer <= 0 && Counter < 3)
         {
-            Instantiate(Flame);
+            Instantiate(Flame,transform.position,transform.rotation);
             Counter++;
             liltimer = 0.1f;
         }

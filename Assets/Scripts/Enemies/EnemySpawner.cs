@@ -15,10 +15,12 @@ public class EnemySpawner : MonoBehaviour
     //Have I spawned it
     public bool Has_Spawned = false;
 
-
     void Start()
     {
-        
+        if (Player == null)
+        {
+            Player = GameObject.FindWithTag("Player");
+        }
     }
 
     // Update is called once per frame
