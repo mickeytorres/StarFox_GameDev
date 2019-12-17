@@ -35,9 +35,9 @@ public class CameraMovement : MonoBehaviour
     public float YPos;
     public float ZPos;
 
-    public float normalCameraZDist = -4f;
-    public float boostCameraZDist = -6f;
-    public float brakeCameraZDist = -2;
+    public float normalCameraZDist = -5f;
+    public float boostCameraZDist = -8f;
+    public float brakeCameraZDist = -1;
 
     public float zMovementTimer;
     public float timeForZMovementSpeed = 1f;
