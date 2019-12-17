@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4925169874563473281}
   - component: {fileID: 4108040805539685815}
   - component: {fileID: 7655618211052476750}
-  - component: {fileID: 3224185451455092616}
-  - component: {fileID: -5952906045528472256}
   m_Layer: 0
   m_Name: Arwing
   m_TagString: PlayerModel
@@ -28,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215390624901852562}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.988777, y: 50.47219, z: 6188.381}
-  m_LocalScale: {x: 8.617598, y: 8.617598, z: 8.617598}
+  m_LocalPosition: {x: 46.988777, y: 51.002, z: 6188.381}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,39 +82,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3224185451455092616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215390624901852562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e72acd500b81474dab4203b77d816db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyBar: {fileID: -5952906045528472256}
-  _normalspeed: 0
-  _boostspeed: 0
-  _brakespeed: 0
-  _speed: 0
-  boost: 0
-  brake: 0
---- !u!114 &-5952906045528472256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215390624901852562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91245fd71986742a881c08f8187645e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  energyBar: {fileID: 0}
-  player: {fileID: 0}
-  PlayerLives: 3
-  canBoost: 1

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,5 +27,10 @@ public class BoostTrap : MonoBehaviour
     public void ActivateTrap()
     {
        transform.position  = Vector3.MoveTowards(transform.position,center.position,Time.deltaTime);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+       ActivateTrap();
     }
 }
