@@ -20,7 +20,7 @@ public class AsteroidManager : MonoBehaviour
     public GameObject asteroidChunksPrefab;
 
     //Death variables
-    private float _health = 6;
+    private float _health = 2f;
     
     //Movement  and rotation variables
     private float _speed = .5f;

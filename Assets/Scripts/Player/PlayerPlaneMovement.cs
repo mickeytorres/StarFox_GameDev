@@ -259,7 +259,7 @@ public class PlayerPlaneMovement : MonoBehaviour
                 if (SomersaultTimer > 1.5)
                 {
                     transform.localPosition =  Vector3.MoveTowards(transform.localPosition, 
-                        new Vector3(0f,maxSomersaultHeight,2f), 
+                        new Vector3(0f,maxSomersaultHeight,0f), 
                         Time.deltaTime * maxSomersaultHeight/1.5f);
                 }
                 else if (SomersaultTimer < 1.5)
