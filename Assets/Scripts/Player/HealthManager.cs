@@ -64,7 +64,7 @@ public class HealthManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Bomb" && other.gameObject.tag != "Blast") {
+        if (other.gameObject.tag != "Bomb" && other.gameObject.tag != "Blast" && other.gameObject.tag != "ShootPowerup") {
             hitSound.Play();
             StartCoroutine(mainCamera.GetComponent<ScreenShake>().Shake(0.1f, 0.5f));
             if (Time.time < invincibilityTime) {
