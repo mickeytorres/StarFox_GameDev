@@ -89,7 +89,7 @@ public class CameraMovement : MonoBehaviour
             YRotation -= 360;
         }
         YRotation *= 0.2f;
-
+        // Lerps camera forward or backward if the player boosts or brakes
         if (Forward.instance.boost || Forward.instance.brake)
         {
             zMovementTimer += Time.deltaTime;
