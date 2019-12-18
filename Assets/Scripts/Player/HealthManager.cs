@@ -64,7 +64,8 @@ public class HealthManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Bomb" && other.gameObject.tag != "Blast" && other.gameObject.tag != "ShootPowerup") {
+        if (other.gameObject.tag != "Bomb" && other.gameObject.tag != "Blast" && other.gameObject.tag != "ShootPowerup"
+        && other.gameObject.tag != "BombPowerup" && other.gameObject.tag != "RingPowerup") {
             hitSound.Play();
             StartCoroutine(mainCamera.GetComponent<ScreenShake>().Shake(0.1f, 0.5f));
             if (Time.time < invincibilityTime) {
@@ -80,9 +81,13 @@ public class HealthManager : MonoBehaviour
             if (_health <= 0 && PlayerLives > 0) {
                 
                 PlayerLives--;
-                _health = 100;
+                _health = _maxHealth;
                 SceneManager.LoadScene(1);
             }
+        }
+
+        if (other.gameObject.tag == "RingPowerup") {
+            _health = _maxHealth;
         }
     }
 
