@@ -4261,6 +4261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BombPowerup
       objectReference: {fileID: 0}
+    - target: {fileID: 726176192123254981, guid: 8b5812845920640b8895c0cd81be4aac,
+        type: 3}
+      propertyPath: m_TagString
+      value: BombPowerup
+      objectReference: {fileID: 0}
     - target: {fileID: 2557474127520273394, guid: 8b5812845920640b8895c0cd81be4aac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9428,16 +9433,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8705936904002984399, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c68dbe909140c4c828b99a7140e7ab61, type: 3}
-    - target: {fileID: 8705936904002984399, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8180350550279299864, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -9452,6 +9447,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Braking
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705936904002984399, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c68dbe909140c4c828b99a7140e7ab61, type: 3}
+    - target: {fileID: 8705936904002984399, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 826125863925159377, guid: ef6db3e78cb3d46d9ad60861ce642ae8,
         type: 3}
@@ -11204,7 +11209,7 @@ PrefabInstance:
     - target: {fileID: 5403476541549610864, guid: d028991c9ea9db74091df02dcbd52c81,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5403476541549610866, guid: d028991c9ea9db74091df02dcbd52c81,
         type: 3}
@@ -20367,6 +20372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoldRingPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 870800178162167789, guid: a2f5cac6069404ed1869a19d34ae9715,
+        type: 3}
+      propertyPath: m_TagString
+      value: ShootPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 2798504181228211115, guid: a2f5cac6069404ed1869a19d34ae9715,
         type: 3}

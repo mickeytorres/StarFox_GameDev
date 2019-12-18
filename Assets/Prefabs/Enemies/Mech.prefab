@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 5775817490840075899}
-  FireTime: 0.1
-  ScatterFire: 1
+  FireTime: 0.2
+  ScatterFire: 0
   blastPrefab: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b,
     type: 3}
   Player: {fileID: 0}

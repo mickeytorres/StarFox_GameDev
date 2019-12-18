@@ -22,6 +22,8 @@ TagManager:
   - StarBack
   - LevelManager
   - ShootPowerup
+  - BombPowerup
+  - RingPowerup
   layers:
   - Default
   - TransparentFX
