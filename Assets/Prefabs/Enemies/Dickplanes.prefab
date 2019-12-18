@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 0}
+  FireTime: 3
   blastPrefab: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b,
     type: 3}
   Player: {fileID: 0}
@@ -692,9 +693,10 @@ GameObject:
   - component: {fileID: 6383444519776209433}
   - component: {fileID: 6383444519776209434}
   - component: {fileID: 6383444519776209435}
+  - component: {fileID: 4555925209742767049}
   m_Layer: 0
   m_Name: Dickplane
-  m_TagString: Untagged
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,6 +822,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 1.32, z: 1.82}
   m_Center: {x: 0, y: 0, z: 0.22}
+--- !u!65 &4555925209742767049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383444519776209437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.73, y: 1.39, z: 1.61}
+  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!1 &6383444519797963193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,9 +1024,10 @@ GameObject:
   - component: {fileID: 6383444520080267431}
   - component: {fileID: 6383444520080267432}
   - component: {fileID: 6383444520080267433}
+  - component: {fileID: 5322421848818448621}
   m_Layer: 0
   m_Name: Dickplane
-  m_TagString: Untagged
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,6 +1153,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 1.32, z: 1.82}
   m_Center: {x: 0, y: 0, z: 0.22}
+--- !u!65 &5322421848818448621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383444520080267435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.73, y: 1.39, z: 1.61}
+  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!1 &6383444520085826696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 0}
+  FireTime: 3
   blastPrefab: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b,
     type: 3}
   Player: {fileID: 0}
@@ -1604,6 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 0}
+  FireTime: 3
   blastPrefab: {fileID: 5355677444380801028, guid: 0546d0bc4cc9fbc45a0481d1388fc73b,
     type: 3}
   Player: {fileID: 0}
@@ -1700,9 +1731,10 @@ GameObject:
   - component: {fileID: 1865038556949266165}
   - component: {fileID: 9007052389095578475}
   - component: {fileID: 2634973194429868552}
+  - component: {fileID: 8095103858797061395}
   m_Layer: 0
   m_Name: Dickplane
-  m_TagString: Untagged
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1828,6 +1860,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 1.32, z: 1.82}
   m_Center: {x: 0, y: 0, z: 0.22}
+--- !u!65 &8095103858797061395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552950176112074582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.73, y: 1.39, z: 1.61}
+  m_Center: {x: 0, y: 0, z: 0.48}
 --- !u!1 &8552950176422227463
 GameObject:
   m_ObjectHideFlags: 0
