@@ -21,8 +21,9 @@ public class LevelManager : MonoBehaviour
     private bool livesLeft = true;
 
     void Awake() {
-        endScreen.GetComponent<Menu>().currOption = Menu.Option.FromBeginning;
+        endScreen.GetComponent<Menu>().currOption = Menu.Option.OtherOption;
         pauseMenu.GetComponent<Menu>().currOption = Menu.Option.OtherOption;
+        Time.timeScale = 1;
     }
 
     void Update() {
@@ -36,6 +37,11 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = 0;
             endScreen.gameObject.SetActive(true);
             EndSelectOption();
+        }
+
+        if (player.transform.position.z > -4000) {
+            endScreen.gameObject.SetActive(true);
+
         }
     }
 
@@ -64,15 +70,15 @@ public class LevelManager : MonoBehaviour
     public void EndSelectOption() {
         if (Input.GetKeyDown(KeyCode.Return)) {
             //retry the game
-            if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
+            if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
                 Debug.Log("Restarting level");
                 player.gameObject.GetComponent<HealthManager>().GameRestart();
                 SceneManager.LoadScene(1);
-                Time.timeScale = 1;
             }
 
             //select the other option which in this case is return to the mainMenu
-            else if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.OtherOption) {
+            if (endScreen.GetComponent<Menu>().GetOption() == Menu.Option.FromBeginning) {
+                player.gameObject.GetComponent<HealthManager>().GameRestart();
                 Debug.Log("Returning to main menu");
                 SceneManager.LoadScene(0);
             }

@@ -12,8 +12,6 @@ TagManager:
   - Hazard
   - Back
   - SingleLaser
-  - DoubleGLaser
-  - DoubleBLaser
   - ChargedLaser
   - Bomb
   - enemyShip
@@ -23,6 +21,7 @@ TagManager:
   - AsteroidMiddle
   - StarBack
   - LevelManager
+  - ShootPowerup
   layers:
   - Default
   - TransparentFX

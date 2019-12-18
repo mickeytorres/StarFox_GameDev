@@ -19,11 +19,13 @@ public class Enemy_HealthManager : MonoBehaviour {
 
     public bool inbombRange; 
 
+    private GameObject levelManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GameObject.FindWithTag("LevelManager");
         _mesh = GetComponent<MeshRenderer>();
     }
 
@@ -62,6 +64,7 @@ public class Enemy_HealthManager : MonoBehaviour {
                 //asteroidChunksPrefab.GetComponent<Rigidbody>().velocity = direction * 2;
 
             }
+            levelManager.gameObject.GetComponent<ScoreManager>().ScoreSetter();
             Destroy(gameObject);
         }
     }

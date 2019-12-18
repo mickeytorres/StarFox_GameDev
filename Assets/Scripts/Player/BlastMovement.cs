@@ -17,7 +17,7 @@ public class BlastMovement : MonoBehaviour
     public bool IsABombExplosion = false;
     public bool IsABomb = false;
 
-    public AudioSource bombSoundSource;
+    //public AudioSource bombSoundSource;
 
     private float destroyTimer;
 
@@ -40,7 +40,7 @@ public class BlastMovement : MonoBehaviour
                 //insantiate a special explosio nfor bomb detonation
                 Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
                 Debug.Log("Trying to play sound effect");
-                bombSoundSource.Play();
+                //bombSoundSource.Play();
             }
             Destroy(gameObject);
         }
@@ -106,7 +106,8 @@ public class BlastMovement : MonoBehaviour
 
     private void OnDestroy() {	
         if (destroyTimer >= 0 || IsABomb) {
-            
+            Debug.Log("Exploding bomb");
+            //bombSoundSource.Play();
             Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);	
         }
     }

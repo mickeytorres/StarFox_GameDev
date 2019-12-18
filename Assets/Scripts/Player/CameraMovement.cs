@@ -122,4 +122,23 @@ public class CameraMovement : MonoBehaviour
         transform.localPosition = new Vector3(XPos, YPos + 1, ZPos);
         transform.localEulerAngles = new Vector3 (XRotation + shaker - 5, YRotation, YRotation * 0.5f);
     }
+
+    public IEnumerator Shake(float duration, float magnitude) {
+        Vector3 originalCamPos = transform.localPosition;
+
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration) {
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = new Vector3(x, y, originalCamPos.z);
+
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.localPosition = originalCamPos;
+    }
 }
