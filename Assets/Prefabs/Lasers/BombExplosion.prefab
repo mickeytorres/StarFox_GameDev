@@ -79,7 +79,7 @@ MonoBehaviour:
   IsAnExplosion: 1
   IsABombExplosion: 1
   IsABomb: 0
-  destroyTimer: 2
+  bombSoundSource: {fileID: 0}
   Explosion: {fileID: 1680237330800061977, guid: 0aeb5d53fbf45ab42b60a23f414da772,
     type: 3}
 --- !u!54 &1633469758544081235

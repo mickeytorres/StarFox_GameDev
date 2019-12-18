@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //usage: put this on a user-controlled player character
 //intent: shoot blasts and bombs at enemies
@@ -61,16 +62,16 @@ public class PlayerShoot : MonoBehaviour {
     //scope components 
     public GameObject frontScope; 
     public GameObject midScope;
-    private SpriteRenderer frontScopeSpriteRenderer;
-    private SpriteRenderer midScopeSpriteRenderer;
+    private Image frontScopeImage;
+    private Image midScopeImage;
 
     public Camera mainCamera;
 
     void Start() { 
         chargedTarget = null;
         laserPrefab = singlePrefab;
-        frontScopeSpriteRenderer = frontScope.gameObject.GetComponent<SpriteRenderer>();
-        midScopeSpriteRenderer = midScope.gameObject.GetComponent<SpriteRenderer>();
+        frontScopeImage = frontScope.gameObject.GetComponent<Image>();
+        midScopeImage = midScope.gameObject.GetComponent<Image>();
 
         SetDefaultScopeColours();
     }
@@ -78,9 +79,6 @@ public class PlayerShoot : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
-            StartCoroutine(mainCamera.GetComponent<ScreenShake>().Shake(0.15f, 0.4f));
-        }
         //call shoot. Checks for actual shooting are handled within the function
         TryShooting();
 
@@ -234,7 +232,7 @@ public class PlayerShoot : MonoBehaviour {
 
     //helper function that simply resets all variables managing a charged blast
     private void FireChargedHelper() {
-        //frontNode.gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
+        //frontNode.gameObject.GetComponent<Image>().material.color = Color.white;
         chargedTarget = null;
         charged = false;
         readyToShootCharged = false;
@@ -277,21 +275,22 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     // private void ChangeFrontScopeColour() {
-    //     if (frontScopeSpriteRenderer.color == Color.green) {
+    //     if (frontScopeImage.color == Color.green) {
     //         Debug.Log("It is currently green, trying to change it to white");
-    //         frontScopeSpriteRenderer.color = Color.white;
+    //         frontScopeImage.color = Color.white;
     //     }
     //     else {
-    //         frontScopeSpriteRenderer.color = Color.green;
+    //         frontScopeImage.color = Color.green;
     //     }
     // }
     private void SetDefaultScopeColours() {
-        frontScopeSpriteRenderer.color = Color.green;
-        midScopeSpriteRenderer.color = Color.green;
+        frontScopeImage.color = Color.green;
+        midScopeImage.color = Color.green;
     }
 
     private void SetLockedScopeColours() {
-        frontScopeSpriteRenderer.color = Color.red;
-        midScopeSpriteRenderer.color = Color.yellow;
+        Debug.Log("Changing node colours");
+        frontScopeImage.color = Color.red;
+        midScopeImage.color = Color.yellow;
     }
 }

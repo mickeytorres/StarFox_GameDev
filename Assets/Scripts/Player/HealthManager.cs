@@ -35,48 +35,54 @@ public class HealthManager : MonoBehaviour
 
     private bool justLost = false;
 
+
+    private Camera mainCamera;
+    public AudioSource hitSound;
+
+    void Start() {
+        mainCamera = Camera.main;
+    }
+
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //this if statement is all just for testing, it will be removed soon! 
-        if (Input.GetKeyDown(KeyCode.G)) {
-            PlayerLives -= 1;
-            if (PlayerLives > 0) {
-                SceneManager.LoadScene(1);
-            } 
-        }
+        // if (Input.GetKeyDown(KeyCode.G)) {
+        //     PlayerLives -= 1;
+        //     if (PlayerLives > 0) {
+        //         SceneManager.LoadScene(1);
+        //     } 
+        // }
 
         energyBar.fillAmount = _energy / _maxEnergy;
         healthBar.fillAmount = _health / _maxHealth;
         DrainEnergy();
-        if (shouldBeFlashing)
-        {
+        if (shouldBeFlashing) {
             ColorFlash();
             Debug.Log("flash");
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Time.time < invincibilityTime)
-        {
+        if (other.gameObject.tag != "Bomb" && other.gameObject.tag != "Blast") {
+            hitSound.Play();
+            StartCoroutine(mainCamera.GetComponent<ScreenShake>().Shake(0.1f, 0.5f));
+            if (Time.time < invincibilityTime) {
+                return;
+            }
+            else {
+                _health -= 7f;
+                invincibilityTime = Time.time + 3;
+                shouldBeFlashing = true;
+                colorFlashTimer = 0;
+            }
             
-        }
-        else
-        {
-            _health -= 7f;
-            invincibilityTime = Time.time + 3;
-            shouldBeFlashing = true;
-            colorFlashTimer = 0;
-        }
-        
-
-        if (_health <= 0 && PlayerLives > 0) {
-            
-            PlayerLives--;
-            _health = 100;
-            SceneManager.LoadScene(1);
+            if (_health <= 0 && PlayerLives > 0) {
+                
+                PlayerLives--;
+                _health = 100;
+                SceneManager.LoadScene(1);
+            }
         }
     }
 
@@ -92,6 +98,7 @@ public class HealthManager : MonoBehaviour
             for (int i = 0; i < allMaterials.Length; i++)
             {
                  allMaterials[i].SetColor("_EmissionColor",Color.Lerp(currentColor, lerpedColor, Mathf.Sin(colorFlashTimer*lerpSpeed)));
+
             }
         }
         else
