@@ -109,8 +109,9 @@ public class PlayerShoot : MonoBehaviour {
             if (bombCount > 6) {
                 bombCount = bombMax;
             }
-
-            bombCount += 3;
+            else {
+                bombCount += 3;
+            }
         }
     }
 
