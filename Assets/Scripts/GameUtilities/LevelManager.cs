@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
             EndSelectOption();
         }
 
-        if (player.transform.position.z > -4000) {
+        if (player.transform.position.z > 10239.9) {
             endScreen.gameObject.SetActive(true);
 
         }
