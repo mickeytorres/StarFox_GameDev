@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5994724842369642827}
   - component: {fileID: 9010203120849139833}
   - component: {fileID: 6977884739065267377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SmallGrayBoiRedux
   m_TagString: Untagged
   m_Icon: {fileID: 0}
