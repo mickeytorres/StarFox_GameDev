@@ -110,6 +110,7 @@ public class PlayerShoot : MonoBehaviour {
                 bombCount = bombMax;
             }
             else {
+                Debug.Log("HitBomb");
                 bombCount += 3;
             }
         }

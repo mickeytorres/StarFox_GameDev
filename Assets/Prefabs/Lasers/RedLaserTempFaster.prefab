@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7465839124417223221}
   - component: {fileID: 1927817304454012931}
   - component: {fileID: 5331262453799902458}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 7881497352410574922}
   - component: {fileID: 1294599595345438675}
   - component: {fileID: 7881497352410574916}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RedLaserTempFaster
   m_TagString: EnemyBlast
   m_Icon: {fileID: 0}
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 10
-  speed: 60
+  speed: 90

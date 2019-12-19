@@ -22,9 +22,9 @@ public class HealthManager : MonoBehaviour
 
     //health and damage variables
     private float _energy = 50f;
-    private float _health = 100f;
+    private float _health = 42f;
     private float _maxEnergy = 50f;
-    private float _maxHealth = 100f;
+    private float _maxHealth = 42f;
     private float invincibilityTime = 0f;
     private float colorFlashTimer;
     private float colorFlashDuration = 3f;
